@@ -13,7 +13,9 @@
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Open+Sans:wght@400;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/project-page.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,19 +38,19 @@
 
           <div class="col-lg-12 portfolio-info">
             <br>
-            <h2 style="color:#12d640">AgroSense Node 2.0</h2>
+            <h2 style="color:#60a5fa">AgroSense Node 2.0</h2>
 
             <ul style="text-align: justify; list-style-type: none; padding-left: 0;">
-              <li style="color:#12d640;"><strong>Build Specifications:</strong></li>
+              <li style="color:#93c5fd;"><strong>Build Specifications:</strong></li>
               <li>ESP32-S3-MINI-1U-H4, E22-900MM22S LoRa Module, DS3231 Real-Time Clock, LT3652 MPPT Solar Charger (5–32 V), TP5000 Li-ion Charger, DW06D Reverse-Current Protection, SY6280 Power Switch, RT8059 Buck Converter (3.3 V), MP3429GL Boost Converters (5 V & 9/12 V), MAX485 RS-485 Transceiver, CP2102N USB-UART Bridge, Custom 24-layer stackup PCB (82 × 80 mm) with 4 copper layers, 195 Components, Double-Sided Assembly</li>
             </ul>
 
             <ul style="text-align: justify;">
-              <h5 style="color:#12d640;">Project Description</h5>
+              <h5 style="color:#93c5fd;">Project Description</h5>
             <p style="text-align: justify;">
               AgroSense 2.0 is a precision-agriculture sensor node built on a custom 4-Copper layer PCB to deliver robust, long-range monitoring with optimized power management. It integrates an ESP32-S3 microcontroller and E22-900MM22S LoRa radio, supported by a high-efficiency LT3652 MPPT charger for solar harvesting and TP5000/DW06D/SY6280 circuitry for smart battery charging and protection.
             </p>
-              <h5 style="color:#12d640;">Known Design Challenges</h5>
+              <h5 style="color:#93c5fd;">Known Design Challenges</h5>
             <p style="text-align: justify;">
               During initial testing, a routing oversight on the CP2102 USB traces resulted in Reverse connectivity— D+ and D- lines, causing USB connectivity Failure. Additionally, the MT3608L boost converter failed to trace properly due to insufficient knowledge about the poly trace and groud connectivity vias. Both issues have been documented for the 2.0 revision.
             </p>
@@ -60,7 +63,7 @@
             </ul>
 
             <div class="section-title">
-              <h2 style="color:#12d640;">PCB Images</h2>
+              <h2 style="color:#60a5fa;">PCB Images</h2>
             </div>
           </div>
 
@@ -73,19 +76,24 @@
               <img src="../assets/img/project/Capstone2/2.png" class="img-fluid rounded shadow-sm" alt="AgroSense PCB Bottom View">
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
-              <img src="../assets/img/project/Capstone2/3.png" class="img-fluid rounded shadow-sm" alt="Block Diagram of Node">
+              <img src="../assets/img/project/Capstone2/3.png" class="img-fluid rounded shadow-sm" alt="3D PCB Model Top">
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
-              <img src="../assets/img/project/Capstone2/4.png" class="img-fluid rounded shadow-sm" alt="Schematic Diagram">
-            </div>
-            <!--
-            <div class="col-lg-4 col-md-6 mb-4">
-              <img src="../assets/img/project/Capstone1/5.jpg" class="img-fluid rounded shadow-sm" alt="3D PCB Model">
+              <img src="../assets/img/project/Capstone2/4.png" class="img-fluid rounded shadow-sm" alt="3D PCB Model Bottom">
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
-              <img src="../assets/img/project/Capstone1/6.jpg" class="img-fluid rounded shadow-sm" alt="3D PCB Model">
+              <img src="../assets/img/project/Capstone2/5.jpg" class="img-fluid rounded shadow-sm" alt="Manufactured PCB">
             </div>
-          </div>-->
+            <div class="col-lg-4 col-md-6 mb-4">
+              <img src="../assets/img/project/Capstone2/6.png" class="img-fluid rounded shadow-sm" alt="PCB Before Assembly">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <img src="../assets/img/project/Capstone2/7.png" class="img-fluid rounded shadow-sm" alt="PCB After Assembly">
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <img src="../assets/img/project/Capstone2/8.png" class="img-fluid rounded shadow-sm" alt="Powerd on PCB">
+            </div>
+          </div>
           <!-- End Image Grid Section -->
 
         </div>
