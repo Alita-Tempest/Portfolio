@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AgroSense ARIA — K. V. Siva Teja</title>
+  <meta name="description" content="An offline-capable AI farming platform: a self-healing LoRa mesh of ESP32-S3 sensor nodes on a custom 4-layer PCB, reporting to a Raspberry Pi hub that runs seven on-device ML models and a three-tier LLM assistant — with no internet connection required.">
+  <link rel="canonical" href="https://alita-tempest.github.io/Portfolio/projects/agrosense-aria.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AgroSense ARIA — K. V. Siva Teja">
+  <meta property="og:description" content="An offline-capable AI farming platform: a self-healing LoRa mesh of ESP32-S3 sensor nodes on a custom 4-layer PCB, reporting to a Raspberry Pi hub that runs seven on-device ML models and a three-tier LLM assistant — with no internet connection required.">
+  <meta name="theme-color" content="#0d1512" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f8f7" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="preload" href="../assets/fonts/spacegrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/board.css?v=f454f77a">
+  <noscript>
+    <style>.reveal { opacity: 1 !important; translate: none !important; }</style>
+  </noscript>
+  <script>
+    try {
+      var l = localStorage.getItem('layer');
+      if (!l) l = matchMedia('(prefers-color-scheme: light)').matches ? 'silkscreen' : 'copper';
+      document.documentElement.dataset.layer = l;
+    } catch (e) { }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#case">Skip to content</a>
+  <div class="substrate" aria-hidden="true"></div>
+  <div class="reticle" aria-hidden="true"></div>
+  <header class="nav" data-stuck="true">
+    <a class="nav__mark" href="../index.html">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="6.5" y="6.5" width="11" height="11" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="9.2" cy="9.2" r="1" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M6.5 10H2.5M6.5 14H2.5M17.5 10h4M17.5 14h4M10 6.5v-4M14 6.5v-4M10 17.5v4M14 17.5v4"/>
+        </g>
+      </svg>
+      <b>KVST</b><span>/&nbsp;hardware</span>
+    </a>
+    <!-- Lives in the fixed nav rather than the hero, so it stays reachable the
+         whole way down a case study instead of scrolling away with the header. -->
+    <a class="nav__back" href="../index.html#work">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M13 8H3m4-4-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>All work</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="nav__links">
+        <li><a class="nav__link" href="../index.html#work">Work</a></li>
+        <li><a class="nav__link" href="../index.html#about">Profile</a></li>
+        <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+        <li><a class="nav__link" href="../index.html#education">Education</a></li>
+        <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        <li><a class="nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="layers" role="group" aria-labelledby="layers-label">
+      <span class="layers__name" id="layers-label">Layer</span>
+      <button class="layers__btn" data-layer="silkscreen" aria-pressed="false" title="Silkscreen layer (light)">
+        <span class="visually-hidden">Silkscreen layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" stroke="currentColor" stroke-width="1.3"/><path d="M5 8h6M5 10.5h3.5M5 5.5h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </button>
+      <button class="layers__btn" data-layer="copper" aria-pressed="true" title="Copper layer (dark)">
+        <span class="visually-hidden">Copper layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 5h4l2.5 2.5H14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 11h5l2-2h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11.5" cy="5" r="1.4" fill="currentColor"/></svg>
+      </button>
+      <button class="layers__btn" data-layer="substrate" aria-pressed="false" title="Bare substrate (FR-4)">
+        <span class="visually-hidden">Substrate layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="7" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 7h11M2.5 9h11" stroke="currentColor" stroke-width="1" stroke-opacity=".6"/></svg>
+      </button>
+    </div>
+    <button class="nav__menu" aria-expanded="false" aria-label="Menu">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="16" height="16"><path d="M2 4.5h12M2 8h12M2 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <main id="case">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="mono" style="margin-block-end:var(--gap-s)">A1 &nbsp;·&nbsp; M.Tech final-year project · Ongoing</p>
+        <h1 class="case-hero__title">AgroSense ARIA</h1>
+        <p class="case-hero__lede">An offline-capable AI farming platform: a self-healing LoRa mesh of ESP32-S3 sensor nodes on a custom 4-layer PCB, reporting to a Raspberry Pi hub that runs seven on-device ML models and a three-tier LLM assistant — with no internet connection required.</p>
+        <dl class="case-hero__meta">
+          <div><dt>Role</dt><dd>Architecture, firmware, ML, hardware</dd></div>
+          <div><dt>Year</dt><dd>2026</dd></div>
+          <div><dt>Scale</dt><dd>2–100 nodes</dd></div>
+          <div><dt>Stack</dt><dd>ESP32-S3 · LoRa · Raspberry Pi · Edge AI</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="shell">
+      <figure class="case-figure case-figure--hero fids">
+        <span class="fid" aria-hidden="true"></span>
+        <picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/dashboard-400.avif 400w, ../assets/img/opt/project/Aria/dashboard-800.avif 800w, ../assets/img/opt/project/Aria/dashboard-1200.avif 1200w, ../assets/img/opt/project/Aria/dashboard-1600.avif 1600w" sizes="(min-width:82rem) 1160px, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/dashboard-400.webp 400w, ../assets/img/opt/project/Aria/dashboard-800.webp 800w, ../assets/img/opt/project/Aria/dashboard-1200.webp 1200w, ../assets/img/opt/project/Aria/dashboard-1600.webp 1600w" sizes="(min-width:82rem) 1160px, 92vw"><img src="../assets/img/opt/project/Aria/dashboard-800.webp" alt="The ARIA dashboard running on the Raspberry Pi hub" width="1919" height="1041" decoding="async" fetchpriority="high"></picture>
+        <figcaption><span>ARIA dashboard, live</span><span>A1</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="shell case-body">
+      <div>
+        <section>
+          <h2>What it is</h2>
+          <p>ARIA is my M.Tech final-year project: an AI farming platform that works without an internet connection. A LoRa mesh of ESP32-S3 sensor nodes reports to a Raspberry Pi hub, and everything — sensing, inference, irrigation decisions, and the assistant a farmer talks to — happens on hardware sitting in the field.</p>
+          <p>The nodes run on the AgroSense board line I designed alongside it. <a href="agrosense-3.html">Revision 3</a> is the current hardware.</p>
+        </section>
+        <section>
+          <h2>The mesh</h2>
+          <p>Nodes take one of three roles — root hub, sub-hub or leaf — and the network scales from 2 to 100 of them. A leaf can be promoted to a sub-hub when the topology needs it, so losing one node doesn't split the network.</p>
+          <p>Airtime is divided by TDMA scheduling so a hundred nodes on one frequency don't collide, with an RTC-driven time-sync cascade keeping their slots aligned. I wrote about 7,260 lines of ESP32-S3 firmware for this, AES-128 on the link, with the nodes deep-sleeping between scheduled readings — that's what takes battery life into years.</p>
+        </section>
+        <section>
+          <h2>What runs on the hub</h2>
+          <p>Seven models on the Raspberry Pi, all offline: disease detection, irrigation scheduling, fertiliser planning, yield prediction, crop recommendation, anomaly detection over the sensor stream, and an ensemble that reconciles them into one plan.</p>
+          <p>The farmer-facing assistant is a three-tier cascade — cloud when there's signal, a local model when there isn't — with speech in and out in English, Hindi and Telugu.</p>
+        </section>
+        <section>
+          <h2>Pump control</h2>
+          <p>Irrigation automation sits behind a four-level autonomy controller, from advisory through to acting on its own. Every action is logged and any automated one has a 60-second undo. Irrigation mistakes are expensive and slow to reverse.</p>
+        </section>
+      </div>
+
+      <aside class="case-aside">
+        <div class="metrics">
+          <div class="metric"><b>7,260</b><span>Lines of firmware</span><small>ESP32-S3, AES-128 secured</small></div>
+          <div class="metric"><b>7</b><span>On-device ML models</span><small>all inference runs on the farm</small></div>
+          <div class="metric"><b>100</b><span>Nodes per mesh</span><small>self-healing, TDMA scheduled</small></div>
+          <div class="metric"><b>3</b><span>Assistant tiers</span><small>cloud → CLI → local</small></div>
+        </div>
+        <table class="specs">
+          <caption>Platform</caption>
+          <tbody>
+            <tr><th scope="row">Nodes</th><td>ESP32-S3 on a custom 4-layer PCB</td></tr>
+            <tr><th scope="row">Hub</th><td>Raspberry Pi 3B, Flask + SocketIO</td></tr>
+            <tr><th scope="row">Radio</th><td>LoRa SX1262, self-healing mesh</td></tr>
+            <tr><th scope="row">Mesh roles</th><td>ROOT_HUB / SUB_HUB / LEAF, 2–100 nodes</td></tr>
+            <tr><th scope="row">Airtime</th><td>TDMA scheduling</td></tr>
+            <tr><th scope="row">Time sync</th><td>DS3231 cascade</td></tr>
+            <tr><th scope="row">Node firmware</th><td>~7,260 LOC, AES-128</td></tr>
+            <tr><th scope="row">Climate sensing</th><td>SHT30, BMP280</td></tr>
+            <tr><th scope="row">Motion</th><td>LIS3DH — fall / tilt detection</td></tr>
+            <tr><th scope="row">Soil</th><td>Moisture, NPK over Modbus-RTU</td></tr>
+            <tr><th scope="row">ML runtime</th><td>TensorFlow Lite, scikit-learn</td></tr>
+            <tr><th scope="row">Assistant</th><td>Claude Haiku 4.5 → Claude Code CLI → Ollama qwen2.5:0.5b</td></tr>
+            <tr><th scope="row">Voice</th><td>Vosk STT, Edge-TTS — EN / HI / TE</td></tr>
+            <tr><th scope="row">Autonomy</th><td>4 levels, audit log, 60 s undo</td></tr>
+          </tbody>
+        </table>
+      </aside>
+    </div>
+
+    <section class="section">
+      <div class="shell">
+        <header class="legend">
+          <span class="legend__id">A1</span>
+          <h2 class="legend__title">Gallery</h2>
+          <span class="legend__rule"></span>
+          <span class="legend__meta">22 images</span>
+        </header>
+        <div class="gallery">
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/controls-1600.webp" data-caption="Controls and log tab"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/controls-400.avif 400w, ../assets/img/opt/project/Aria/controls-800.avif 800w, ../assets/img/opt/project/Aria/controls-1200.avif 1200w, ../assets/img/opt/project/Aria/controls-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/controls-400.webp 400w, ../assets/img/opt/project/Aria/controls-800.webp 800w, ../assets/img/opt/project/Aria/controls-1200.webp 1200w, ../assets/img/opt/project/Aria/controls-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/controls-800.webp" alt="Controls tab with schedule, fall detection, calibration, quick queries, mesh promotion and serial log" width="1919" height="1037" loading="lazy" decoding="async"></picture><figcaption>Controls and log tab</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/system-block-1600.webp" data-caption="System block diagram"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/system-block-400.avif 400w, ../assets/img/opt/project/Aria/system-block-800.avif 800w, ../assets/img/opt/project/Aria/system-block-1200.avif 1200w, ../assets/img/opt/project/Aria/system-block-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/system-block-400.webp 400w, ../assets/img/opt/project/Aria/system-block-800.webp 800w, ../assets/img/opt/project/Aria/system-block-1200.webp 1200w, ../assets/img/opt/project/Aria/system-block-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/system-block-800.webp" alt="Block diagram of leaf and sub-hub nodes feeding a root hub, Raspberry Pi and farmer interfaces" width="6021" height="4250" loading="lazy" decoding="async"></picture><figcaption>System block diagram</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/concept-1600.webp" data-caption="System concept"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/concept-400.avif 400w, ../assets/img/opt/project/Aria/concept-800.avif 800w, ../assets/img/opt/project/Aria/concept-1200.avif 1200w, ../assets/img/opt/project/Aria/concept-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/concept-400.webp 400w, ../assets/img/opt/project/Aria/concept-800.webp 800w, ../assets/img/opt/project/Aria/concept-1200.webp 1200w, ../assets/img/opt/project/Aria/concept-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/concept-800.webp" alt="Concept flow from farm field sensing through the LoRa mesh to Raspberry Pi, farmer and pump" width="1959" height="3932" loading="lazy" decoding="async"></picture><figcaption>System concept</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Capstone2/3-800.webp" data-caption="3D Render, Top"><picture><source type="image/avif" srcset="../assets/img/opt/project/Capstone2/3-400.avif 400w, ../assets/img/opt/project/Capstone2/3-800.avif 800w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Capstone2/3-400.webp 400w, ../assets/img/opt/project/Capstone2/3-800.webp 800w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Capstone2/3-800.webp" alt="3D render of the AgroSense node top with wireless module, USB-C, DC jack and headers" width="887" height="653" loading="lazy" decoding="async"></picture><figcaption>3D Render, Top</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Capstone2/7-1600.webp" data-caption="Assembled Board, Both Sides"><picture><source type="image/avif" srcset="../assets/img/opt/project/Capstone2/7-400.avif 400w, ../assets/img/opt/project/Capstone2/7-800.avif 800w, ../assets/img/opt/project/Capstone2/7-1200.avif 1200w, ../assets/img/opt/project/Capstone2/7-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Capstone2/7-400.webp 400w, ../assets/img/opt/project/Capstone2/7-800.webp 800w, ../assets/img/opt/project/Capstone2/7-1200.webp 1200w, ../assets/img/opt/project/Capstone2/7-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Capstone2/7-800.webp" alt="Assembled AgroSense node photographed front and back with modules and power stages fitted" width="3253" height="1687" loading="lazy" decoding="async"></picture><figcaption>Assembled Board, Both Sides</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Capstone2/8-1600.webp" data-caption="Power Rails Under Test"><picture><source type="image/avif" srcset="../assets/img/opt/project/Capstone2/8-400.avif 400w, ../assets/img/opt/project/Capstone2/8-800.avif 800w, ../assets/img/opt/project/Capstone2/8-1200.avif 1200w, ../assets/img/opt/project/Capstone2/8-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Capstone2/8-400.webp 400w, ../assets/img/opt/project/Capstone2/8-800.webp 800w, ../assets/img/opt/project/Capstone2/8-1200.webp 1200w, ../assets/img/opt/project/Capstone2/8-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Capstone2/8-800.webp" alt="Two assembled boards powered on a bench, green rail LEDs lit and one red fault LED" width="3008" height="1512" loading="lazy" decoding="async"></picture><figcaption>Power Rails Under Test</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Capstone2/1-400.webp" data-caption="Top Layer Layout"><picture><source type="image/avif" srcset="../assets/img/opt/project/Capstone2/1-400.avif 400w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Capstone2/1-400.webp 400w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Capstone2/1-400.webp" alt="Top-layer layout of the 82 by 80 mm AgroSense node with silkscreen and edge headers" width="652" height="631" loading="lazy" decoding="async"></picture><figcaption>Top Layer Layout</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/mesh-fsm-1600.webp" data-caption="Mesh state machine"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/mesh-fsm-400.avif 400w, ../assets/img/opt/project/Aria/mesh-fsm-800.avif 800w, ../assets/img/opt/project/Aria/mesh-fsm-1200.avif 1200w, ../assets/img/opt/project/Aria/mesh-fsm-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/mesh-fsm-400.webp 400w, ../assets/img/opt/project/Aria/mesh-fsm-800.webp 800w, ../assets/img/opt/project/Aria/mesh-fsm-1200.webp 1200w, ../assets/img/opt/project/Aria/mesh-fsm-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/mesh-fsm-800.webp" alt="State machine of a node listening, joining, running in-network, losing its parent, becoming sub-hub" width="3943" height="3120" loading="lazy" decoding="async"></picture><figcaption>Mesh state machine</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/mesh-topology-1600.webp" data-caption="Mesh topology"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/mesh-topology-400.avif 400w, ../assets/img/opt/project/Aria/mesh-topology-800.avif 800w, ../assets/img/opt/project/Aria/mesh-topology-1200.avif 1200w, ../assets/img/opt/project/Aria/mesh-topology-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/mesh-topology-400.webp 400w, ../assets/img/opt/project/Aria/mesh-topology-800.webp 800w, ../assets/img/opt/project/Aria/mesh-topology-1200.webp 1200w, ../assets/img/opt/project/Aria/mesh-topology-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/mesh-topology-800.webp" alt="Tree topology: Raspberry Pi, root hub, four direct leaves, three sub-hubs and twelve cluster leaves" width="2720" height="1688" loading="lazy" decoding="async"></picture><figcaption>Mesh topology</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/tdma-slots-1600.webp" data-caption="TDMA transmit slots"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/tdma-slots-400.avif 400w, ../assets/img/opt/project/Aria/tdma-slots-800.avif 800w, ../assets/img/opt/project/Aria/tdma-slots-1200.avif 1200w, ../assets/img/opt/project/Aria/tdma-slots-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/tdma-slots-400.webp 400w, ../assets/img/opt/project/Aria/tdma-slots-800.webp 800w, ../assets/img/opt/project/Aria/tdma-slots-1200.webp 1200w, ../assets/img/opt/project/Aria/tdma-slots-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/tdma-slots-800.webp" alt="Timeline showing six nodes each transmitting in a one-second window three seconds apart" width="8191" height="1491" loading="lazy" decoding="async"></picture><figcaption>TDMA transmit slots</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/rpi-dataflow-1600.webp" data-caption="Raspberry Pi dataflow"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/rpi-dataflow-400.avif 400w, ../assets/img/opt/project/Aria/rpi-dataflow-800.avif 800w, ../assets/img/opt/project/Aria/rpi-dataflow-1200.avif 1200w, ../assets/img/opt/project/Aria/rpi-dataflow-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/rpi-dataflow-400.webp 400w, ../assets/img/opt/project/Aria/rpi-dataflow-800.webp 800w, ../assets/img/opt/project/Aria/rpi-dataflow-1200.webp 1200w, ../assets/img/opt/project/Aria/rpi-dataflow-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/rpi-dataflow-800.webp" alt="Raspberry Pi dataflow: peripherals, Flask services, aria_ai package and Socket.IO pushes to the browser" width="6616" height="5107" loading="lazy" decoding="async"></picture><figcaption>Raspberry Pi dataflow</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/AgroSense3/firmware-blocks-1600.webp" data-caption="Node firmware blocks"><picture><source type="image/avif" srcset="../assets/img/opt/project/AgroSense3/firmware-blocks-400.avif 400w, ../assets/img/opt/project/AgroSense3/firmware-blocks-800.avif 800w, ../assets/img/opt/project/AgroSense3/firmware-blocks-1200.avif 1200w, ../assets/img/opt/project/AgroSense3/firmware-blocks-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/AgroSense3/firmware-blocks-400.webp 400w, ../assets/img/opt/project/AgroSense3/firmware-blocks-800.webp 800w, ../assets/img/opt/project/AgroSense3/firmware-blocks-1200.webp 1200w, ../assets/img/opt/project/AgroSense3/firmware-blocks-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/AgroSense3/firmware-blocks-800.webp" alt="Firmware block diagram: sensor drivers, ESP32-S3 main loop, mesh protocol, sleep/wake, LoRa and UART" width="6856" height="4680" loading="lazy" decoding="async"></picture><figcaption>Node firmware blocks</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/models-pipeline-1600.webp" data-caption="Model pipeline"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/models-pipeline-400.avif 400w, ../assets/img/opt/project/Aria/models-pipeline-800.avif 800w, ../assets/img/opt/project/Aria/models-pipeline-1200.avif 1200w, ../assets/img/opt/project/Aria/models-pipeline-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/models-pipeline-400.webp 400w, ../assets/img/opt/project/Aria/models-pipeline-800.webp 800w, ../assets/img/opt/project/Aria/models-pipeline-1200.webp 1200w, ../assets/img/opt/project/Aria/models-pipeline-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/models-pipeline-800.webp" alt="Pipeline mapping leaf image, sensor and weather inputs through seven agriculture models to dashboard outputs" width="6951" height="6825" loading="lazy" decoding="async"></picture><figcaption>Model pipeline</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/disease-model-1600.webp" data-caption="Disease model accuracy"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/disease-model-400.avif 400w, ../assets/img/opt/project/Aria/disease-model-800.avif 800w, ../assets/img/opt/project/Aria/disease-model-1200.avif 1200w, ../assets/img/opt/project/Aria/disease-model-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/disease-model-400.webp 400w, ../assets/img/opt/project/Aria/disease-model-800.webp 800w, ../assets/img/opt/project/Aria/disease-model-1200.webp 1200w, ../assets/img/opt/project/Aria/disease-model-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/disease-model-800.webp" alt="Confusion matrix across 38 leaf-disease classes with a strong diagonal on held-out data" width="4177" height="3777" loading="lazy" decoding="async"></picture><figcaption>Disease model accuracy</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/yield-model-1600.webp" data-caption="Yield model fit"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/yield-model-400.avif 400w, ../assets/img/opt/project/Aria/yield-model-800.avif 800w, ../assets/img/opt/project/Aria/yield-model-1200.avif 1200w, ../assets/img/opt/project/Aria/yield-model-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/yield-model-400.webp 400w, ../assets/img/opt/project/Aria/yield-model-800.webp 800w, ../assets/img/opt/project/Aria/yield-model-1200.webp 1200w, ../assets/img/opt/project/Aria/yield-model-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/yield-model-800.webp" alt="Predicted versus actual scatter plus residual plot for the yield regressor on synthetic data" width="2614" height="1274" loading="lazy" decoding="async"></picture><figcaption>Yield model fit</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/llm-cascade-1600.webp" data-caption="LLM cascade"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/llm-cascade-400.avif 400w, ../assets/img/opt/project/Aria/llm-cascade-800.avif 800w, ../assets/img/opt/project/Aria/llm-cascade-1200.avif 1200w, ../assets/img/opt/project/Aria/llm-cascade-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/llm-cascade-400.webp 400w, ../assets/img/opt/project/Aria/llm-cascade-800.webp 800w, ../assets/img/opt/project/Aria/llm-cascade-1200.webp 1200w, ../assets/img/opt/project/Aria/llm-cascade-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/llm-cascade-800.webp" alt="Flowchart of three-tier LLM fallback: hosted API, CLI, local Ollama, then rule-based heuristic" width="2163" height="4100" loading="lazy" decoding="async"></picture><figcaption>LLM cascade</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/autonomy-1600.webp" data-caption="Autonomy decision flow"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/autonomy-400.avif 400w, ../assets/img/opt/project/Aria/autonomy-800.avif 800w, ../assets/img/opt/project/Aria/autonomy-1200.avif 1200w, ../assets/img/opt/project/Aria/autonomy-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/autonomy-400.webp 400w, ../assets/img/opt/project/Aria/autonomy-800.webp 800w, ../assets/img/opt/project/Aria/autonomy-1200.webp 1200w, ../assets/img/opt/project/Aria/autonomy-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/autonomy-800.webp" alt="Decision flow from live inputs through four autonomy levels, safety checks, pump monitoring and alerts" width="8192" height="6963" loading="lazy" decoding="async"></picture><figcaption>Autonomy decision flow</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/lora-rssi-1600.webp" data-caption="Uplink RSSI spread"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/lora-rssi-400.avif 400w, ../assets/img/opt/project/Aria/lora-rssi-800.avif 800w, ../assets/img/opt/project/Aria/lora-rssi-1200.avif 1200w, ../assets/img/opt/project/Aria/lora-rssi-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/lora-rssi-400.webp 400w, ../assets/img/opt/project/Aria/lora-rssi-800.webp 800w, ../assets/img/opt/project/Aria/lora-rssi-1200.webp 1200w, ../assets/img/opt/project/Aria/lora-rssi-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/lora-rssi-800.webp" alt="Histogram of uplink RSSI for three nodes, clustered between minus ninety-five and minus eighty-three dBm" width="1608" height="1160" loading="lazy" decoding="async"></picture><figcaption>Uplink RSSI spread</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/lora-pdr-1600.webp" data-caption="Link PDR over the run"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/lora-pdr-400.avif 400w, ../assets/img/opt/project/Aria/lora-pdr-800.avif 800w, ../assets/img/opt/project/Aria/lora-pdr-1200.avif 1200w, ../assets/img/opt/project/Aria/lora-pdr-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/lora-pdr-400.webp 400w, ../assets/img/opt/project/Aria/lora-pdr-800.webp 800w, ../assets/img/opt/project/Aria/lora-pdr-1200.webp 1200w, ../assets/img/opt/project/Aria/lora-pdr-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/lora-pdr-800.webp" alt="Line chart of packet delivery ratio across about 170 link-stats reports for three nodes" width="1855" height="1160" loading="lazy" decoding="async"></picture><figcaption>Link PDR over the run</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/bench-test-1600.webp" data-caption="Multi-node bench test"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/bench-test-400.avif 400w, ../assets/img/opt/project/Aria/bench-test-800.avif 800w, ../assets/img/opt/project/Aria/bench-test-1200.avif 1200w, ../assets/img/opt/project/Aria/bench-test-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/bench-test-400.webp 400w, ../assets/img/opt/project/Aria/bench-test-800.webp 800w, ../assets/img/opt/project/Aria/bench-test-1200.webp 1200w, ../assets/img/opt/project/Aria/bench-test-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/bench-test-800.webp" alt="Four enclosed nodes with antennas and OLED screens beside a laptop and monitor running dashboards" width="4096" height="1842" loading="lazy" decoding="async"></picture><figcaption>Multi-node bench test</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/AgroSense3/bench-closeup-1600.webp" data-caption="Nodes on the bench"><picture><source type="image/avif" srcset="../assets/img/opt/project/AgroSense3/bench-closeup-400.avif 400w, ../assets/img/opt/project/AgroSense3/bench-closeup-800.avif 800w, ../assets/img/opt/project/AgroSense3/bench-closeup-1200.avif 1200w, ../assets/img/opt/project/AgroSense3/bench-closeup-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/AgroSense3/bench-closeup-400.webp 400w, ../assets/img/opt/project/AgroSense3/bench-closeup-800.webp 800w, ../assets/img/opt/project/AgroSense3/bench-closeup-1200.webp 1200w, ../assets/img/opt/project/AgroSense3/bench-closeup-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/AgroSense3/bench-closeup-800.webp" alt="Two black enclosed nodes on a desk, OLEDs showing sensor values and joined mesh status" width="4096" height="1842" loading="lazy" decoding="async"></picture><figcaption>Nodes on the bench</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/Aria/flasher-1600.webp" data-caption="Node flashing tool"><picture><source type="image/avif" srcset="../assets/img/opt/project/Aria/flasher-400.avif 400w, ../assets/img/opt/project/Aria/flasher-800.avif 800w, ../assets/img/opt/project/Aria/flasher-1200.avif 1200w, ../assets/img/opt/project/Aria/flasher-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/Aria/flasher-400.webp 400w, ../assets/img/opt/project/Aria/flasher-800.webp 800w, ../assets/img/opt/project/Aria/flasher-1200.webp 1200w, ../assets/img/opt/project/Aria/flasher-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/Aria/flasher-800.webp" alt="Desktop flasher tool compiling and uploading node firmware to an ESP32-S3 over COM7, console visible" width="1919" height="1079" loading="lazy" decoding="async"></picture><figcaption>Node flashing tool</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="shell">
+      <nav class="pager" aria-label="More projects">
+        <a href="agrosense-3.html"><span class="mono">Next →</span><b>AgroSense Node rev 3</b></a>
+      </nav>
+      <footer class="footer">
+        <div class="footer__grid">
+          <p>Want the full design files or a walkthrough of the decisions on this board?
+            <a href="../index.html#contact">Get in touch</a>.</p>
+          <p class="mono">© <span data-year>2026</span> K. V. Siva Teja</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <dialog class="lightbox" aria-label="Image viewer">
+    <div class="lightbox__inner">
+      <!-- No src attribute: an empty one makes the browser request the page itself.
+           board.js sets it when the viewer opens. -->
+      <img alt="">
+      <div class="lightbox__bar">
+        <button class="lightbox__btn" data-lb="prev" aria-label="Previous image">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="lightbox__btn" data-lb="next" aria-label="Next image">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="lightbox__cap"></span>
+        <button class="lightbox__btn" data-lb="close" aria-label="Close">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="../assets/js/board.js?v=d86b59b6" defer></script>
+</body>
+
+</html>

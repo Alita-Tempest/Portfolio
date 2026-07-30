@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Colophon — K. V. Siva Teja</title>
+  <meta name="description" content="How this site is built: hand-written HTML, CSS and JavaScript, no framework, no build step, and a theme switch modelled on a PCB layer stackup.">
+  <link rel="canonical" href="https://alita-tempest.github.io/Portfolio/projects/colophon.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Colophon — K. V. Siva Teja">
+  <meta property="og:description" content="How this site is built: hand-written HTML, CSS and JavaScript, no framework, no build step, and a theme switch modelled on a PCB layer stackup.">
+  <meta name="theme-color" content="#0d1512" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f8f7" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="preload" href="../assets/fonts/spacegrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/board.css?v=f454f77a">
+  <noscript>
+    <style>.reveal { opacity: 1 !important; translate: none !important; }</style>
+  </noscript>
+  <script>
+    try {
+      var l = localStorage.getItem('layer');
+      if (!l) l = matchMedia('(prefers-color-scheme: light)').matches ? 'silkscreen' : 'copper';
+      document.documentElement.dataset.layer = l;
+    } catch (e) { }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#case">Skip to content</a>
+  <div class="substrate" aria-hidden="true"></div>
+  <div class="reticle" aria-hidden="true"></div>
+  <header class="nav" data-stuck="true">
+    <a class="nav__mark" href="../index.html">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="6.5" y="6.5" width="11" height="11" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="9.2" cy="9.2" r="1" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M6.5 10H2.5M6.5 14H2.5M17.5 10h4M17.5 14h4M10 6.5v-4M14 6.5v-4M10 17.5v4M14 17.5v4"/>
+        </g>
+      </svg>
+      <b>KVST</b><span>/&nbsp;hardware</span>
+    </a>
+    <!-- Lives in the fixed nav rather than the hero, so it stays reachable the
+         whole way down a case study instead of scrolling away with the header. -->
+    <a class="nav__back" href="../index.html#work">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M13 8H3m4-4-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>All work</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="nav__links">
+        <li><a class="nav__link" href="../index.html#work">Work</a></li>
+        <li><a class="nav__link" href="../index.html#about">Profile</a></li>
+        <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+        <li><a class="nav__link" href="../index.html#education">Education</a></li>
+        <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        <li><a class="nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="layers" role="group" aria-labelledby="layers-label">
+      <span class="layers__name" id="layers-label">Layer</span>
+      <button class="layers__btn" data-layer="silkscreen" aria-pressed="false" title="Silkscreen layer (light)">
+        <span class="visually-hidden">Silkscreen layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" stroke="currentColor" stroke-width="1.3"/><path d="M5 8h6M5 10.5h3.5M5 5.5h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </button>
+      <button class="layers__btn" data-layer="copper" aria-pressed="true" title="Copper layer (dark)">
+        <span class="visually-hidden">Copper layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 5h4l2.5 2.5H14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 11h5l2-2h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11.5" cy="5" r="1.4" fill="currentColor"/></svg>
+      </button>
+      <button class="layers__btn" data-layer="substrate" aria-pressed="false" title="Bare substrate (FR-4)">
+        <span class="visually-hidden">Substrate layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="7" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 7h11M2.5 9h11" stroke="currentColor" stroke-width="1" stroke-opacity=".6"/></svg>
+      </button>
+    </div>
+    <button class="nav__menu" aria-expanded="false" aria-label="Menu">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="16" height="16"><path d="M2 4.5h12M2 8h12M2 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <main id="case">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="mono" style="margin-block-end:var(--gap-s)">U13 &nbsp;·&nbsp; This website</p>
+        <h1 class="case-hero__title">Colophon</h1>
+        <p class="case-hero__lede">How this site is built: hand-written HTML, CSS and JavaScript, no framework, no build step, and a theme switch modelled on a PCB layer stackup.</p>
+        <dl class="case-hero__meta">
+          <div><dt>Role</dt><dd>Design and build</dd></div>
+          <div><dt>Year</dt><dd>2026</dd></div>
+          <div><dt>Stack</dt><dd>HTML, CSS, JavaScript</dd></div>
+          <div><dt>Dependencies</dt><dd>None</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="shell">
+      <figure class="case-figure case-figure--hero fids">
+        <span class="fid" aria-hidden="true"></span>
+        <picture><source type="image/avif" srcset="../assets/img/opt/project/blog-400.avif 400w, ../assets/img/opt/project/blog-800.avif 800w, ../assets/img/opt/project/blog-1200.avif 1200w" sizes="(min-width:82rem) 1160px, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/blog-400.webp 400w, ../assets/img/opt/project/blog-800.webp 800w, ../assets/img/opt/project/blog-1200.webp 1200w" sizes="(min-width:82rem) 1160px, 92vw"><img src="../assets/img/opt/project/blog-800.webp" alt="The portfolio website" width="1270" height="600" decoding="async" fetchpriority="high"></picture>
+        <figcaption><span>This site</span><span>U13</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="shell case-body">
+      <div>
+        <section>
+          <h2>The idea</h2>
+          <p>The site is modelled on a printed circuit board, because that's what I do. The hero is a routed board with traces at 45° and 90°, carrying signal pulses along the copper. Section headers are silkscreen legends, project cards carry component designators, and the theme switch is a layer selector: silkscreen, copper, or bare FR-4 substrate.</p>
+          <p>The previous version was an adapted Bootstrap template. This one is written from scratch.</p>
+        </section>
+        <section>
+          <h2>How it&#x27;s built</h2>
+          <p>No framework, no bundler, no package manager — one stylesheet, one script and static HTML, so deploying is a <code>git push</code> and nothing can rot in a dependency tree.</p>
+          <p>The old version loaded nine vendor libraries totalling about 22 MB, most of them unused on every page. All of it is gone. The lightbox is a native <code>&lt;dialog&gt;</code>, the filter is nine lines of JavaScript, and the typing effect is a <code>setTimeout</code>.</p>
+        </section>
+        <section>
+          <h2>Performance and motion</h2>
+          <p>Every image is pre-generated to AVIF and WebP at four widths and served through <code>&lt;picture&gt;</code>. The original library was 114 MB of unoptimised JPEG and PNG; the derivatives are a fraction of that, and any single page pulls only a handful. Fonts are self-hosted variable subsets — three families, 100 KB.</p>
+          <p>Scroll reveals use CSS scroll timelines where the browser supports them, with an IntersectionObserver fallback. Navigating to a case study uses cross-document View Transitions so the card morphs into the page hero instead of flashing white.</p>
+          <p>All of it is gated on <code>prefers-reduced-motion</code> in both CSS and JavaScript. If you have reduced motion enabled, nothing here moves.</p>
+        </section>
+        <section>
+          <h2>Credit</h2>
+          <p>The previous version of this portfolio was adapted from <a href="https://github.com/R-TharunReddy/My_Portfolio" target="_blank" rel="noopener">R-TharunReddy/My_Portfolio</a> under its original licence. None of that code remains, but the site ran on it for a long time and the credit is owed.</p>
+          <p>Source: <a href="https://github.com/Alita-Tempest/Portfolio" target="_blank" rel="noopener">github.com/Alita-Tempest/Portfolio</a>.</p>
+        </section>
+      </div>
+
+      <aside class="case-aside">
+        <div class="metrics">
+          <div class="metric"><b>0</b><span>Dependencies</span><small>runtime and build</small></div>
+          <div class="metric"><b>22 MB</b><span>Vendor code removed</span><small>9 unused libraries</small></div>
+          <div class="metric"><b>100 KB</b><span>All fonts</span><small>3 families, variable</small></div>
+          <div class="metric"><b>3</b><span>Layer themes</span></div>
+        </div>
+        <table class="specs">
+          <caption>Stack</caption>
+          <tbody>
+            <tr><th scope="row">Markup</th><td>Hand-written HTML</td></tr>
+            <tr><th scope="row">Styles</th><td>One CSS file, OKLCH tokens</td></tr>
+            <tr><th scope="row">Script</th><td>One file, no dependencies</td></tr>
+            <tr><th scope="row">Fonts</th><td>3 self-hosted variable subsets, 100 KB</td></tr>
+            <tr><th scope="row">Images</th><td>AVIF + WebP, 4 widths, pre-generated</td></tr>
+            <tr><th scope="row">Themes</th><td>3 layers via CSS custom properties</td></tr>
+            <tr><th scope="row">Motion</th><td>Scroll timelines, View Transitions</td></tr>
+            <tr><th scope="row">Hosting</th><td>GitHub Pages</td></tr>
+            <tr><th scope="row">Build step</th><td>None</td></tr>
+          </tbody>
+        </table>
+      </aside>
+    </div>
+
+    <div class="shell">
+      <nav class="pager" aria-label="More projects">
+        <a href="vacuum-robot.html"><span class="mono">← Previous</span><b>Vacuum Cleaning Robot</b></a>
+      </nav>
+      <footer class="footer">
+        <div class="footer__grid">
+          <p>Want the full design files or a walkthrough of the decisions on this board?
+            <a href="../index.html#contact">Get in touch</a>.</p>
+          <p class="mono">© <span data-year>2026</span> K. V. Siva Teja</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <dialog class="lightbox" aria-label="Image viewer">
+    <div class="lightbox__inner">
+      <!-- No src attribute: an empty one makes the browser request the page itself.
+           board.js sets it when the viewer opens. -->
+      <img alt="">
+      <div class="lightbox__bar">
+        <button class="lightbox__btn" data-lb="prev" aria-label="Previous image">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="lightbox__btn" data-lb="next" aria-label="Next image">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="lightbox__cap"></span>
+        <button class="lightbox__btn" data-lb="close" aria-label="Close">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="../assets/js/board.js?v=d86b59b6" defer></script>
+</body>
+
+</html>

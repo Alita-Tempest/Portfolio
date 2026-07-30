@@ -1,0 +1,10 @@
+# Local tooling config — not part of the published site
+.claude/
+
+# Python bytecode cache from the build scripts in tools/
+__pycache__/
+*.pyc
+
+# OS cruft
+.DS_Store
+Thumbs.db

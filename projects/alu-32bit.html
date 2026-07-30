@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>32-bit ALU — RTL to GDSII — K. V. Siva Teja</title>
+  <meta name="description" content="A complete open-source ASIC flow for a 32-bit arithmetic logic unit: 29 operations, a Brent–Kung parallel prefix adder, 7,372 standard cells placed and 8,135 nets routed with zero DRC violations on 0.18 µm.">
+  <link rel="canonical" href="https://alita-tempest.github.io/Portfolio/projects/alu-32bit.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="32-bit ALU — RTL to GDSII — K. V. Siva Teja">
+  <meta property="og:description" content="A complete open-source ASIC flow for a 32-bit arithmetic logic unit: 29 operations, a Brent–Kung parallel prefix adder, 7,372 standard cells placed and 8,135 nets routed with zero DRC violations on 0.18 µm.">
+  <meta name="theme-color" content="#0d1512" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f8f7" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="preload" href="../assets/fonts/spacegrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/board.css?v=f454f77a">
+  <noscript>
+    <style>.reveal { opacity: 1 !important; translate: none !important; }</style>
+  </noscript>
+  <script>
+    try {
+      var l = localStorage.getItem('layer');
+      if (!l) l = matchMedia('(prefers-color-scheme: light)').matches ? 'silkscreen' : 'copper';
+      document.documentElement.dataset.layer = l;
+    } catch (e) { }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#case">Skip to content</a>
+  <div class="substrate" aria-hidden="true"></div>
+  <div class="reticle" aria-hidden="true"></div>
+  <header class="nav" data-stuck="true">
+    <a class="nav__mark" href="../index.html">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="6.5" y="6.5" width="11" height="11" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="9.2" cy="9.2" r="1" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M6.5 10H2.5M6.5 14H2.5M17.5 10h4M17.5 14h4M10 6.5v-4M14 6.5v-4M10 17.5v4M14 17.5v4"/>
+        </g>
+      </svg>
+      <b>KVST</b><span>/&nbsp;hardware</span>
+    </a>
+    <!-- Lives in the fixed nav rather than the hero, so it stays reachable the
+         whole way down a case study instead of scrolling away with the header. -->
+    <a class="nav__back" href="../index.html#work">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M13 8H3m4-4-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>All work</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="nav__links">
+        <li><a class="nav__link" href="../index.html#work">Work</a></li>
+        <li><a class="nav__link" href="../index.html#about">Profile</a></li>
+        <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+        <li><a class="nav__link" href="../index.html#education">Education</a></li>
+        <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        <li><a class="nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="layers" role="group" aria-labelledby="layers-label">
+      <span class="layers__name" id="layers-label">Layer</span>
+      <button class="layers__btn" data-layer="silkscreen" aria-pressed="false" title="Silkscreen layer (light)">
+        <span class="visually-hidden">Silkscreen layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" stroke="currentColor" stroke-width="1.3"/><path d="M5 8h6M5 10.5h3.5M5 5.5h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </button>
+      <button class="layers__btn" data-layer="copper" aria-pressed="true" title="Copper layer (dark)">
+        <span class="visually-hidden">Copper layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 5h4l2.5 2.5H14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 11h5l2-2h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11.5" cy="5" r="1.4" fill="currentColor"/></svg>
+      </button>
+      <button class="layers__btn" data-layer="substrate" aria-pressed="false" title="Bare substrate (FR-4)">
+        <span class="visually-hidden">Substrate layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="7" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 7h11M2.5 9h11" stroke="currentColor" stroke-width="1" stroke-opacity=".6"/></svg>
+      </button>
+    </div>
+    <button class="nav__menu" aria-expanded="false" aria-label="Menu">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="16" height="16"><path d="M2 4.5h12M2 8h12M2 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <main id="case">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="mono" style="margin-block-end:var(--gap-s)">U6 &nbsp;·&nbsp; NIELIT CoE internship · Chip design</p>
+        <h1 class="case-hero__title">32-bit ALU — RTL to GDSII</h1>
+        <p class="case-hero__lede">A complete open-source ASIC flow for a 32-bit arithmetic logic unit: 29 operations, a Brent–Kung parallel prefix adder, 7,372 standard cells placed and 8,135 nets routed with zero DRC violations on 0.18 µm.</p>
+        <dl class="case-hero__meta">
+          <div><dt>Role</dt><dd>RTL, synthesis, physical design</dd></div>
+          <div><dt>Year</dt><dd>2025</dd></div>
+          <div><dt>Programme</dt><dd>NIELIT Centre of Excellence in Chip Design</dd></div>
+          <div><dt>Duration</dt><dd>6 weeks · 90 hours</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="shell">
+      <figure class="case-figure case-figure--hero fids">
+        <span class="fid" aria-hidden="true"></span>
+        <picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/10-400.avif 400w, ../assets/img/opt/project/ALU/10-800.avif 800w, ../assets/img/opt/project/ALU/10-1200.avif 1200w, ../assets/img/opt/project/ALU/10-1600.avif 1600w" sizes="(min-width:82rem) 1160px, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/10-400.webp 400w, ../assets/img/opt/project/ALU/10-800.webp 800w, ../assets/img/opt/project/ALU/10-1200.webp 1200w, ../assets/img/opt/project/ALU/10-1600.webp 1600w" sizes="(min-width:82rem) 1160px, 92vw"><img src="../assets/img/opt/project/ALU/10-800.webp" alt="Detail of the ALU standard-cell layout in Magic, showing routed metal over cell rows" width="1638" height="727" decoding="async" fetchpriority="high"></picture>
+        <figcaption><span>Magic layout detail</span><span>U6</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="shell case-body">
+      <div>
+        <section>
+          <h2>What I built</h2>
+          <p>A 32-bit ALU taken all the way from Verilog to a fabrication-ready GDSII during an internship at NIELIT's Centre of Excellence in Chip Design — using only open-source tools: Yosys, GrayWolf, Qrouter and Magic.</p>
+          <p>It does 29 operations: signed and unsigned add, subtract, multiply and divide, all sixteen boolean functions, and three shift types.</p>
+        </section>
+        <section>
+          <h2>The design decisions</h2>
+          <p>Arithmetic speed comes from a Brent–Kung parallel prefix adder, which trades wiring for a carry path that grows logarithmically rather than linearly. It ends up being the critical path of the whole design.</p>
+          <p>Multiply and divide run as sequential state machines over 32 cycles instead of combinational arrays — a deliberate area-for-latency trade, since a full 32-bit combinational multiplier would have dominated the cell count for operations that aren't on the hot path.</p>
+        </section>
+        <section>
+          <h2>How it came out</h2>
+          <p>7,372 standard cells, a 5.24 ns critical path for about 190 MHz, and 8,135 nets routed with zero DRC violations on 0.18 µm. Verification passed 66 of 66 randomised tests across three seeds.</p>
+          <p>Mostly it's an argument that the open-source flow is mature enough for real digital blocks, not just teaching examples.</p>
+        </section>
+      </div>
+
+      <aside class="case-aside">
+        <div class="metrics">
+          <div class="metric"><b>7,372</b><span>Standard cells</span><small>443 FF, 6,929 combinational</small></div>
+          <div class="metric"><b>190</b><span>Max frequency</span><small>MHz — 5.24 ns critical path</small></div>
+          <div class="metric"><b>29</b><span>Operations</span><small>arithmetic, boolean, shift</small></div>
+          <div class="metric"><b>100%</b><span>Verification</span><small>66 tests, 3 seeds</small></div>
+        </div>
+        <table class="specs">
+          <caption>Flow and results</caption>
+          <tbody>
+            <tr><th scope="row">Technology</th><td>OSU 0.18 µm standard cells</td></tr>
+            <tr><th scope="row">Synthesis</th><td>Yosys</td></tr>
+            <tr><th scope="row">Placement</th><td>GrayWolf — 9,164 instances</td></tr>
+            <tr><th scope="row">Routing</th><td>Qrouter — 8,135 nets, 0 DRC</td></tr>
+            <tr><th scope="row">Layout / DRC</th><td>Magic VLSI</td></tr>
+            <tr><th scope="row">Simulation</th><td>Icarus Verilog, GTKWave</td></tr>
+            <tr><th scope="row">Adder</th><td>Brent–Kung parallel prefix</td></tr>
+            <tr><th scope="row">Multiply / divide</th><td>Sequential, 32 cycles</td></tr>
+            <tr><th scope="row">Grade</th><td>S (80 % and above)</td></tr>
+          </tbody>
+        </table>
+      </aside>
+    </div>
+
+    <section class="section">
+      <div class="shell">
+        <header class="legend">
+          <span class="legend__id">U6</span>
+          <h2 class="legend__title">Gallery</h2>
+          <span class="legend__rule"></span>
+          <span class="legend__meta">12 images</span>
+        </header>
+        <div class="gallery">
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/1-1600.webp" data-caption="Final GDSII Layout"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/1-400.avif 400w, ../assets/img/opt/project/ALU/1-800.avif 800w, ../assets/img/opt/project/ALU/1-1200.avif 1200w, ../assets/img/opt/project/ALU/1-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/1-400.webp 400w, ../assets/img/opt/project/ALU/1-800.webp 800w, ../assets/img/opt/project/ALU/1-1200.webp 1200w, ../assets/img/opt/project/ALU/1-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/1-800.webp" alt="Final GDSII layout of the 32-bit ALU showing routed metal layers across the full die" width="1749" height="1503" loading="lazy" decoding="async"></picture><figcaption>Final GDSII Layout</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/2-1600.webp" data-caption="RTL-to-GDSII Flow"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/2-400.avif 400w, ../assets/img/opt/project/ALU/2-800.avif 800w, ../assets/img/opt/project/ALU/2-1200.avif 1200w, ../assets/img/opt/project/ALU/2-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/2-400.webp 400w, ../assets/img/opt/project/ALU/2-800.webp 800w, ../assets/img/opt/project/ALU/2-1200.webp 1200w, ../assets/img/opt/project/ALU/2-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/2-800.webp" alt="Block diagram of the RTL-to-GDSII flow: simulation, synthesis, physical design, verification stages" width="3840" height="2008" loading="lazy" decoding="async"></picture><figcaption>RTL-to-GDSII Flow</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/3-1200.webp" data-caption="Simulation Results Table"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/3-400.avif 400w, ../assets/img/opt/project/ALU/3-800.avif 800w, ../assets/img/opt/project/ALU/3-1200.avif 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/3-400.webp 400w, ../assets/img/opt/project/ALU/3-800.webp 800w, ../assets/img/opt/project/ALU/3-1200.webp 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/3-800.webp" alt="Terminal running Icarus Verilog vvp; ALU results table with 22 of 22 tests passing" width="1377" height="827" loading="lazy" decoding="async"></picture><figcaption>Simulation Results Table</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/4-1200.webp" data-caption="Randomised Regression Run"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/4-400.avif 400w, ../assets/img/opt/project/ALU/4-800.avif 800w, ../assets/img/opt/project/ALU/4-1200.avif 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/4-400.webp 400w, ../assets/img/opt/project/ALU/4-800.webp 800w, ../assets/img/opt/project/ALU/4-1200.webp 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/4-800.webp" alt="Icarus Verilog terminal output for a seeded random ALU regression, all operations pass" width="1377" height="741" loading="lazy" decoding="async"></picture><figcaption>Randomised Regression Run</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/5-1200.webp" data-caption="Repeat Seeded Run"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/5-400.avif 400w, ../assets/img/opt/project/ALU/5-800.avif 800w, ../assets/img/opt/project/ALU/5-1200.avif 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/5-400.webp 400w, ../assets/img/opt/project/ALU/5-800.webp 800w, ../assets/img/opt/project/ALU/5-1200.webp 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/5-800.webp" alt="Another seeded ALU testbench run in the terminal, 22 of 22 operations pass" width="1380" height="830" loading="lazy" decoding="async"></picture><figcaption>Repeat Seeded Run</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/6-1600.webp" data-caption="Synthesised RTL Netlist"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/6-400.avif 400w, ../assets/img/opt/project/ALU/6-800.avif 800w, ../assets/img/opt/project/ALU/6-1200.avif 1200w, ../assets/img/opt/project/ALU/6-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/6-400.webp 400w, ../assets/img/opt/project/ALU/6-800.webp 800w, ../assets/img/opt/project/ALU/6-1200.webp 1200w, ../assets/img/opt/project/ALU/6-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/6-800.webp" alt="Yosys RTL netlist graph of the ALU with adder, multiplier, mux and process blocks" width="1689" height="867" loading="lazy" decoding="async"></picture><figcaption>Synthesised RTL Netlist</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/7-1600.webp" data-caption="Gate-Level Netlist"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/7-400.avif 400w, ../assets/img/opt/project/ALU/7-800.avif 800w, ../assets/img/opt/project/ALU/7-1200.avif 1200w, ../assets/img/opt/project/ALU/7-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/7-400.webp 400w, ../assets/img/opt/project/ALU/7-800.webp 800w, ../assets/img/opt/project/ALU/7-1200.webp 1200w, ../assets/img/opt/project/ALU/7-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/7-800.webp" alt="Gate-level netlist graph showing long rows of mapped NAND, MUX and AOI standard cells" width="1736" height="679" loading="lazy" decoding="async"></picture><figcaption>Gate-Level Netlist</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/8-1200.webp" data-caption="GrayWolf Placement"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/8-400.avif 400w, ../assets/img/opt/project/ALU/8-800.avif 800w, ../assets/img/opt/project/ALU/8-1200.avif 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/8-400.webp 400w, ../assets/img/opt/project/ALU/8-800.webp 800w, ../assets/img/opt/project/ALU/8-1200.webp 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/8-800.webp" alt="Qflow Manager checklist beside a GrayWolf window showing blue standard-cell placement in progress" width="1449" height="542" loading="lazy" decoding="async"></picture><figcaption>GrayWolf Placement</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/9-1200.webp" data-caption="Qrouter Routing"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/9-400.avif 400w, ../assets/img/opt/project/ALU/9-800.avif 800w, ../assets/img/opt/project/ALU/9-1200.avif 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/9-400.webp 400w, ../assets/img/opt/project/ALU/9-800.webp 800w, ../assets/img/opt/project/ALU/9-1200.webp 1200w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/9-800.webp" alt="Qflow Manager running qrouter 1.4.59 next to a multicoloured routed die view" width="1486" height="580" loading="lazy" decoding="async"></picture><figcaption>Qrouter Routing</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/11-400.webp" data-caption="Routed Core, Full View"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/11-400.avif 400w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/11-400.webp 400w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/11-400.webp" alt="Whole-core Magic layout view of the routed ALU, dense purple metal over cell rows" width="743" height="702" loading="lazy" decoding="async"></picture><figcaption>Routed Core, Full View</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/12-1600.webp" data-caption="GDSII In KLayout"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/12-400.avif 400w, ../assets/img/opt/project/ALU/12-800.avif 800w, ../assets/img/opt/project/ALU/12-1200.avif 1200w, ../assets/img/opt/project/ALU/12-1600.avif 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/12-400.webp 400w, ../assets/img/opt/project/ALU/12-800.webp 800w, ../assets/img/opt/project/ALU/12-1200.webp 1200w, ../assets/img/opt/project/ALU/12-1600.webp 1600w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/12-800.webp" alt="KLayout 0.28.16 displaying alu32.gds, with cell rows, routing and A_in port labels" width="9925" height="3918" loading="lazy" decoding="async"></picture><figcaption>GDSII In KLayout</figcaption></figure>
+          <figure class="shot" role="button" tabindex="0" data-full="../assets/img/opt/project/ALU/13-800.webp" data-caption="Full-Die GDSII"><picture><source type="image/avif" srcset="../assets/img/opt/project/ALU/13-400.avif 400w, ../assets/img/opt/project/ALU/13-800.avif 800w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><source type="image/webp" srcset="../assets/img/opt/project/ALU/13-400.webp 400w, ../assets/img/opt/project/ALU/13-800.webp 800w" sizes="(min-width:82rem) 270px, (min-width:46rem) 30vw, 92vw"><img src="../assets/img/opt/project/ALU/13-800.webp" alt="Full-die GDSII view of the ALU with green input, output and flag pin labels" width="854" height="692" loading="lazy" decoding="async"></picture><figcaption>Full-Die GDSII</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="shell">
+      <nav class="pager" aria-label="More projects">
+        <a href="grid-os.html"><span class="mono">← Previous</span><b>Grid OS Telematics &amp; Audio</b></a>
+        <a href="arduino-nano-12v.html"><span class="mono">Next →</span><b>Arduino Nano — 12 V Input</b></a>
+      </nav>
+      <footer class="footer">
+        <div class="footer__grid">
+          <p>Want the full design files or a walkthrough of the decisions on this board?
+            <a href="../index.html#contact">Get in touch</a>.</p>
+          <p class="mono">© <span data-year>2026</span> K. V. Siva Teja</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <dialog class="lightbox" aria-label="Image viewer">
+    <div class="lightbox__inner">
+      <!-- No src attribute: an empty one makes the browser request the page itself.
+           board.js sets it when the viewer opens. -->
+      <img alt="">
+      <div class="lightbox__bar">
+        <button class="lightbox__btn" data-lb="prev" aria-label="Previous image">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="lightbox__btn" data-lb="next" aria-label="Next image">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="lightbox__cap"></span>
+        <button class="lightbox__btn" data-lb="close" aria-label="Close">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="../assets/js/board.js?v=d86b59b6" defer></script>
+</body>
+
+</html>

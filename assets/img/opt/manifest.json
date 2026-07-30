@@ -1,0 +1,1117 @@
+{
+ "About.jpg": {
+  "height": 4000,
+  "kind": "photo",
+  "src": "About.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3000
+ },
+ "certification/CAD.jpeg": {
+  "height": 291,
+  "kind": "photo",
+  "src": "certification/CAD.jpeg",
+  "variants": [
+   400
+  ],
+  "width": 634
+ },
+ "certification/EICT.jpg": {
+  "height": 360,
+  "kind": "photo",
+  "src": "certification/EICT.jpg",
+  "variants": [
+   400
+  ],
+  "width": 651
+ },
+ "certification/Grid_logo.png": {
+  "height": 304,
+  "kind": "graphic",
+  "src": "certification/Grid_logo.png",
+  "variants": [
+   400
+  ],
+  "width": 309
+ },
+ "certification/IIT_Delhi.jpeg": {
+  "height": 1260,
+  "kind": "photo",
+  "src": "certification/IIT_Delhi.jpeg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 2200
+ },
+ "certification/NIELIT_Logo.jpg": {
+  "height": 200,
+  "kind": "photo",
+  "src": "certification/NIELIT_Logo.jpg",
+  "variants": [
+   400
+  ],
+  "width": 483
+ },
+ "certification/TCS.png": {
+  "height": 155,
+  "kind": "graphic",
+  "src": "certification/TCS.png",
+  "variants": [
+   400
+  ],
+  "width": 325
+ },
+ "project/ALU/1.png": {
+  "height": 1503,
+  "kind": "graphic",
+  "src": "project/ALU/1.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1749
+ },
+ "project/ALU/10.png": {
+  "height": 727,
+  "kind": "graphic",
+  "src": "project/ALU/10.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1638
+ },
+ "project/ALU/11.png": {
+  "height": 702,
+  "kind": "graphic",
+  "src": "project/ALU/11.png",
+  "variants": [
+   400
+  ],
+  "width": 743
+ },
+ "project/ALU/12.jpg": {
+  "height": 3918,
+  "kind": "photo",
+  "src": "project/ALU/12.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 9925
+ },
+ "project/ALU/13.png": {
+  "height": 692,
+  "kind": "graphic",
+  "src": "project/ALU/13.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 854
+ },
+ "project/ALU/2.png": {
+  "height": 2008,
+  "kind": "graphic",
+  "src": "project/ALU/2.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3840
+ },
+ "project/ALU/3.png": {
+  "height": 827,
+  "kind": "graphic",
+  "src": "project/ALU/3.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1377
+ },
+ "project/ALU/4.png": {
+  "height": 741,
+  "kind": "graphic",
+  "src": "project/ALU/4.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1377
+ },
+ "project/ALU/5.png": {
+  "height": 830,
+  "kind": "graphic",
+  "src": "project/ALU/5.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1380
+ },
+ "project/ALU/6.png": {
+  "height": 867,
+  "kind": "graphic",
+  "src": "project/ALU/6.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1689
+ },
+ "project/ALU/7.png": {
+  "height": 679,
+  "kind": "graphic",
+  "src": "project/ALU/7.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1736
+ },
+ "project/ALU/8.png": {
+  "height": 542,
+  "kind": "graphic",
+  "src": "project/ALU/8.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1449
+ },
+ "project/ALU/9.png": {
+  "height": 580,
+  "kind": "graphic",
+  "src": "project/ALU/9.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1486
+ },
+ "project/AgroSense3/bench-closeup.jpg": {
+  "height": 1842,
+  "kind": "photo",
+  "src": "project/AgroSense3/bench-closeup.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4096
+ },
+ "project/AgroSense3/firmware-blocks.png": {
+  "height": 4680,
+  "kind": "graphic",
+  "src": "project/AgroSense3/firmware-blocks.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 6856
+ },
+ "project/AgroSense3/rev3-3d-bottom.png": {
+  "height": 895,
+  "kind": "graphic",
+  "src": "project/AgroSense3/rev3-3d-bottom.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1005
+ },
+ "project/AgroSense3/rev3-3d-top.png": {
+  "height": 938,
+  "kind": "graphic",
+  "src": "project/AgroSense3/rev3-3d-top.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1038
+ },
+ "project/AgroSense3/rev3-bottom.png": {
+  "height": 877,
+  "kind": "graphic",
+  "src": "project/AgroSense3/rev3-bottom.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 959
+ },
+ "project/AgroSense3/rev3-inner1.png": {
+  "height": 935,
+  "kind": "graphic",
+  "src": "project/AgroSense3/rev3-inner1.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1043
+ },
+ "project/AgroSense3/rev3-inner2.png": {
+  "height": 868,
+  "kind": "graphic",
+  "src": "project/AgroSense3/rev3-inner2.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 968
+ },
+ "project/AgroSense3/rev3-top.png": {
+  "height": 962,
+  "kind": "graphic",
+  "src": "project/AgroSense3/rev3-top.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1076
+ },
+ "project/AgroSense3/ver1-board.jpg": {
+  "height": 1842,
+  "kind": "photo",
+  "src": "project/AgroSense3/ver1-board.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4096
+ },
+ "project/Arduino/2.jpg": {
+  "height": 4998,
+  "kind": "photo",
+  "src": "project/Arduino/2.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 7068
+ },
+ "project/Arduino/3.jpg": {
+  "height": 4998,
+  "kind": "photo",
+  "src": "project/Arduino/3.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 7068
+ },
+ "project/Arduino/4.png": {
+  "height": 913,
+  "kind": "graphic",
+  "src": "project/Arduino/4.png",
+  "variants": [
+   400
+  ],
+  "width": 590
+ },
+ "project/Arduino/5.png": {
+  "height": 906,
+  "kind": "graphic",
+  "src": "project/Arduino/5.png",
+  "variants": [
+   400
+  ],
+  "width": 537
+ },
+ "project/Arduino/6.png": {
+  "height": 963,
+  "kind": "graphic",
+  "src": "project/Arduino/6.png",
+  "variants": [
+   400
+  ],
+  "width": 525
+ },
+ "project/Arduino/7.png": {
+  "height": 962,
+  "kind": "graphic",
+  "src": "project/Arduino/7.png",
+  "variants": [
+   400
+  ],
+  "width": 564
+ },
+ "project/Aria/autonomy.png": {
+  "height": 6963,
+  "kind": "graphic",
+  "src": "project/Aria/autonomy.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 8192
+ },
+ "project/Aria/bench-test.jpg": {
+  "height": 1842,
+  "kind": "photo",
+  "src": "project/Aria/bench-test.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4096
+ },
+ "project/Aria/concept.png": {
+  "height": 3932,
+  "kind": "graphic",
+  "src": "project/Aria/concept.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1959
+ },
+ "project/Aria/controls.png": {
+  "height": 1037,
+  "kind": "graphic",
+  "src": "project/Aria/controls.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1919
+ },
+ "project/Aria/dashboard.png": {
+  "height": 1041,
+  "kind": "graphic",
+  "src": "project/Aria/dashboard.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1919
+ },
+ "project/Aria/disease-model.png": {
+  "height": 3777,
+  "kind": "graphic",
+  "src": "project/Aria/disease-model.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4177
+ },
+ "project/Aria/flasher.png": {
+  "height": 1079,
+  "kind": "graphic",
+  "src": "project/Aria/flasher.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1919
+ },
+ "project/Aria/llm-cascade.png": {
+  "height": 4100,
+  "kind": "graphic",
+  "src": "project/Aria/llm-cascade.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 2163
+ },
+ "project/Aria/lora-pdr.png": {
+  "height": 1160,
+  "kind": "graphic",
+  "src": "project/Aria/lora-pdr.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1855
+ },
+ "project/Aria/lora-rssi.png": {
+  "height": 1160,
+  "kind": "graphic",
+  "src": "project/Aria/lora-rssi.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1608
+ },
+ "project/Aria/mesh-fsm.png": {
+  "height": 3120,
+  "kind": "graphic",
+  "src": "project/Aria/mesh-fsm.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3943
+ },
+ "project/Aria/mesh-topology.png": {
+  "height": 1688,
+  "kind": "graphic",
+  "src": "project/Aria/mesh-topology.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 2720
+ },
+ "project/Aria/models-pipeline.png": {
+  "height": 6825,
+  "kind": "graphic",
+  "src": "project/Aria/models-pipeline.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 6951
+ },
+ "project/Aria/rpi-dataflow.png": {
+  "height": 5107,
+  "kind": "graphic",
+  "src": "project/Aria/rpi-dataflow.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 6616
+ },
+ "project/Aria/system-block.png": {
+  "height": 4250,
+  "kind": "graphic",
+  "src": "project/Aria/system-block.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 6021
+ },
+ "project/Aria/tdma-slots.png": {
+  "height": 1491,
+  "kind": "graphic",
+  "src": "project/Aria/tdma-slots.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 8191
+ },
+ "project/Aria/yield-model.png": {
+  "height": 1274,
+  "kind": "graphic",
+  "src": "project/Aria/yield-model.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 2614
+ },
+ "project/Bluetooth/1.jpg": {
+  "height": 3120,
+  "kind": "photo",
+  "src": "project/Bluetooth/1.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4160
+ },
+ "project/Bluetooth/2.png": {
+  "height": 1220,
+  "kind": "graphic",
+  "src": "project/Bluetooth/2.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 2712
+ },
+ "project/Bluetooth/3.png": {
+  "height": 573,
+  "kind": "graphic",
+  "src": "project/Bluetooth/3.png",
+  "variants": [
+   400
+  ],
+  "width": 598
+ },
+ "project/Bluetooth/4.png": {
+  "height": 718,
+  "kind": "graphic",
+  "src": "project/Bluetooth/4.png",
+  "variants": [
+   400
+  ],
+  "width": 499
+ },
+ "project/Bluetooth/5.jpg": {
+  "height": 1439,
+  "kind": "photo",
+  "src": "project/Bluetooth/5.jpg",
+  "variants": [
+   400
+  ],
+  "width": 630
+ },
+ "project/Capstone1/1.png": {
+  "height": 685,
+  "kind": "graphic",
+  "src": "project/Capstone1/1.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 933
+ },
+ "project/Capstone1/2.png": {
+  "height": 677,
+  "kind": "graphic",
+  "src": "project/Capstone1/2.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 913
+ },
+ "project/Capstone1/3.png": {
+  "height": 613,
+  "kind": "graphic",
+  "src": "project/Capstone1/3.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1147
+ },
+ "project/Capstone1/4.png": {
+  "height": 677,
+  "kind": "graphic",
+  "src": "project/Capstone1/4.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1186
+ },
+ "project/Capstone1/5.jpg": {
+  "height": 2511,
+  "kind": "photo",
+  "src": "project/Capstone1/5.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3072
+ },
+ "project/Capstone1/6.jpg": {
+  "height": 3120,
+  "kind": "photo",
+  "src": "project/Capstone1/6.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4160
+ },
+ "project/Capstone2/1.png": {
+  "height": 631,
+  "kind": "graphic",
+  "src": "project/Capstone2/1.png",
+  "variants": [
+   400
+  ],
+  "width": 652
+ },
+ "project/Capstone2/2.png": {
+  "height": 633,
+  "kind": "graphic",
+  "src": "project/Capstone2/2.png",
+  "variants": [
+   400
+  ],
+  "width": 652
+ },
+ "project/Capstone2/3.png": {
+  "height": 653,
+  "kind": "graphic",
+  "src": "project/Capstone2/3.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 887
+ },
+ "project/Capstone2/4.png": {
+  "height": 662,
+  "kind": "graphic",
+  "src": "project/Capstone2/4.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 892
+ },
+ "project/Capstone2/5.jpg": {
+  "height": 1872,
+  "kind": "photo",
+  "src": "project/Capstone2/5.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4160
+ },
+ "project/Capstone2/6.png": {
+  "height": 1512,
+  "kind": "graphic",
+  "src": "project/Capstone2/6.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3110
+ },
+ "project/Capstone2/7.png": {
+  "height": 1687,
+  "kind": "graphic",
+  "src": "project/Capstone2/7.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3253
+ },
+ "project/Capstone2/8.png": {
+  "height": 1512,
+  "kind": "graphic",
+  "src": "project/Capstone2/8.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3008
+ },
+ "project/Cassie/1.jpg": {
+  "height": 1840,
+  "kind": "photo",
+  "src": "project/Cassie/1.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4000
+ },
+ "project/Cassie/2.jpg": {
+  "height": 4000,
+  "kind": "photo",
+  "src": "project/Cassie/2.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1840
+ },
+ "project/Cassie/3.jpg": {
+  "height": 1968,
+  "kind": "photo",
+  "src": "project/Cassie/3.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4144
+ },
+ "project/Cassie/4.jpg": {
+  "height": 4144,
+  "kind": "photo",
+  "src": "project/Cassie/4.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1968
+ },
+ "project/Cassie/5.png": {
+  "height": 881,
+  "kind": "graphic",
+  "src": "project/Cassie/5.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1561
+ },
+ "project/Cassie/6.png": {
+  "height": 877,
+  "kind": "graphic",
+  "src": "project/Cassie/6.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1558
+ },
+ "project/Cassie/7.png": {
+  "height": 867,
+  "kind": "graphic",
+  "src": "project/Cassie/7.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1547
+ },
+ "project/Cassie/8.png": {
+  "height": 1220,
+  "kind": "graphic",
+  "src": "project/Cassie/8.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 2712
+ },
+ "project/GridOS/codec-schematic.png": {
+  "height": 706,
+  "kind": "graphic",
+  "src": "project/GridOS/codec-schematic.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1074
+ },
+ "project/GridOS/gnss-frontend.png": {
+  "height": 774,
+  "kind": "graphic",
+  "src": "project/GridOS/gnss-frontend.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1008
+ },
+ "project/GridOS/panel-audio.png": {
+  "height": 745,
+  "kind": "graphic",
+  "src": "project/GridOS/panel-audio.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1014
+ },
+ "project/GridOS/panel-soundbox.png": {
+  "height": 743,
+  "kind": "graphic",
+  "src": "project/GridOS/panel-soundbox.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 829
+ },
+ "project/GridOS/panel-tabletop.png": {
+  "height": 901,
+  "kind": "graphic",
+  "src": "project/GridOS/panel-tabletop.png",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 1159
+ },
+ "project/Home/1.png": {
+  "height": 651,
+  "kind": "graphic",
+  "src": "project/Home/1.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 1642
+ },
+ "project/Home/2.png": {
+  "height": 2712,
+  "kind": "graphic",
+  "src": "project/Home/2.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1220
+ },
+ "project/Home/DSC00113.jpg": {
+  "height": 486,
+  "kind": "photo",
+  "src": "project/Home/DSC00113.jpg",
+  "variants": [
+   400,
+   800
+  ],
+  "width": 842
+ },
+ "project/Night/A.jpg": {
+  "height": 3120,
+  "kind": "photo",
+  "src": "project/Night/A.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4160
+ },
+ "project/Night/B.jpg": {
+  "height": 3120,
+  "kind": "photo",
+  "src": "project/Night/B.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4160
+ },
+ "project/Night/C.jpg": {
+  "height": 3120,
+  "kind": "photo",
+  "src": "project/Night/C.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4160
+ },
+ "project/Night/D.png": {
+  "height": 1800,
+  "kind": "graphic",
+  "src": "project/Night/D.png",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3200
+ },
+ "project/Night/DSC03141.jpg": {
+  "height": 3448,
+  "kind": "photo",
+  "src": "project/Night/DSC03141.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 5168
+ },
+ "project/Night/E.jpg": {
+  "height": 3120,
+  "kind": "photo",
+  "src": "project/Night/E.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4160
+ },
+ "project/Night/F.png": {
+  "height": 249,
+  "kind": "graphic",
+  "src": "project/Night/F.png",
+  "variants": [
+   400
+  ],
+  "width": 582
+ },
+ "project/Vaccum/1.jpg": {
+  "height": 3000,
+  "kind": "photo",
+  "src": "project/Vaccum/1.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4000
+ },
+ "project/Vaccum/2.jpg": {
+  "height": 3000,
+  "kind": "photo",
+  "src": "project/Vaccum/2.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4000
+ },
+ "project/Vaccum/3.jpg": {
+  "height": 4000,
+  "kind": "photo",
+  "src": "project/Vaccum/3.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 3000
+ },
+ "project/Vaccum/4.jpg": {
+  "height": 3000,
+  "kind": "photo",
+  "src": "project/Vaccum/4.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4000
+ },
+ "project/Vaccum/5.jpg": {
+  "height": 3000,
+  "kind": "photo",
+  "src": "project/Vaccum/5.jpg",
+  "variants": [
+   400,
+   800,
+   1200,
+   1600
+  ],
+  "width": 4000
+ },
+ "project/Vaccum/6.png": {
+  "height": 2712,
+  "kind": "graphic",
+  "src": "project/Vaccum/6.png",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1220
+ },
+ "project/blog.jpg": {
+  "height": 600,
+  "kind": "photo",
+  "src": "project/blog.jpg",
+  "variants": [
+   400,
+   800,
+   1200
+  ],
+  "width": 1270
+ }
+}

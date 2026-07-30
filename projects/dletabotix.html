@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dletabotix Kit Hardware — K. V. Siva Teja</title>
+  <meta name="description" content="Two boards behind a classroom robotics kit: a multi-function controller that students assemble themselves, and a USB-host programmer that lets a whole bench of BBC micro:bits be reflashed without a PC.">
+  <link rel="canonical" href="https://alita-tempest.github.io/Portfolio/projects/dletabotix.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Dletabotix Kit Hardware — K. V. Siva Teja">
+  <meta property="og:description" content="Two boards behind a classroom robotics kit: a multi-function controller that students assemble themselves, and a USB-host programmer that lets a whole bench of BBC micro:bits be reflashed without a PC.">
+  <meta name="theme-color" content="#0d1512" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f8f7" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="preload" href="../assets/fonts/spacegrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/board.css?v=f454f77a">
+  <noscript>
+    <style>.reveal { opacity: 1 !important; translate: none !important; }</style>
+  </noscript>
+  <script>
+    try {
+      var l = localStorage.getItem('layer');
+      if (!l) l = matchMedia('(prefers-color-scheme: light)').matches ? 'silkscreen' : 'copper';
+      document.documentElement.dataset.layer = l;
+    } catch (e) { }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#case">Skip to content</a>
+  <div class="substrate" aria-hidden="true"></div>
+  <div class="reticle" aria-hidden="true"></div>
+  <header class="nav" data-stuck="true">
+    <a class="nav__mark" href="../index.html">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="6.5" y="6.5" width="11" height="11" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="9.2" cy="9.2" r="1" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M6.5 10H2.5M6.5 14H2.5M17.5 10h4M17.5 14h4M10 6.5v-4M14 6.5v-4M10 17.5v4M14 17.5v4"/>
+        </g>
+      </svg>
+      <b>KVST</b><span>/&nbsp;hardware</span>
+    </a>
+    <!-- Lives in the fixed nav rather than the hero, so it stays reachable the
+         whole way down a case study instead of scrolling away with the header. -->
+    <a class="nav__back" href="../index.html#work">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M13 8H3m4-4-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>All work</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="nav__links">
+        <li><a class="nav__link" href="../index.html#work">Work</a></li>
+        <li><a class="nav__link" href="../index.html#about">Profile</a></li>
+        <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+        <li><a class="nav__link" href="../index.html#education">Education</a></li>
+        <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        <li><a class="nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="layers" role="group" aria-labelledby="layers-label">
+      <span class="layers__name" id="layers-label">Layer</span>
+      <button class="layers__btn" data-layer="silkscreen" aria-pressed="false" title="Silkscreen layer (light)">
+        <span class="visually-hidden">Silkscreen layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" stroke="currentColor" stroke-width="1.3"/><path d="M5 8h6M5 10.5h3.5M5 5.5h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </button>
+      <button class="layers__btn" data-layer="copper" aria-pressed="true" title="Copper layer (dark)">
+        <span class="visually-hidden">Copper layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 5h4l2.5 2.5H14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 11h5l2-2h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11.5" cy="5" r="1.4" fill="currentColor"/></svg>
+      </button>
+      <button class="layers__btn" data-layer="substrate" aria-pressed="false" title="Bare substrate (FR-4)">
+        <span class="visually-hidden">Substrate layer</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="11" height="7" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 7h11M2.5 9h11" stroke="currentColor" stroke-width="1" stroke-opacity=".6"/></svg>
+      </button>
+    </div>
+    <button class="nav__menu" aria-expanded="false" aria-label="Menu">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="16" height="16"><path d="M2 4.5h12M2 8h12M2 11.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <main id="case">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="mono" style="margin-block-end:var(--gap-s)">U4 &nbsp;·&nbsp; Dletabotix · Employer work</p>
+        <h1 class="case-hero__title">Dletabotix Kit Hardware</h1>
+        <p class="case-hero__lede">Two boards behind a classroom robotics kit: a multi-function controller that students assemble themselves, and a USB-host programmer that lets a whole bench of BBC micro:bits be reflashed without a PC.</p>
+        <dl class="case-hero__meta">
+          <div><dt>Role</dt><dd>Schematic, layout, firmware</dd></div>
+          <div><dt>Year</dt><dd>2026</dd></div>
+          <div><dt>Context</dt><dd>Dletabotix Private Limited</dd></div>
+          <div><dt>Tools</dt><dd>EasyEDA</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="shell">
+      <figure class="case-figure case-figure--hero fids">
+        <span class="fid" aria-hidden="true"></span>
+        <img src="../assets/img/placeholder-board.svg" alt="Dletabotix kit hardware — artwork not published" width="640" height="400" decoding="async">
+        <figcaption><span>Artwork not published</span><span>U4</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="shell case-body">
+      <div>
+        <section>
+          <h2>What I worked on</h2>
+          <p>At Dletabotix I design the electronics for their classroom robotics kits. Two boards so far, both cost-optimised 2-layer designs, because a classroom set is bought by the dozen.</p>
+          <p>The constraint that shapes both is that the user is actively trying to get it wrong, and is meant to. Every external connection is keyed so a sensor can't be seated backwards, the through-hole parts are the ones students solder, and the microcontroller sits in a socket so a board killed by a wiring mistake is a swap rather than a rework job.</p>
+        </section>
+        <section>
+          <h2>The controller board</h2>
+          <p>An Arduino Nano carrier with dual H-bridge drivers across four motor channels, keyed connectors for ultrasonic, IR, light and RGB modules, and Bluetooth for control from a phone. Power is a two-cell Li-ion charger with protection, fed from USB-C or a barrel jack, with switching regulators for the rails. A robot on a bench with a cable in it should still drive, so charge and load current are managed separately.</p>
+        </section>
+        <section>
+          <h2>The micro:bit programmer</h2>
+          <p>A micro:bit is normally programmed by dragging a file onto the USB drive its debug interface exposes — fine with one, miserable with thirty and one teacher.</p>
+          <p>This board uses an ESP32-S3 in USB host mode to mount that drive itself and write the firmware image, sourced over Wi-Fi or from on-board storage. Load it once, then plug in each micro:bit in turn. A TFT and buttons drive the flow, and a firmware-enabled 5 V rail means the target is only live when the programmer intends it.</p>
+        </section>
+        <section>
+          <h2>Bring-up</h2>
+          <p>First-article checks on each board — power rails, peripherals, current draw — then signal-level fault-finding with a scope and logic analyser across prototype iterations.</p>
+          <p>On the firmware side I also wrote the kit's mode handling. The line sensors calibrate themselves on every run rather than trusting a trimmer set at the factory, which is what lets the kit work on whatever the classroom floor happens to be.</p>
+        </section>
+      </div>
+
+      <aside class="case-aside">
+        <div class="metrics">
+          <div class="metric"><b>2</b><span>Boards</span><small>controller + programmer</small></div>
+          <div class="metric"><b>4</b><span>Motor channels</span></div>
+          <div class="metric"><b>0</b><span>PCs needed</span><small>per flashing session</small></div>
+        </div>
+        <table class="specs">
+          <caption>Both boards</caption>
+          <tbody>
+            <tr><th scope="row">Controller board</th><td>Microcontroller module on a carrier socket</td></tr>
+            <tr><th scope="row">Motor drive</th><td>Dual H-bridge, 4 channels</td></tr>
+            <tr><th scope="row">Sensors</th><td>Keyed connectors — ultrasonic, IR, light, RGB</td></tr>
+            <tr><th scope="row">Wireless</th><td>Bluetooth serial</td></tr>
+            <tr><th scope="row">Battery</th><td>Two-cell Li-ion, charge + protection</td></tr>
+            <tr><th scope="row">Inputs</th><td>USB-C and barrel jack</td></tr>
+            <tr><th scope="row">Programmer board</th><td>ESP32-S3, USB host</td></tr>
+            <tr><th scope="row">Target</th><td>BBC micro:bit, via its USB mass-storage interface</td></tr>
+            <tr><th scope="row">Host rail</th><td>Firmware-enabled 5 V to the connected board</td></tr>
+            <tr><th scope="row">Interface</th><td>Colour TFT and buttons</td></tr>
+            <tr><th scope="row">Firmware delivery</th><td>Over Wi-Fi or from on-board storage</td></tr>
+            <tr><th scope="row">Both</th><td>2 copper layers, EasyEDA</td></tr>
+          </tbody>
+        </table>
+      </aside>
+    </div>
+
+    <div class="shell">
+      <nav class="pager" aria-label="More projects">
+        <a href="agrosense-1.html"><span class="mono">← Previous</span><b>AgroSense Node rev 1</b></a>
+        <a href="grid-os.html"><span class="mono">Next →</span><b>Grid OS Telematics &amp; Audio</b></a>
+      </nav>
+      <footer class="footer">
+        <div class="footer__grid">
+          <p>Want the full design files or a walkthrough of the decisions on this board?
+            <a href="../index.html#contact">Get in touch</a>.</p>
+          <p class="mono">© <span data-year>2026</span> K. V. Siva Teja</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <dialog class="lightbox" aria-label="Image viewer">
+    <div class="lightbox__inner">
+      <!-- No src attribute: an empty one makes the browser request the page itself.
+           board.js sets it when the viewer opens. -->
+      <img alt="">
+      <div class="lightbox__bar">
+        <button class="lightbox__btn" data-lb="prev" aria-label="Previous image">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="lightbox__btn" data-lb="next" aria-label="Next image">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="lightbox__cap"></span>
+        <button class="lightbox__btn" data-lb="close" aria-label="Close">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="../assets/js/board.js?v=d86b59b6" defer></script>
+</body>
+
+</html>
