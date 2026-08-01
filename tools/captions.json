@@ -460,8 +460,8 @@
   "kind": "schematic"
  },
  "ALU/1.png": {
-  "alt": "Final GDSII layout of the 32-bit ALU showing routed metal layers across the full die",
-  "caption": "Final GDSII Layout",
-  "kind": "layout"
+  "alt": "Block diagram of the 32-bit ALU: register file, Brent-Kung adder, sequential multiplier and divider, boolean unit, shifter, result mux and top-level control logic",
+  "caption": "ALU Block Diagram",
+  "kind": "diagram"
  }
 }
