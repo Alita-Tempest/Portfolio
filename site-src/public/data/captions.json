@@ -1,0 +1,467 @@
+{
+ "ALU/2.png": {
+  "alt": "Block diagram of the RTL-to-GDSII flow: simulation, synthesis, physical design, verification stages",
+  "caption": "RTL-to-GDSII Flow",
+  "kind": "diagram"
+ },
+ "ALU/3.png": {
+  "alt": "Terminal running Icarus Verilog vvp; ALU results table with 22 of 22 tests passing",
+  "caption": "Simulation Results Table",
+  "kind": "screenshot"
+ },
+ "ALU/4.png": {
+  "alt": "Icarus Verilog terminal output for a seeded random ALU regression, all operations pass",
+  "caption": "Randomised Regression Run",
+  "kind": "screenshot"
+ },
+ "ALU/5.png": {
+  "alt": "Another seeded ALU testbench run in the terminal, 22 of 22 operations pass",
+  "caption": "Repeat Seeded Run",
+  "kind": "screenshot"
+ },
+ "ALU/6.png": {
+  "alt": "Yosys RTL netlist graph of the ALU with adder, multiplier, mux and process blocks",
+  "caption": "Synthesised RTL Netlist",
+  "kind": "schematic"
+ },
+ "ALU/7.png": {
+  "alt": "Gate-level netlist graph showing long rows of mapped NAND, MUX and AOI standard cells",
+  "caption": "Gate-Level Netlist",
+  "kind": "schematic"
+ },
+ "ALU/8.png": {
+  "alt": "Qflow Manager checklist beside a GrayWolf window showing blue standard-cell placement in progress",
+  "caption": "GrayWolf Placement",
+  "kind": "screenshot"
+ },
+ "ALU/9.png": {
+  "alt": "Qflow Manager running qrouter 1.4.59 next to a multicoloured routed die view",
+  "caption": "Qrouter Routing",
+  "kind": "screenshot"
+ },
+ "ALU/10.png": {
+  "alt": "Zoomed Magic layout showing standard-cell rows, coloured mask layers and named pin labels",
+  "caption": "Magic Layout Detail",
+  "kind": "layout"
+ },
+ "ALU/11.png": {
+  "alt": "Whole-core Magic layout view of the routed ALU, dense purple metal over cell rows",
+  "caption": "Routed Core, Full View",
+  "kind": "layout"
+ },
+ "ALU/12.jpg": {
+  "alt": "KLayout 0.28.16 displaying alu32.gds, with cell rows, routing and A_in port labels",
+  "caption": "GDSII In KLayout",
+  "kind": "layout"
+ },
+ "ALU/13.png": {
+  "alt": "Full-die GDSII view of the ALU with green input, output and flag pin labels",
+  "caption": "Full-Die GDSII",
+  "kind": "layout"
+ },
+ "Arduino/2.jpg": {
+  "alt": "EasyEDA schematic sheet 2: 12 V to 5 V converter, 3.3 V LDO, USB-UART bridge",
+  "caption": "Power And UART Sheet",
+  "kind": "schematic"
+ },
+ "Arduino/3.jpg": {
+  "alt": "EasyEDA schematic sheet 1: ATMega328P, crystal, TVS protection, USB port and header connectors",
+  "caption": "MCU And USB Sheet",
+  "kind": "schematic"
+ },
+ "Arduino/4.png": {
+  "alt": "PCB editor view of the board's top copper and silkscreen, headers along both edges",
+  "caption": "Top Layer Layout",
+  "kind": "layout"
+ },
+ "Arduino/5.png": {
+  "alt": "Mirrored PCB editor view of the board's bottom copper layer and component outlines",
+  "caption": "Bottom Layer Layout",
+  "kind": "layout"
+ },
+ "Arduino/6.png": {
+  "alt": "3D render of the blue board's top side with MCU, USB-C connector and pin headers",
+  "caption": "3D Render, Top",
+  "kind": "render"
+ },
+ "Arduino/7.png": {
+  "alt": "3D render of the board underside showing the buck inductor, regulator and passives",
+  "caption": "3D Render, Bottom",
+  "kind": "render"
+ },
+ "Bluetooth/1.jpg": {
+  "alt": "Wooden-chassis rover with Arduino, motor driver, battery pack and LCD reading Stop",
+  "caption": "Assembled Rover",
+  "kind": "photo"
+ },
+ "Bluetooth/2.png": {
+  "alt": "Android app screen titled Bluetooth Control Robot with an arrow pad and mode buttons",
+  "caption": "Control App UI",
+  "kind": "screenshot"
+ },
+ "Bluetooth/3.png": {
+  "alt": "Arduino sketch defining LiquidCrystal pins, motor pins and single-character command codes",
+  "caption": "Command Definitions",
+  "kind": "screenshot"
+ },
+ "Bluetooth/4.png": {
+  "alt": "Arduino setup function configuring motor pins, serial port and LCD welcome messages",
+  "caption": "Setup Function",
+  "kind": "screenshot"
+ },
+ "Bluetooth/5.jpg": {
+  "alt": "Arduino loop with a switch statement dispatching serial commands to drive and mode routines",
+  "caption": "Command Dispatch Loop",
+  "kind": "screenshot"
+ },
+ "Capstone1/1.png": {
+  "alt": "Top-layer PCB layout of the 102 by 75 mm sensor node with battery and solar connectors",
+  "caption": "Top Layer Layout",
+  "kind": "layout"
+ },
+ "Capstone1/2.png": {
+  "alt": "Mirrored bottom-layer layout of the sensor node showing ground pours and return routing",
+  "caption": "Bottom Layer Layout",
+  "kind": "layout"
+ },
+ "Capstone1/3.png": {
+  "alt": "3D render of the node's top side with wireless module, radio module, USB-C and DC jack",
+  "caption": "3D Render, Top",
+  "kind": "render"
+ },
+ "Capstone1/4.png": {
+  "alt": "3D render of the node underside, largely bare with copper pours and header pin tails",
+  "caption": "3D Render, Bottom",
+  "kind": "render"
+ },
+ "Capstone1/5.jpg": {
+  "alt": "Assembled white PCB with wireless module, radio module, DC jack, battery and solar connectors",
+  "caption": "Assembled Node, Top",
+  "kind": "photo"
+ },
+ "Capstone1/6.jpg": {
+  "alt": "The same node powered up on a table, green status LED lit and antenna cable attached",
+  "caption": "Powered-Up Node",
+  "kind": "photo"
+ },
+ "Capstone2/1.png": {
+  "alt": "Top-layer layout of the 82 by 80 mm AgroSense node with silkscreen and edge headers",
+  "caption": "Top Layer Layout",
+  "kind": "layout"
+ },
+ "Capstone2/2.png": {
+  "alt": "Mirrored bottom-layer layout of the AgroSense node with power stages and coin-cell footprint",
+  "caption": "Bottom Layer Layout",
+  "kind": "layout"
+ },
+ "Capstone2/3.png": {
+  "alt": "3D render of the AgroSense node top with wireless module, USB-C, DC jack and headers",
+  "caption": "3D Render, Top",
+  "kind": "render"
+ },
+ "Capstone2/4.png": {
+  "alt": "3D render of the node underside showing coin-cell holder, shielded inductors and converters",
+  "caption": "3D Render, Bottom",
+  "kind": "render"
+ },
+ "Capstone2/5.jpg": {
+  "alt": "Close-up of the bare green board, silkscreen reading AGRO SENSE NODE over empty footprints",
+  "caption": "Bare Board Close-Up",
+  "kind": "photo"
+ },
+ "Capstone2/6.png": {
+  "alt": "Fabricated bare PCB photographed front and back, unpopulated pads and full silkscreen",
+  "caption": "Bare Board, Both Sides",
+  "kind": "photo"
+ },
+ "Capstone2/7.png": {
+  "alt": "Assembled AgroSense node photographed front and back with modules and power stages fitted",
+  "caption": "Assembled Board, Both Sides",
+  "kind": "photo"
+ },
+ "Capstone2/8.png": {
+  "alt": "Two assembled boards powered on a bench, green rail LEDs lit and one red fault LED",
+  "caption": "Power Rails Under Test",
+  "kind": "photo"
+ },
+ "Cassie/1.jpg": {
+  "alt": "Four-wheel rover on a tiled floor with a camera on a servo mount and ultrasonic sensors",
+  "caption": "Rover, Side View",
+  "kind": "photo"
+ },
+ "Cassie/2.jpg": {
+  "alt": "Front view of the rover: infrared camera on a mast, ultrasonic sensor and white headlights",
+  "caption": "Rover, Front View",
+  "kind": "photo"
+ },
+ "Cassie/3.jpg": {
+  "alt": "Rover on a desk carrying a red 3D-printed robotic arm on its upper deck",
+  "caption": "Rover With Arm",
+  "kind": "photo"
+ },
+ "Cassie/4.jpg": {
+  "alt": "Top view of the chassis wiring: 18650 pack, buck converter, Raspberry Pi, servos and arm",
+  "caption": "Chassis Wiring",
+  "kind": "photo"
+ },
+ "Cassie/5.png": {
+  "alt": "ThingSpeak My Channels page in a browser listing one private channel named Cassie",
+  "caption": "ThingSpeak Channel",
+  "kind": "screenshot"
+ },
+ "Cassie/6.png": {
+  "alt": "MIT App Inventor blocks editor wiring button events to ThingSpeak channel update URLs",
+  "caption": "App Inventor Blocks",
+  "kind": "screenshot"
+ },
+ "Cassie/7.png": {
+  "alt": "MIT App Inventor designer previewing the Cassie app with motor and camera control pads",
+  "caption": "App Designer View",
+  "kind": "screenshot"
+ },
+ "Cassie/8.png": {
+  "alt": "Android screen titled Cassie Automation Control with buttons for TV, AC, lights and door lock",
+  "caption": "Automation Control Screen",
+  "kind": "screenshot"
+ },
+ "Home/1.png": {
+  "alt": "Arduino with a Bluetooth module and two-channel relay board wired to a lamp and appliance",
+  "caption": "Relay Wiring Test",
+  "kind": "photo"
+ },
+ "Home/2.png": {
+  "alt": "Android app screen titled Home Automation with light, fan, LED and sleep command buttons",
+  "caption": "Home Automation App",
+  "kind": "screenshot"
+ },
+ "Home/DSC00113.jpg": {
+  "alt": "Demonstration board carrying three lamp holders, a relay module, Arduino and Bluetooth module",
+  "caption": "Demo Board",
+  "kind": "photo"
+ },
+ "Night/A.jpg": {
+  "alt": "Rover facing the camera with two infrared illuminators glowing, a laptop screen behind it",
+  "caption": "Infrared Illuminators On",
+  "kind": "photo"
+ },
+ "Night/B.jpg": {
+  "alt": "Close-up of the pan-tilt servo camera mount and ribbon cable to the Raspberry Pi",
+  "caption": "Pan-Tilt Camera Mount",
+  "kind": "photo"
+ },
+ "Night/C.jpg": {
+  "alt": "Chassis deck with a buck converter on perfboard, a lithium cell and USB power module",
+  "caption": "Power Wiring",
+  "kind": "photo"
+ },
+ "Night/D.png": {
+  "alt": "Firefox on Raspberry Pi showing the UV4L WebRTC intercom page streaming the rover camera",
+  "caption": "WebRTC Video Stream",
+  "kind": "screenshot"
+ },
+ "Night/E.jpg": {
+  "alt": "Top view of the rover chassis with controller board, motor driver and yellow geared motors",
+  "caption": "Drive Electronics",
+  "kind": "photo"
+ },
+ "Night/F.png": {
+  "alt": "Calibration window titled Raspberry Pi Smart Video Car with motor, pan and tilt controls",
+  "caption": "Calibration Utility",
+  "kind": "screenshot"
+ },
+ "Night/DSC03141.jpg": {
+  "alt": "Rover displayed on a white table with antenna, Raspberry Pi in a clear case and power bank",
+  "caption": "Rover On Display",
+  "kind": "photo"
+ },
+ "Vaccum/1.jpg": {
+  "alt": "Round acrylic vacuum robot on a floor with ultrasonic sensors and a sweeping side brush",
+  "caption": "Robot, Side View",
+  "kind": "photo"
+ },
+ "Vaccum/2.jpg": {
+  "alt": "Front of the vacuum robot showing several ultrasonic sensors and two sweeping brushes",
+  "caption": "Sensor Array, Front",
+  "kind": "photo"
+ },
+ "Vaccum/3.jpg": {
+  "alt": "Top-down view of the robot's internals: blower fan, clear dust bin, motors and wiring",
+  "caption": "Internal Layout",
+  "kind": "photo"
+ },
+ "Vaccum/4.jpg": {
+  "alt": "Angled view of the vacuum robot showing a drive wheel, ultrasonic sensors and blower housing",
+  "caption": "Drive Wheel, Angled View",
+  "kind": "photo"
+ },
+ "Vaccum/5.jpg": {
+  "alt": "Rear view of the vacuum robot with both drive wheels and the black blower exhaust",
+  "caption": "Robot, Rear View",
+  "kind": "photo"
+ },
+ "Vaccum/6.png": {
+  "alt": "Android app screen titled Vacuum Cleaner with Connect, Joystick buttons and arrow pad",
+  "caption": "Control App UI",
+  "kind": "screenshot"
+ },
+ "Aria/dashboard.png": {
+  "alt": "Browser dashboard listing root hub, one sub-hub and two leaf nodes with live sensor readings",
+  "caption": "Live dashboard",
+  "kind": "screenshot"
+ },
+ "Aria/controls.png": {
+  "alt": "Controls tab with schedule, fall detection, calibration, quick queries, mesh promotion and serial log",
+  "caption": "Controls and log tab",
+  "kind": "screenshot"
+ },
+ "Aria/system-block.png": {
+  "alt": "Block diagram of leaf and sub-hub nodes feeding a root hub, Raspberry Pi and farmer interfaces",
+  "caption": "System block diagram",
+  "kind": "diagram"
+ },
+ "Aria/llm-cascade.png": {
+  "alt": "Flowchart of three-tier LLM fallback: hosted API, CLI, local Ollama, then rule-based heuristic",
+  "caption": "LLM cascade",
+  "kind": "diagram"
+ },
+ "Aria/models-pipeline.png": {
+  "alt": "Pipeline mapping leaf image, sensor and weather inputs through seven agriculture models to dashboard outputs",
+  "caption": "Model pipeline",
+  "kind": "diagram"
+ },
+ "Aria/rpi-dataflow.png": {
+  "alt": "Raspberry Pi dataflow: peripherals, Flask services, aria_ai package and Socket.IO pushes to the browser",
+  "caption": "Raspberry Pi dataflow",
+  "kind": "diagram"
+ },
+ "Aria/mesh-fsm.png": {
+  "alt": "State machine of a node listening, joining, running in-network, losing its parent, becoming sub-hub",
+  "caption": "Mesh state machine",
+  "kind": "diagram"
+ },
+ "Aria/tdma-slots.png": {
+  "alt": "Timeline showing six nodes each transmitting in a one-second window three seconds apart",
+  "caption": "TDMA transmit slots",
+  "kind": "diagram"
+ },
+ "Aria/mesh-topology.png": {
+  "alt": "Tree topology: Raspberry Pi, root hub, four direct leaves, three sub-hubs and twelve cluster leaves",
+  "caption": "Mesh topology",
+  "kind": "diagram"
+ },
+ "Aria/lora-rssi.png": {
+  "alt": "Histogram of uplink RSSI for three nodes, clustered between minus ninety-five and minus eighty-three dBm",
+  "caption": "Uplink RSSI spread",
+  "kind": "plot"
+ },
+ "Aria/lora-pdr.png": {
+  "alt": "Line chart of packet delivery ratio across about 170 link-stats reports for three nodes",
+  "caption": "Link PDR over the run",
+  "kind": "plot"
+ },
+ "Aria/disease-model.png": {
+  "alt": "Confusion matrix across 38 leaf-disease classes with a strong diagonal on held-out data",
+  "caption": "Disease model accuracy",
+  "kind": "plot"
+ },
+ "Aria/yield-model.png": {
+  "alt": "Predicted versus actual scatter plus residual plot for the yield regressor on synthetic data",
+  "caption": "Yield model fit",
+  "kind": "plot"
+ },
+ "Aria/autonomy.png": {
+  "alt": "Decision flow from live inputs through four autonomy levels, safety checks, pump monitoring and alerts",
+  "caption": "Autonomy decision flow",
+  "kind": "diagram"
+ },
+ "Aria/bench-test.jpg": {
+  "alt": "Four enclosed nodes with antennas and OLED screens beside a laptop and monitor running dashboards",
+  "caption": "Multi-node bench test",
+  "kind": "photo"
+ },
+ "Aria/flasher.png": {
+  "alt": "Desktop flasher tool compiling and uploading node firmware to an ESP32-S3 over COM7, console visible",
+  "caption": "Node flashing tool",
+  "kind": "screenshot"
+ },
+ "Aria/concept.png": {
+  "alt": "Concept flow from farm field sensing through the LoRa mesh to Raspberry Pi, farmer and pump",
+  "caption": "System concept",
+  "kind": "diagram"
+ },
+ "AgroSense3/bench-closeup.jpg": {
+  "alt": "Two black enclosed nodes on a desk, OLEDs showing sensor values and joined mesh status",
+  "caption": "Nodes on the bench",
+  "kind": "photo"
+ },
+ "AgroSense3/ver1-board.jpg": {
+  "alt": "AgroSense 1.0 prototype board: ESP32-C6-MINI-1 module, LoRa module, RS-485 header and DC jack on white soldermask",
+  "caption": "Assembled 1.0 board",
+  "kind": "photo"
+ },
+ "AgroSense3/firmware-blocks.png": {
+  "alt": "Firmware block diagram: sensor drivers, ESP32-S3 main loop, mesh protocol, sleep/wake, LoRa and UART",
+  "caption": "Node firmware blocks",
+  "kind": "diagram"
+ },
+ "AgroSense3/rev3-3d-top.png": {
+  "alt": "3D render of the AgroSense revision 3 board, top side, with modules and connectors fitted",
+  "caption": "3D render, top",
+  "kind": "render"
+ },
+ "AgroSense3/rev3-3d-bottom.png": {
+  "alt": "3D render of the AgroSense revision 3 board underside showing power stages",
+  "caption": "3D render, bottom",
+  "kind": "render"
+ },
+ "AgroSense3/rev3-top.png": {
+  "alt": "Top copper layer artwork of the AgroSense revision 3 board",
+  "caption": "Layer 1 — top copper",
+  "kind": "layout"
+ },
+ "AgroSense3/rev3-inner1.png": {
+  "alt": "First inner copper layer of the AgroSense revision 3 four-layer stackup",
+  "caption": "Layer 2 — inner 1",
+  "kind": "layout"
+ },
+ "AgroSense3/rev3-inner2.png": {
+  "alt": "Second inner copper layer of the AgroSense revision 3 four-layer stackup",
+  "caption": "Layer 3 — inner 2",
+  "kind": "layout"
+ },
+ "AgroSense3/rev3-bottom.png": {
+  "alt": "Bottom copper layer artwork of the AgroSense revision 3 board",
+  "caption": "Layer 4 — bottom copper",
+  "kind": "layout"
+ },
+ "GridOS/panel-audio.png": {
+  "alt": "Panelised array of connected-device boards with fiducial marks and V-score separation",
+  "caption": "Panelised array",
+  "kind": "layout"
+ },
+ "GridOS/panel-soundbox.png": {
+  "alt": "Production panel of audio device boards laid out four-up with breakaway rails",
+  "caption": "Audio device panel",
+  "kind": "layout"
+ },
+ "GridOS/panel-tabletop.png": {
+  "alt": "Production panel of countertop unit boards with tooling holes and V-score rails",
+  "caption": "Countertop unit panel",
+  "kind": "layout"
+ },
+ "GridOS/gnss-frontend.png": {
+  "alt": "Close-up of a densely populated radio front end — shielded IC, crystals and matching network",
+  "caption": "Radio front end",
+  "kind": "render"
+ },
+ "GridOS/codec-schematic.png": {
+  "alt": "Schematic sheet for the audio codec section showing supply isolation, bypassing and digital audio routing",
+  "caption": "Audio codec sheet",
+  "kind": "schematic"
+ },
+ "ALU/1.png": {
+  "alt": "Block diagram of the 32-bit ALU: register file, Brent-Kung adder, sequential multiplier and divider, boolean unit, shifter, result mux and top-level control logic",
+  "caption": "ALU Block Diagram",
+  "kind": "diagram"
+ }
+}

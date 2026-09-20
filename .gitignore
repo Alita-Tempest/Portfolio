@@ -1,9 +1,10 @@
 # Local tooling config — not part of the published site
 .claude/
 
-# Python bytecode cache from the build scripts in tools/
-__pycache__/
-*.pyc
+# Node / Vite build inputs and intermediates (the built site lives at the repo root)
+node_modules/
+site-src/node_modules/
+site-src/dist/
 
 # OS cruft
 .DS_Store
