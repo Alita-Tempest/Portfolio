@@ -1,6 +1,6 @@
 // Site copy. Experience, summary, publication and education follow CV.pdf (Sep 2026);
-// the capability lists follow the fuller pre-2026-09-13 CV, whose skills section was
-// later trimmed for space.
+// capability lists are generated from C:\LocalLLM\jobs\profile.json (core + extras)
+// by jobs/_gen_caps.py - the CV prints the core subset, the site shows the full set.
 
 export const person = {
   name: 'Kotupalli Venkata Siva Teja',
@@ -144,76 +144,77 @@ export const certifications = [
 // core = bold in the CV
 export const capabilities = [
   {
-    h: 'Hardware design',
+    h: 'PCB design',
     items: [
-      ['Altium Designer', 1], ['KiCad', 0], ['EasyEDA', 1], ['Schematic capture', 0], ['2 & 4-layer PCB', 1],
-      ['Impedance control 50 Ω / 90 Ω', 1], ['Differential-pair tuning', 0], ['Length matching', 0],
-      ['RF layout', 1], ['Antenna keepout', 0], ['Stackup design', 0], ['Power integrity', 0],
-      ['Mixed-signal layout', 1], ['Power-path & load-switch', 1], ['ESD / TVS protection', 0],
-      ['Multi-revision iteration', 1], ['BOM & library management', 0],
+      ['Altium Designer', 1], ['EasyEDA', 0], ['KiCad', 0], ['Schematic capture', 0],
+      ['2 / 4-layer PCB layout', 1], ['Impedance-controlled routing', 1],
+      ['Differential pairs & length matching', 0], ['High-speed USB routing', 0],
+      ['RF & mixed-signal layout', 1], ['Stackup design', 0], ['Power integrity', 0], ['DFM / DFA', 0],
+      ['EMC-aware layout', 0], ['BOM & library management', 0], ['Antenna matching', 0],
+      ['Component selection', 0]
     ],
   },
   {
-    h: 'Embedded systems',
+    h: 'Power & protection',
     items: [
-      ['ESP32 / ESP32-S3', 1], ['STM32', 0], ['AVR', 0], ['Arduino', 0], ['Raspberry Pi', 0],
-      ['C', 1], ['C++', 1], ['Embedded C', 1], ['Python', 0], ['Verilog', 0], ['ESP-IDF', 1],
-      ['STM32CubeIDE', 0], ['Arduino IDE', 0], ['FreeRTOS', 1], ['Firmware bring-up', 1],
-      ['Sensor & peripheral drivers', 0], ['Power management', 0], ['Deep-sleep / wake-on-RTC', 0],
-      ['mbedTLS / AES-128', 0], ['USB host (mass storage)', 1], ['Bootloaders', 0], ['OTA', 0],
+      ['Solar MPPT & Li-ion charging', 1], ['Power-path & load switching', 1],
+      ['Buck, Boost & LDO regulators', 0], ['Current & power monitoring', 0],
+      ['Overvoltage & undervoltage protection', 0], ['ESD & surge protection', 0],
+      ['H-bridge motor drivers', 0], ['Reverse-polarity protection', 0],
+      ['Power & thermal budgeting', 0]
     ],
   },
   {
-    h: 'IoT & protocols',
+    h: 'Embedded firmware',
     items: [
-      ['LoRa (SX1262)', 1], ['Wi-Fi', 0], ['Bluetooth', 0], ['BLE', 0], ['Modbus-RTU', 1], ['MQTT', 0],
-      ['REST', 0], ['UART', 1], ['SPI', 1], ['I²C', 1], ['I²S', 0], ['CAN', 0], ['RS-232', 0],
-      ['RS-485', 1], ['USB 2.0 host / device', 1], ['USB-C', 0], ['Ethernet', 0],
-      ['Edge-to-cloud telemetry', 0], ['TDMA scheduling', 0], ['Mesh networking', 1],
+      ['ESP32-S3', 1], ['STM32', 0], ['Embedded C / C++', 1], ['Python', 0], ['ESP-IDF', 1],
+      ['FreeRTOS', 0], ['Arduino', 0], ['USB host', 0], ['Sensor & peripheral drivers', 0],
+      ['Low-power design', 0], ['Bootloaders & OTA updates', 0], ['AVR', 0], ['Raspberry Pi', 0],
+      ['AES-128 encryption', 0], ['STM32CubeIDE', 0]
+    ],
+  },
+  {
+    h: 'Interfaces & protocols',
+    items: [
+      ['LoRa & mesh networking', 1], ['RS-485 / Modbus-RTU', 1], ['UART', 0], ['SPI', 0], ['I²C', 0],
+      ['I²S', 0], ['USB', 0], ['CAN', 0], ['Wi-Fi', 0], ['BLE', 0], ['MQTT', 0], ['LTE / GSM', 0],
+      ['GNSS', 0], ['RS-232', 0], ['REST APIs', 0], ['Ethernet', 0], ['TDMA scheduling', 0]
+    ],
+  },
+  {
+    h: 'Bring-up & test',
+    items: [
+      ['Board bring-up', 1], ['DSO & logic analyzer', 1], ['Fault isolation & debugging', 0],
+      ['Signal integrity', 0], ['Functional & environmental testing', 0],
+      ['Gerber, BOM & assembly outputs', 0], ['IPC-2221 / IPC-7351', 0], ['Multimeter', 0],
+      ['Diagnostic test firmware', 0], ['IPC-A-610', 0], ['Design reviews', 0], ['Documentation', 0]
+    ],
+  },
+  {
+    h: 'VLSI & edge AI',
+    items: [
+      ['Verilog', 0], ['RTL-to-GDSII flow', 0], ['Static timing analysis', 0], ['Cadence Virtuoso', 0],
+      ['Xilinx Vivado', 0], ['scikit-learn', 0], ['TensorFlow Lite', 0], ['LLM integration', 0],
+      ['Yosys, Qrouter & Magic', 0], ['Flask', 0]
     ],
   },
   {
     h: 'Sensors & RF',
     items: [
-      ['GNSS (AT6558)', 1], ['LTE / GSM', 0], ['LoRa SX1262', 1], ['IMU (LIS3DH)', 0],
-      ['Environment (SHT30 / BMP280)', 0], ['NPK (ZTS-3002, RS-485)', 0], ['RTC (DS3231)', 0],
-      ['microSD (SPI)', 0], ['Audio codecs / I²S amps', 0], ['ADC / DAC', 0], ['Solar MPPT (LT3652)', 1],
-      ['Li-ion charging & protection', 1], ['DC-DC regulators', 0], ['H-bridge motor drivers', 0],
-      ['LNA bias', 0], ['Antenna matching', 1],
+      ['GNSS receiver front-end', 1], ['LNA bias networks', 0], ['Antenna matching', 1],
+      ['U.FL / PCB antenna launch', 0], ['LTE / GSM modules', 0], ['IMU / accelerometer', 0],
+      ['Environmental sensors', 0], ['Soil & NPK probes (RS-485)', 0],
+      ['RTC with coin-cell backup', 0], ['microSD (SPI)', 0], ['Audio codecs & I²S amplifiers', 0],
+      ['ADC / DAC', 0]
     ],
   },
   {
-    h: 'Testing & validation',
-    items: [
-      ['Board bring-up', 1], ['In-circuit testing', 0], ['Functional / stress / environmental', 0],
-      ['Signal integrity', 1], ['DSO', 1], ['Logic analyser', 1], ['Multimeter', 0],
-      ['DRC / DFM / DFA', 1], ['IPC-2221', 0], ['IPC-7351', 0], ['IPC-A-610', 0], ['RoHS', 0],
-      ['Validation & test reports', 0],
-    ],
-  },
-  {
-    h: 'AI & prompt engineering',
+    h: 'AI & tooling',
     items: [
       ['Claude API (Anthropic SDK)', 1], ['Claude Code CLI integration', 0],
-      ['LLM tool-routing & function calling', 0], ['3-tier LLM cascade', 0], ['Ollama / local LLMs', 0],
-      ['System-prompt design', 0], ['Context engineering', 0], ['Voice I/O (Vosk STT, Edge-TTS)', 0],
-      ['Edge model deployment (TensorFlow Lite)', 1],
-    ],
-  },
-  {
-    h: 'VLSI & EDA',
-    items: [
-      ['Cadence Virtuoso', 0], ['Xilinx Vivado', 0], ['Yosys', 0], ['GrayWolf', 0], ['Qrouter', 0],
-      ['Magic', 0], ['OSU 0.18 µm library', 0], ['RTL-to-GDSII flow', 1], ['Timing analysis', 1],
-      ['ASIC design', 0],
-    ],
-  },
-  {
-    h: 'Documentation',
-    items: [
-      ['Schematic & PCB documentation', 0], ['Gerber X2', 1], ['NC drill', 0], ['Pick-and-place', 0],
-      ['Layer stackup & impedance profile', 1], ['Test-point mapping', 0], ['Assembly drawings', 0],
-      ['DRC reports', 1], ['Design review packs', 0],
+      ['LLM tool routing & function calling', 0], ['MCP tool servers', 1], ['3-tier LLM cascade', 0],
+      ['Ollama / local LLMs', 0], ['System-prompt design', 0], ['Voice I/O (Vosk STT, Edge-TTS)', 0],
+      ['Edge model deployment (TensorFlow Lite)', 1]
     ],
   },
 ];
