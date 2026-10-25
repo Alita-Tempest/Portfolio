@@ -112,7 +112,7 @@ section[id]{scroll-margin-top:calc(var(--navh) + 8px)}
 
 /* ============================================================ layout */
 .section--profile,.section--exp,.section--cap,.section--work,.section--contact{position:relative}
-.section--profile::before,.section--exp::before{
+.section--profile::before,.section--exp::before,.section--freelance::before{
   content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(130% 80% at 15% 40%,rgb(5 7 10/.9),rgb(5 7 10/.6) 55%,rgb(5 7 10/0) 85%)}
 .section{position:relative;max-width:var(--maxw);margin:0 auto;padding:clamp(80px,11vw,190px) var(--gut)}
@@ -245,6 +245,14 @@ section[id]{scroll-margin-top:calc(var(--navh) + 8px)}
   color:var(--fg-mute);border:1px solid var(--line);padding:3px 8px;border-radius:2px}
 .card__line{position:absolute;left:0;bottom:0;z-index:4;height:1px;width:0;background:linear-gradient(90deg,var(--copper),var(--signal));transition:width .8s var(--ease)}
 .card:hover .card__line{width:100%}
+
+/* ============================================================ freelance */
+/* two client boards, so each card takes half the row and the renders get room */
+.freelance__lede{max-width:64ch;color:var(--fg-dim);margin:-14px 0 clamp(26px,3.4vw,44px)}
+.work--duo .card{grid-column:span 6}
+.work--duo .card__title{font-size:clamp(1.1rem,1.5vw,1.5rem)}
+.work--duo .card__lede{font-size:.88rem}
+@media (max-width:700px){.work--duo .card{grid-column:span 12}}
 
 /* ============================================================ profile */
 .profile{display:grid;grid-template-columns:1.5fr .8fr;gap:clamp(28px,5vw,80px);align-items:start}

@@ -4,14 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>K. V. Siva Teja — PCB &amp; hardware design</title>
-<meta name="description" content="PCB design engineer. Two- and four-layer boards from schematic capture to a manufacturable Gerber set, plus the ESP32 firmware that makes them do something useful." />
+<meta name="description" content="I'm a PCB design engineer. I design 2- and 4-layer boards from the schematic to files a factory can build, and I write the ESP32 firmware that runs on them." />
 <meta name="color-scheme" content="dark" />
 <link rel="icon" href="/Portfolio/favicon.png" type="image/png" />
 <link rel="preload" href="/Portfolio/fonts/spacegrotesk-var.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/Portfolio/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/Portfolio/fonts/jetbrainsmono-var.woff2" as="font" type="font/woff2" crossorigin />
-  <script type="module" crossorigin src="/Portfolio/assets/index-D4zU-fP-.js"></script>
-  <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-CmRY4NjK.css">
+  <script type="module" crossorigin src="/Portfolio/assets/index-BY0m4rTX.js"></script>
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-CrLHhTEm.css">
 </head>
 <body>
 
@@ -51,10 +51,11 @@
   </a>
   <nav class="nav__links" aria-label="Sections">
     <a href="#work" data-nav>01 Work</a>
-    <a href="#profile" data-nav>02 Profile</a>
-    <a href="#experience" data-nav>03 Experience</a>
-    <a href="#capabilities" data-nav>04 Capabilities</a>
-    <a href="#contact" data-nav>05 Contact</a>
+    <a href="#freelance" data-nav>02 Freelance</a>
+    <a href="#profile" data-nav>03 Profile</a>
+    <a href="#experience" data-nav>04 Experience</a>
+    <a href="#capabilities" data-nav>05 Capabilities</a>
+    <a href="#contact" data-nav>06 Contact</a>
   </nav>
   <button class="nav__sound" id="sound" data-cursor="toggle" aria-pressed="false">
     <span class="nav__soundbars"><i></i><i></i><i></i><i></i></span>
@@ -76,9 +77,9 @@
       </h1>
       <p class="hero__role reveal"><span class="mono">01</span> IoT embedded hardware &amp; PCB design engineer</p>
       <p class="hero__lede reveal">
-        I design the boards that put sensors in fields and robots in classrooms — 2- and 4-layer PCBs
-        from schematic capture through impedance-controlled layout to a manufacturable Gerber set,
-        plus the ESP32 firmware that makes them do something useful.
+        I design circuit boards for sensors that sit out in farm fields and robots that end up in
+        classrooms. I take them from the schematic through layout to Gerbers a factory can build, and I
+        write the ESP32 firmware that runs on them.
       </p>
       <div class="hero__cta reveal">
         <a class="btn btn--solid" href="#work" data-cursor="scroll" data-magnetic>See the boards</a>
@@ -124,30 +125,44 @@
     <div class="work" id="workGrid"></div>
   </section>
 
+  <!-- ─────────────────────────────── freelance -->
+  <section class="section section--work section--freelance" id="freelance">
+    <div class="section__head">
+      <p class="mono num">02</p>
+      <h2 class="section__title">Freelance</h2>
+      <p class="section__note">Client boards · Oct 2026 — present</p>
+    </div>
+    <p class="freelance__lede reveal">These are boards I design for clients on the side, alongside my work at
+      Dletabotix. A client usually comes to me with an idea and an enclosure, and I take it from there to files a
+      factory can build. Open a card to see the layers and the 3D views.</p>
+    <div class="work work--duo" id="freelanceGrid"></div>
+  </section>
+
   <!-- ─────────────────────────────── profile -->
   <section class="section section--profile" id="profile">
     <div class="section__head">
-      <p class="mono num">02</p>
+      <p class="mono num">03</p>
       <h2 class="section__title">Profile</h2>
       <p class="section__note">Guntur · Andhra Pradesh</p>
     </div>
     <div class="profile">
       <div class="profile__lede reveal">
-        <p class="big">I take a board from a blank schematic sheet to something a fab can build and a
-          field technician can trust.</p>
-        <p>Most of my work sits in the awkward middle of a product — the part where a radio has to coexist
-          with a switching regulator, where a solar panel has to charge a cell that also has to survive a
-          monsoon, and where the firmware has to wake up, take a reading and go back to sleep without
-          draining the battery by Thursday.</p>
-        <p>I work in <b>Altium Designer</b> and <b>EasyEDA</b> across 2- and 4-layer stackups, with
-          practical experience in impedance-controlled routing, RF front-end matching and antenna
-          keepouts, power-path and load-switch design, and the DFM housekeeping — panelisation, fiducials,
-          test points, Gerber and BOM packages — that decides whether a design actually gets built.</p>
-        <p>On the firmware side I write <b>embedded C</b> for <b>ESP32-S3</b> targets under ESP-IDF and
-          FreeRTOS, including USB host work, and I speak the protocols field hardware actually runs on:
-          <b>LoRa</b>, <b>Modbus-RTU</b> and <b>RS-485</b>.</p>
-        <p>I am finishing an M.Tech in VLSI Design and Embedded Systems, which is where the RTL-to-GDSII
-          work comes from. It is a real part of my training, but boards are what I do.</p>
+        <p class="big">Hi, I’m Siva Teja. I design circuit boards, and I like taking one from an empty
+          schematic all the way to something a factory can build and people can rely on in the field.</p>
+        <p>The part of a product I enjoy most is the tricky middle: getting a radio to work right next to a
+          switching regulator, making a solar panel charge a battery that has to get through a monsoon, and
+          writing firmware that wakes up, takes a reading and goes back to sleep without draining the
+          battery.</p>
+        <p>I design 2- and 4-layer boards in <b>Altium Designer</b>, <b>EasyEDA</b> and <b>KiCad</b>. That
+          includes impedance-controlled routing, RF matching and antenna keepouts, power paths and load
+          switches, and the less exciting work that decides whether a board actually gets made: panels,
+          fiducials, test points, Gerbers and the BOM.</p>
+        <p>I also write the firmware. Mostly that’s <b>embedded C</b> on the <b>ESP32-S3</b> with ESP-IDF and
+          FreeRTOS, including USB host, and I’m at home with the buses field hardware uses: <b>LoRa</b>, and
+          <b>Modbus-RTU</b> over <b>RS-485</b>.</p>
+        <p>I finished my M.Tech in VLSI Design and Embedded Systems in July 2026, and that’s where my
+          RTL-to-GDSII work comes from. I enjoyed it and it’s a real part of my training, but designing boards
+          is what I do every day.</p>
       </div>
       <figure class="profile__photo reveal">
         <img src="/Portfolio/img/About.webp" alt="K. V. Siva Teja" width="800" height="1067" loading="lazy" />
@@ -160,13 +175,13 @@
   <!-- ─────────────────────────────── experience -->
   <section class="section section--exp" id="experience">
     <div class="section__head">
-      <p class="mono num">03</p>
+      <p class="mono num">04</p>
       <h2 class="section__title">Experience</h2>
       <p class="section__note">2018 — present</p>
     </div>
     <div class="timeline" id="timeline"></div>
     <div class="section__head section__head--sub">
-      <p class="mono num">03.1</p>
+      <p class="mono num">04.1</p>
       <h2 class="section__title">Education</h2>
       <p class="section__note">Academic record</p>
     </div>
@@ -177,7 +192,7 @@
   <!-- ─────────────────────────────── capabilities -->
   <section class="section section--cap" id="capabilities">
     <div class="section__head">
-      <p class="mono num">04</p>
+      <p class="mono num">05</p>
       <h2 class="section__title">Capabilities</h2>
       <p class="section__note">Highlighted = core</p>
     </div>
@@ -187,16 +202,16 @@
   <!-- ─────────────────────────────── contact -->
   <section class="section section--contact" id="contact">
     <div class="section__head">
-      <p class="mono num">05</p>
+      <p class="mono num">06</p>
       <h2 class="section__title">Contact</h2>
       <p class="section__note">Open to hardware roles</p>
     </div>
     <div class="contact">
       <div class="contact__left">
         <h3 class="contact__big reveal">Got a board that<br /><em>needs designing?</em></h3>
-        <p class="reveal">I am open to PCB design and embedded hardware roles, on-site or remote. If you are
-          hiring, the fastest route is email — I read it daily and reply with something more useful than
-          “thanks for reaching out”.</p>
+        <p class="reveal">I’m looking for PCB design and embedded hardware roles, on-site or remote, and I
+          take on freelance boards too. Email is the quickest way to reach me. I check it every day, and I’ll
+          give you a proper reply.</p>
         <ul class="contact__rows" id="contactRows"></ul>
       </div>
       <form class="contact__form reveal" id="form" action="https://api.web3forms.com/submit" method="POST">
@@ -215,7 +230,7 @@
   <footer class="foot">
     <div class="foot__row">
       <span class="mono">© <span id="year">2026</span> K. V. Siva Teja · Rev 5.0</span>
-      <span class="mono">Built with three.js — the hero model is the real AgroSense rev 3 board</span>
+      <span class="mono">Built with three.js. The board in the background is my real AgroSense rev 3</span>
       <button class="foot__top" id="toTop" data-cursor="up" data-magnetic>Back to top ↑</button>
     </div>
   </footer>

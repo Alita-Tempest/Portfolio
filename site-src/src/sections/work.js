@@ -5,7 +5,9 @@ import { asset } from '../core/paths.js';
 const imgName = (src) => src.replace(/\.[a-z]+$/i, '').replaceAll('/', '__') + '.webp';
 const IMG = (src) => asset(`/img/${imgName(src)}`);
 
+// every project opens in the same case-study reader; freelance ones get their own grid, not the work grid
 let PROJECTS = [], CAPTIONS = {}, onOpenSound = null;
+const isFreelance = (p) => p.group === 'freelance';
 
 export async function initWork(sound) {
   onOpenSound = sound;
@@ -16,9 +18,10 @@ export async function initWork(sound) {
   PROJECTS = projects;
   CAPTIONS = captions;
 
-  document.getElementById('workCount').textContent = String(projects.length);
+  document.getElementById('workCount').textContent = String(projects.filter((p) => !isFreelance(p)).length);
   buildFilters();
   buildGrid();
+  buildFreelance();
   buildCase();
 }
 
@@ -31,23 +34,20 @@ function buildFilters() {
     if (!b) return;
     wrap.querySelectorAll('button').forEach((n) => n.classList.toggle('is-on', n === b));
     const f = b.dataset.filter;
-    document.querySelectorAll('.card').forEach((card) => {
+    document.querySelectorAll('#workGrid .card').forEach((card) => {
       const cats = (card.dataset.cats || '').split(' ');
       card.classList.toggle('is-hidden', f !== 'all' && !cats.includes(f));
     });
   });
 }
 
-function buildGrid() {
-  const grid = document.getElementById('workGrid');
-  grid.innerHTML = PROJECTS.map((p, i) => {
-    const cats = projectFilters[p.slug] || [];
-    const year = p.meta?.Year || '';
-    const flag = i === 0 ? 'Flagship' : (i === 1 ? 'Latest' : (cats.includes('employer') ? 'Employer work' : ''));
-    const img = p.hero?.src && !p.hero.src.endsWith('.svg')
-      ? `<img src="${IMG(p.hero.src)}" alt="${escapeHtml(p.hero.alt || p.title)}" loading="lazy" decoding="async" />`
-      : placeholder(p.title);
-    return `
+function card(p, flag) {
+  const cats = projectFilters[p.slug] || [];
+  const year = p.meta?.Year || '';
+  const img = p.hero?.src && !p.hero.src.endsWith('.svg')
+    ? `<img src="${IMG(p.hero.src)}" alt="${escapeHtml(p.hero.alt || p.title)}" loading="lazy" decoding="async" />`
+    : placeholder(p.title);
+  return `
       <article class="card reveal" data-slug="${p.slug}" data-cats="${cats.join(' ')}" data-cursor="open case">
         <div class="card__media">${img}</div>
         <span class="card__ref">${p.ref || ''}</span>
@@ -61,13 +61,27 @@ function buildGrid() {
         </div>
         <i class="card__line"></i>
       </article>`;
-  }).join('');
+}
 
+function mountGrid(grid, html) {
+  grid.innerHTML = html;
   grid.addEventListener('click', (e) => {
-    const card = e.target.closest('.card');
-    if (card) openCase(card.dataset.slug);
+    const c = e.target.closest('.card');
+    if (c) openCase(c.dataset.slug);
   });
   initReveals(grid);
+}
+
+function buildGrid() {
+  mountGrid(document.getElementById('workGrid'), PROJECTS.filter((p) => !isFreelance(p)).map((p, i) => {
+    const cats = projectFilters[p.slug] || [];
+    return card(p, i === 0 ? 'Flagship' : (i === 1 ? 'Latest' : (cats.includes('employer') ? 'Employer work' : '')));
+  }).join(''));
+}
+
+function buildFreelance() {
+  const grid = document.getElementById('freelanceGrid');
+  if (grid) mountGrid(grid, PROJECTS.filter(isFreelance).map((p) => card(p, 'Client work')).join(''));
 }
 
 function placeholder(title) {

@@ -4,7 +4,7 @@
     "ref": "A1",
     "kicker": "M.Tech final-year project · Ongoing",
     "title": "AgroSense ARIA",
-    "lede": "An offline-capable AI farming platform: a self-healing LoRa mesh of ESP32-S3 sensor nodes on a custom 4-layer PCB, reporting to a Raspberry Pi hub that runs seven on-device ML models and a three-tier LLM assistant — with no internet connection required.",
+    "lede": "My M.Tech final-year project: an AI farming platform that keeps working without the internet. ESP32-S3 sensor nodes on my own 4-layer board form a self-healing LoRa mesh and report to a Raspberry Pi that runs seven ML models and a three-tier voice assistant.",
     "meta": {
       "Role": "Architecture, firmware, ML, hardware",
       "Year": "2026",
@@ -20,28 +20,28 @@
       {
         "h": "What it is",
         "p": [
-          "ARIA is my M.Tech final-year project: an AI farming platform that works without an internet connection. A LoRa mesh of ESP32-S3 sensor nodes reports to a Raspberry Pi hub, and everything — sensing, inference, irrigation decisions, and the assistant a farmer talks to — happens on hardware sitting in the field.",
-          "The nodes run on the AgroSense board line I designed alongside it. <a href=\"agrosense-3.html\">Revision 3</a> is the current hardware."
+          "ARIA is my M.Tech final-year project. It's an AI farming platform that keeps working with no internet connection. A mesh of ESP32-S3 sensor nodes talks over LoRa to a Raspberry Pi hub, and everything happens on hardware out in the field: the sensing, the predictions, the irrigation decisions and the assistant the farmer talks to.",
+          "The nodes run on the AgroSense boards I designed alongside it. Revision 3 is the hardware in use now."
         ]
       },
       {
         "h": "The mesh",
         "p": [
-          "Nodes take one of three roles — root hub, sub-hub or leaf — and the network scales from 2 to 100 of them. A leaf can be promoted to a sub-hub when the topology needs it, so losing one node doesn't split the network.",
-          "Airtime is divided by TDMA scheduling so a hundred nodes on one frequency don't collide, with an RTC-driven time-sync cascade keeping their slots aligned. I wrote about 7,260 lines of ESP32-S3 firmware for this, AES-128 on the link, with the nodes deep-sleeping between scheduled readings — that's what takes battery life into years."
+          "Each node is a root hub, a sub-hub or a leaf, and the network works with anywhere from 2 to 100 of them. When the network needs it, a leaf can be promoted to a sub-hub, so losing one node doesn't cut the network in half.",
+          "I split the airtime with TDMA so a hundred nodes on one frequency don't talk over each other, and an RTC-based time sync keeps everyone's slots lined up. I wrote about 7,260 lines of ESP32-S3 firmware for this, with AES-128 on the link. The nodes deep-sleep between readings, and that's what stretches the battery life out to years."
         ]
       },
       {
         "h": "What runs on the hub",
         "p": [
-          "Seven models on the Raspberry Pi, all offline: disease detection, irrigation scheduling, fertiliser planning, yield prediction, crop recommendation, anomaly detection over the sensor stream, and an ensemble that reconciles them into one plan.",
-          "The farmer-facing assistant is a three-tier cascade — cloud when there's signal, a local model when there isn't — with speech in and out in English, Hindi and Telugu."
+          "The Raspberry Pi runs seven models, all offline: disease detection, irrigation scheduling, fertiliser planning, yield prediction, crop recommendation, anomaly detection on the sensor data, and an ensemble that combines them into one plan.",
+          "The assistant the farmer uses is a three-tier cascade. It uses the cloud when there's signal and a local model when there isn't, and you can speak to it and hear it answer in English, Hindi or Telugu."
         ]
       },
       {
         "h": "Pump control",
         "p": [
-          "Irrigation automation sits behind a four-level autonomy controller, from advisory through to acting on its own. Every action is logged and any automated one has a 60-second undo. Irrigation mistakes are expensive and slow to reverse."
+          "I put the irrigation automation behind a four-level autonomy controller, which goes from just giving advice up to acting on its own. Every action is logged, and anything it does automatically can be undone for 60 seconds. I did that because watering mistakes cost money and take a long time to fix."
         ]
       }
     ],
@@ -157,7 +157,7 @@
     "ref": "U1",
     "kicker": "M.Tech capstone · Revision 3 of 3",
     "title": "AgroSense Node rev 3",
-    "lede": "The current AgroSense node: four copper layers, solar MPPT with a selectable panel input, a matched LoRa front end, and three independently switched supply rails.",
+    "lede": "The current version of my AgroSense node: four copper layers, solar MPPT charging with a selectable panel input, a matched LoRa front end, and three supply rails I can switch on and off separately.",
     "meta": {
       "Role": "Schematic, layout, firmware",
       "Year": "2026",
@@ -173,22 +173,22 @@
       {
         "h": "Where it sits",
         "p": [
-          "The AgroSense node went through three revisions: <a href=\"agrosense-1.html\">rev 1</a> was a 2-layer prototype, <a href=\"agrosense-2.html\">rev 2</a> moved to four copper layers, and <a href=\"agrosense-3.html\">rev 3</a> is the one in the field. Each build folded in what the previous one's bring-up found rather than patching faults on the bench.",
-          "Rev 3 is a four-layer mixed-signal board and the hardware <a href=\"agrosense-aria.html\">ARIA</a> runs on."
+          "I built the AgroSense node in three revisions. Rev 1 was a 2-layer prototype, rev 2 moved to four layers, and rev 3 is the one out in the field. Each time, I fixed what the last board's bring-up had shown me in the next layout instead of patching it on the bench.",
+          "Rev 3 is a four-layer mixed-signal board, and it's the hardware ARIA runs on."
         ]
       },
       {
         "h": "What's on it",
         "p": [
-          "A LoRa radio with a matched RF feed and a U.FL launch, so the antenna can be chosen for the site without respinning the board. The antenna keepout and the stitched ground around the feed stay clear of the switching and digital regions — that continuous reference plane is the reason for going to four layers.",
-          "Power is solar MPPT charging with a jumper-selectable panel voltage, Li-ion charge and protection, and USB-C in. The 3.3 V, 5 V and 12 V rails are independently enabled, so idle sensors can be switched off between readings instead of sitting biased."
+          "It has a LoRa radio with a matched RF feed and a U.FL connector, so the antenna can be picked for each site without redesigning the board. I kept the antenna keepout and the stitched ground around the feed well away from the switching and digital parts. Having that solid ground plane under the radio is the main reason I went to four layers.",
+          "For power there's solar MPPT charging with a jumper to select the panel voltage, Li-ion charging and protection, and a USB-C input. The 3.3 V, 5 V and 12 V rails can each be turned on separately, so sensors that aren't in use get switched off between readings instead of sitting powered."
         ]
       },
       {
         "h": "What rev 3 added",
         "p": [
-          "microSD logging, an IMU and I²S audio, RGB status indicators, a smaller board outline and broken-out I²C and GPIO headers for field expansion. Gerbers, BOM and netlists went out after a DRC and DFM review on each run.",
-          "The gallery below has all four copper layers and both 3D renders."
+          "Rev 3 added microSD logging, an IMU, I²S audio, RGB status lights, a smaller outline, and I²C and GPIO headers for adding things in the field. Before each run I did a DRC and DFM review and then sent out the Gerbers, BOM and netlists.",
+          "You can see all four copper layers and both 3D renders in the gallery below."
         ]
       }
     ],
@@ -274,7 +274,7 @@
     "ref": "U2",
     "kicker": "M.Tech capstone · Revision 2 of 3",
     "title": "AgroSense Node rev 2",
-    "lede": "The revision that went to four copper layers — MPPT solar harvesting and a multi-rail power tree on 82 × 80 mm, and the bring-up that found two real layout mistakes.",
+    "lede": "The revision where I moved to four copper layers: MPPT solar charging and a multi-rail power tree on an 82 × 80 mm board, and the bring-up that showed me two real layout mistakes.",
     "meta": {
       "Role": "Schematic, layout",
       "Year": "2025",
@@ -290,23 +290,23 @@
       {
         "h": "Where it sits",
         "p": [
-          "The AgroSense node went through three revisions: <a href=\"agrosense-1.html\">rev 1</a> was a 2-layer prototype, <a href=\"agrosense-2.html\">rev 2</a> moved to four copper layers, and <a href=\"agrosense-3.html\">rev 3</a> is the one in the field. Each build folded in what the previous one's bring-up found rather than patching faults on the bench.",
-          "Rev 2 is where the board went to four copper layers — 82 × 80 mm, 195 components."
+          "I built the AgroSense node in three revisions. Rev 1 was a 2-layer prototype, rev 2 moved to four layers, and rev 3 is the one out in the field. Each time, I fixed what the last board's bring-up had shown me in the next layout instead of patching it on the bench.",
+          "Rev 2 is where I went to four copper layers. It's 82 × 80 mm with 195 components."
         ]
       },
       {
         "h": "Power",
         "p": [
-          "Solar input through an MPPT charge controller with a wide input range, so the same board works behind panels of quite different sizes. Battery charging and reverse-current protection are handled separately from the harvesting stage, with a load switch between the pack and the rails downstream.",
-          "A buck gives the 3.3 V logic rail; boost converters give 5 V and a selectable 9/12 V for sensors that need more. Keeping those separate rather than sharing one supply is what makes it possible to shut most of the board down between readings."
+          "Solar comes in through an MPPT charge controller with a wide input range, so the same board works with panels of quite different sizes. I kept battery charging and reverse-current protection separate from the harvesting stage, with a load switch between the battery and everything after it.",
+          "A buck converter makes the 3.3 V logic rail, and boost converters make 5 V and a selectable 9 or 12 V for sensors that need more. Keeping them separate instead of sharing one supply is what lets me shut most of the board down between readings."
         ]
       },
       {
         "h": "What bring-up found",
         "p": [
-          "Two faults on the first assembled boards, both mine, both layout rather than part choice.",
-          "The USB data pair to the UART bridge was routed reversed, so the board wouldn't enumerate. And the boost converter section didn't route cleanly — the ground return and via placement around the switching node weren't good enough.",
-          "Both went into <a href=\"agrosense-3.html\">rev 3</a> rather than getting patched on the bench. That's the honest version of this board: it worked, with two defects that taught me more than the parts that came out right first time."
+          "The first assembled boards had two faults. Both were my mistakes, and both were in the layout, not in the parts I chose.",
+          "I had routed the USB data pair to the UART bridge the wrong way round, so the board wouldn't show up on a computer. And the boost converter didn't route cleanly: the ground return and the vias around the switching node weren't good enough.",
+          "I fixed both in rev 3 instead of patching them on the bench. The board did work, but those two mistakes taught me more than the parts that worked first time."
         ]
       }
     ],
@@ -396,7 +396,7 @@
     "ref": "U3",
     "kicker": "M.Tech capstone · Revision 1 of 3",
     "title": "AgroSense Node rev 1",
-    "lede": "The two-layer prototype that started the AgroSense line — scheduled soil and climate sampling, RTC-driven deep sleep, solar charging and a long-range uplink to a gateway.",
+    "lede": "The two-layer prototype that started AgroSense. It sampled soil and weather on a schedule, slept between readings using an RTC, charged from solar, and sent its data over a long-range link to a gateway.",
     "meta": {
       "Role": "Schematic, layout",
       "Year": "2025",
@@ -412,21 +412,21 @@
       {
         "h": "Where it sits",
         "p": [
-          "The AgroSense node went through three revisions: <a href=\"agrosense-1.html\">rev 1</a> was a 2-layer prototype, <a href=\"agrosense-2.html\">rev 2</a> moved to four copper layers, and <a href=\"agrosense-3.html\">rev 3</a> is the one in the field. Each build folded in what the previous one's bring-up found rather than patching faults on the bench.",
-          "Rev 1 is the two-layer prototype — the one that had to prove the idea held together before spending four layers on it."
+          "I built the AgroSense node in three revisions. Rev 1 was a 2-layer prototype, rev 2 moved to four layers, and rev 3 is the one out in the field. Each time, I fixed what the last board's bring-up had shown me in the next layout instead of patching it on the bench.",
+          "Rev 1 is the two-layer prototype. Its job was to prove the idea worked before I spent money on four layers."
         ]
       },
       {
         "h": "What it did",
         "p": [
-          "Measure soil moisture, water level, temperature and humidity at set intervals and send them to a gateway, instead of someone walking the field with a meter. Controller, radio, real-time clock, solar charging and the wired sensor interface all on one board.",
-          "It was built around being asleep most of the time: an RTC wakes the controller on schedule and the board drops back into deep sleep between readings. That's the difference between a node that lasts a season and one that needs a visit every fortnight."
+          "It measured soil moisture, water level, temperature and humidity at set times and sent the readings to a gateway, so nobody had to walk the field with a meter. The controller, radio, real-time clock, solar charging and the wired sensor connections were all on one board.",
+          "I designed it to be asleep most of the time. An RTC wakes the controller on schedule, and the board goes back into deep sleep between readings. That's what lets a node last a whole season instead of needing a visit every two weeks."
         ]
       },
       {
         "h": "What it led to",
         "p": [
-          "The two-layer layout worked but left no room to improve the radio's reference plane, and the power tree was tighter than it wanted to be. Both fed straight into <a href=\"agrosense-2.html\">rev 2</a>."
+          "The two-layer layout worked, but it didn't leave me room to give the radio a better ground plane, and the power section was more cramped than I wanted. Both of those went straight into rev 2."
         ]
       }
     ],
@@ -493,7 +493,7 @@
     "ref": "U4",
     "kicker": "Dletabotix · Employer work",
     "title": "Dletabotix Kit Hardware",
-    "lede": "Two boards behind a classroom robotics kit: a multi-function controller that students assemble themselves, and a USB-host programmer that lets a whole bench of BBC micro:bits be reflashed without a PC.",
+    "lede": "Two boards for a classroom robotics kit: a multi-function controller that students put together themselves, and a USB-host programmer that reflashes a whole bench of BBC micro:bits without a PC.",
     "meta": {
       "Role": "Schematic, layout, firmware",
       "Year": "2026",
@@ -509,28 +509,28 @@
       {
         "h": "What I worked on",
         "p": [
-          "At Dletabotix I design the electronics for their classroom robotics kits. Two boards so far, both cost-optimised 2-layer designs, because a classroom set is bought by the dozen.",
-          "The constraint that shapes both is that the user is actively trying to get it wrong, and is meant to. Every external connection is keyed so a sensor can't be seated backwards, the through-hole parts are the ones students solder, and the microcontroller sits in a socket so a board killed by a wiring mistake is a swap rather than a rework job."
+          "At Dletabotix I design the electronics for the company's classroom robotics kits. So far that's two boards, both low-cost 2-layer designs, because schools buy them by the dozen.",
+          "What shapes both boards is that students will plug things in wrong, and that's part of how they learn. So every external connector is keyed so a sensor can't go in backwards, students solder the through-hole parts themselves, and the microcontroller sits in a socket. If a wiring mistake kills it, you swap the chip instead of reworking the board."
         ]
       },
       {
         "h": "The controller board",
         "p": [
-          "An Arduino Nano carrier with dual H-bridge drivers across four motor channels, keyed connectors for ultrasonic, IR, light and RGB modules, and Bluetooth for control from a phone. Power is a two-cell Li-ion charger with protection, fed from USB-C or a barrel jack, with switching regulators for the rails. A robot on a bench with a cable in it should still drive, so charge and load current are managed separately."
+          "It's an Arduino Nano carrier with dual H-bridge drivers for four motors, keyed connectors for ultrasonic, IR, light and RGB modules, and Bluetooth so it can be driven from a phone. Power comes from a protected two-cell Li-ion charger fed by USB-C or a barrel jack, with switching regulators for the rails. I kept the charging current and the load current separate, so a robot on the bench with a cable plugged in can still drive."
         ]
       },
       {
         "h": "The micro:bit programmer",
         "p": [
-          "A micro:bit is normally programmed by dragging a file onto the USB drive its debug interface exposes — fine with one, miserable with thirty and one teacher.",
-          "This board uses an ESP32-S3 in USB host mode to mount that drive itself and write the firmware image, sourced over Wi-Fi or from on-board storage. Load it once, then plug in each micro:bit in turn. A TFT and buttons drive the flow, and a firmware-enabled 5 V rail means the target is only live when the programmer intends it."
+          "Normally you program a micro:bit by dragging a file onto the USB drive it shows up as. That's fine for one board, but painful when one teacher has thirty.",
+          "This board uses an ESP32-S3 in USB host mode to mount that drive itself and copy the firmware onto it, either over Wi-Fi or from on-board storage. You load the file once and then plug in each micro:bit in turn. A TFT screen and buttons guide you through it, and the micro:bit only gets 5 V when the firmware switches it on."
         ]
       },
       {
         "h": "Bring-up",
         "p": [
-          "First-article checks on each board — power rails, peripherals, current draw — then signal-level fault-finding with a scope and logic analyser across prototype iterations.",
-          "On the firmware side I also wrote the kit's mode handling. The line sensors calibrate themselves on every run rather than trusting a trimmer set at the factory, which is what lets the kit work on whatever the classroom floor happens to be."
+          "For each board I do the first-article checks (power rails, peripherals and current draw), and then I track down faults at the signal level with a scope and a logic analyser across the prototype versions.",
+          "I also wrote the kit's mode handling in firmware. The line sensors calibrate themselves every time they run instead of relying on a trimmer set at the factory, so the kit works on whatever floor the classroom has."
         ]
       }
     ],
@@ -610,7 +610,7 @@
     "ref": "U5",
     "kicker": "Unnova Systems · Grid OS · Employer work",
     "title": "Grid OS Telematics & Audio",
-    "lede": "The boards behind Grid OS's vehicle trackers and cellular audio devices — 2- and 4-layer designs in Altium, and the production panels they ship on.",
+    "lede": "The boards inside Grid OS's vehicle trackers and cellular audio devices. I designed 2- and 4-layer boards in Altium, and the production panels they ship on.",
     "meta": {
       "Role": "PCB design",
       "Year": "2025 — 2026",
@@ -626,20 +626,20 @@
       {
         "h": "What I worked on",
         "p": [
-          "During my time at Grid OS I worked on the boards behind their vehicle trackers and their cellular audio devices — the countertop and handheld units that read a payment out loud.",
-          "Both are built around a cellular module with a SIM interface, battery-backed power and an antenna that has to work inside someone else's enclosure. I did schematic capture and layout on 2- and 4-layer stackups in Altium: impedance-controlled routing for the USB and radio traces, antenna keepouts and ground fencing, the audio codec section, and the switching supplies that feed all of it."
+          "At Grid OS I worked on the boards inside their vehicle trackers and their cellular audio devices, the countertop and handheld units that read payments out loud.",
+          "Both are built around a cellular module with a SIM interface, battery-backed power, and an antenna that has to work inside someone else's enclosure. I did the schematics and layout on 2- and 4-layer stackups in Altium: impedance-controlled routing for the USB and radio lines, antenna keepouts and ground fencing, the audio codec section, and the switching supplies that power everything."
         ]
       },
       {
         "h": "Panels",
         "p": [
-          "I also drew the production panels these boards ship on — V-score separation, breakaway rails, fiducials and tooling holes, laid out to suit the assembler's machine rather than just to fit. Three of them are in the gallery below."
+          "I also drew the production panels the boards ship on, with V-score separation, breakaway rails, fiducials and tooling holes, laid out for the assembler's machines and not just to fit. Three of them are in the gallery below."
         ]
       },
       {
         "h": "Release",
         "p": [
-          "Each design went out as a manufacturing package rather than a board file: Gerbers, drill files, test-point mapping, an impedance profile and a BOM, after design-rule and manufacturability checks."
+          "Each design went out as a complete manufacturing package, not just a board file: Gerbers, drill files, a test-point map, an impedance profile and a BOM, after design-rule and manufacturability checks."
         ]
       }
     ],
@@ -699,7 +699,7 @@
     "ref": "U6",
     "kicker": "NIELIT CoE internship · Chip design",
     "title": "32-bit ALU — RTL to GDSII",
-    "lede": "A complete open-source ASIC flow for a 32-bit arithmetic logic unit: 29 operations, a Brent–Kung parallel prefix adder, 7,372 standard cells placed and 8,135 nets routed with zero DRC violations on 0.18 µm.",
+    "lede": "A 32-bit ALU I took through a full open-source chip design flow: 29 operations, a Brent–Kung adder, 7,372 standard cells placed and 8,135 nets routed with zero DRC violations on 0.18 µm.",
     "meta": {
       "Role": "RTL, synthesis, physical design",
       "Year": "2025",
@@ -715,22 +715,22 @@
       {
         "h": "What I built",
         "p": [
-          "A 32-bit ALU taken all the way from Verilog to a fabrication-ready GDSII during an internship at NIELIT's Centre of Excellence in Chip Design — using only open-source tools: Yosys, GrayWolf, Qrouter and Magic.",
-          "It does 29 operations: signed and unsigned add, subtract, multiply and divide, all sixteen boolean functions, and three shift types."
+          "During my internship at NIELIT's Centre of Excellence in Chip Design, I took a 32-bit ALU all the way from Verilog to a GDSII file ready for fabrication, using only open-source tools: Yosys, GrayWolf, Qrouter and Magic.",
+          "It does 29 operations: signed and unsigned add, subtract, multiply and divide, all sixteen boolean functions, and three kinds of shift."
         ]
       },
       {
         "h": "The design decisions",
         "p": [
-          "Arithmetic speed comes from a Brent–Kung parallel prefix adder, which trades wiring for a carry path that grows logarithmically rather than linearly. It ends up being the critical path of the whole design.",
-          "Multiply and divide run as sequential state machines over 32 cycles instead of combinational arrays — a deliberate area-for-latency trade, since a full 32-bit combinational multiplier would have dominated the cell count for operations that aren't on the hot path."
+          "For fast addition I used a Brent–Kung parallel prefix adder. It needs more wiring, but the carry path grows logarithmically instead of linearly. Even so, it ended up being the critical path of the whole design.",
+          "I made multiply and divide sequential state machines that take 32 cycles, instead of building them as combinational arrays. That was on purpose: a full 32-bit combinational multiplier would have taken most of the cells, for operations that don't need to be that fast here."
         ]
       },
       {
         "h": "How it came out",
         "p": [
-          "7,372 standard cells, a 5.24 ns critical path for about 190 MHz, and 8,135 nets routed with zero DRC violations on 0.18 µm. Verification passed 66 of 66 randomised tests across three seeds.",
-          "Mostly it's an argument that the open-source flow is mature enough for real digital blocks, not just teaching examples."
+          "The result was 7,372 standard cells, a 5.24 ns critical path (about 190 MHz), and 8,135 nets routed with zero DRC violations on 0.18 µm. It passed all 66 randomised tests across three seeds.",
+          "For me it showed that the open-source flow is good enough for real digital blocks, not just classroom examples."
         ]
       }
     ],
@@ -818,7 +818,7 @@
     "ref": "U7",
     "kicker": "Personal board",
     "title": "Arduino Nano — 12 V Input",
-    "lede": "A pin-compatible Arduino Nano rebuilt for industrial supplies: 12 V input through a switching pre-regulator, USB-C with ESD protection on the data lines, and debug headers actually brought out.",
+    "lede": "An Arduino Nano I redesigned for 12 V supplies. It keeps the same pinout, but takes 12 V through a switching regulator, uses USB-C with ESD protection on the data lines, and brings out proper debug headers.",
     "meta": {
       "Role": "Schematic, layout",
       "Year": "2025",
@@ -832,17 +832,17 @@
     },
     "body": [
       {
-        "h": "Why rebuild a Nano",
+        "h": "Why I rebuilt a Nano",
         "p": [
-          "A stock Arduino Nano regulates its input with a linear regulator. Feed it 12 V — which is what an industrial or automotive supply gives you — and the regulator burns the difference as heat, which limits what the rest of the board can draw before it shuts down.",
-          "I kept the Nano pinout so existing shields and code still work, and replaced the front end."
+          "A normal Arduino Nano uses a linear regulator on its input. If you feed it 12 V, which is what industrial and car supplies give you, the regulator turns the extra voltage into heat, and that limits how much the rest of the board can draw before it shuts down.",
+          "I kept the Nano pinout so existing shields and code still work, and redesigned the power input."
         ]
       },
       {
         "h": "What I changed",
         "p": [
-          "A buck converter takes 12 V to 5 V, and an LDO derives 3.3 V from that, so the analogue rail isn't carrying switching ripple directly.",
-          "USB-C instead of mini-B, with ESD protection on the data lines — that's the failure mode that actually kills development boards on a busy bench. Beyond the standard headers I brought out separate UART, I²C and ICSP, which sounds minor until you're trying to get a logic analyser onto a bus buried under a shield."
+          "A buck converter brings 12 V down to 5 V, and an LDO makes 3.3 V from that, so the analogue rail doesn't get the switching ripple directly.",
+          "I swapped mini-B for USB-C and put ESD protection on the data lines, because that's what usually kills development boards on a busy bench. On top of the normal headers I added separate UART, I²C and ICSP headers. That sounds small, but it really helps when you're trying to clip a logic analyser onto a bus that's hidden under a shield."
         ]
       }
     ],
@@ -913,7 +913,7 @@
     "ref": "U8",
     "kicker": "B.Tech final year project",
     "title": "Network Rover + Surveillance",
-    "lede": "A Wi-Fi controlled rover carrying live video, a pan-tilt camera and a robotic arm, with cloud telemetry and an eight-channel relay board for home automation — the project that pulled everything from four years together.",
+    "lede": "My B.Tech final-year project: a Wi-Fi rover with live video, a pan-tilt camera and a robotic arm, plus cloud telemetry and an eight-channel relay board for home automation. It pulled together everything I'd learned in four years.",
     "meta": {
       "Role": "Hardware, firmware, integration",
       "Year": "2018",
@@ -929,21 +929,21 @@
       {
         "h": "What it is",
         "p": [
-          "My B.Tech final-year project: three things in one build — a drivable rover with live video, a remotely operated robotic arm, and a home automation controller, all reachable over the network from one interface."
+          "This was my B.Tech final-year project, and it's really three things in one build: a rover you can drive with live video, a robotic arm you can control remotely, and a home automation controller. You reach all of them over the network from one interface."
         ]
       },
       {
         "h": "How it's split",
         "p": [
-          "A Raspberry Pi runs the Python side — camera streaming, cloud communication, command parsing. Arduino boards handle the real-time work: motors, servo timing, sensor polling. That split is what keeps the video from stuttering every time a motor changes direction.",
-          "The camera sits on a two-axis mount driven through an I²C servo controller, which keeps sixteen servo channels off the Pi's timing-sensitive GPIO. Ultrasonic and IR sensors handle obstacles; fire and temperature sensors cover the surveillance side.",
-          "Telemetry goes to a cloud service for logging and remote commands, and appliance switching is exposed through Google Assistant as well as the dashboard."
+          "A Raspberry Pi runs the Python side: camera streaming, talking to the cloud and parsing commands. Arduino boards handle the real-time jobs like motors, servo timing and reading sensors. Splitting it that way is what stops the video from stuttering every time a motor changes direction.",
+          "The camera sits on a two-axis mount driven through an I²C servo controller, which takes sixteen servo channels off the Pi's GPIO. Ultrasonic and IR sensors handle obstacles, and fire and temperature sensors cover the surveillance side.",
+          "Telemetry goes to a cloud service for logging and remote commands, and you can switch appliances through Google Assistant as well as from the dashboard."
         ]
       },
       {
         "h": "Power",
         "p": [
-          "A Li-ion pack with a BMS feeding a step-down converter. The rover runs motors, servos, a Pi and a camera at once, and the Pi is the first thing to brown out when the supply sags as the motors start."
+          "Power comes from a Li-ion pack with a BMS, feeding a step-down converter. The rover runs motors, servos, a Pi and a camera at the same time, and when the motors start and the supply dips, the Pi is the first thing to brown out."
         ]
       }
     ],
@@ -1022,7 +1022,7 @@
     "ref": "U9",
     "kicker": "B.Tech mini project",
     "title": "Night Vision Rover",
-    "lede": "A Raspberry Pi rover driven from a Python program over the network, with an infrared camera on a two-axis servo mount for low-light surveillance.",
+    "lede": "A Raspberry Pi rover I drove over the network from a Python program, with an infrared camera on a pan-tilt servo mount so it can see in the dark.",
     "meta": {
       "Role": "Hardware, firmware",
       "Year": "2017",
@@ -1038,15 +1038,15 @@
       {
         "h": "What it does",
         "p": [
-          "A Raspberry Pi rover driven over the network from a Python program on a PC — drive commands, camera angle and lighting all across the same link. The infrared camera is the point: it works in the dark.",
-          "Camera orientation is two servos, horizontal and vertical, commanded through an I²C controller so the Pi isn't bit-banging servo pulses while also streaming video."
+          "It's a Raspberry Pi rover that I drove over the network from a Python program on my PC. Driving, the camera angle and the lights all go over the same link. The infrared camera is the main point: it works in the dark.",
+          "The camera is aimed by two servos, one horizontal and one vertical, controlled through an I²C servo driver so the Pi doesn't have to generate servo pulses itself while it's streaming video."
         ]
       },
       {
         "h": "What it led to",
         "p": [
-          "Commands arrive over Wi-Fi, get parsed, and dispatch to separate modules for motion, lighting and camera angle. Keeping those apart rather than in one loop is what made it maintainable enough to keep extending.",
-          "The camera mount and the command-parsing approach both carried straight into the <a href=\"network-rover.html\">final-year rover</a>."
+          "Commands come in over Wi-Fi, get parsed, and go to separate modules for driving, lights and camera angle. Keeping those separate instead of in one big loop made it easy to keep adding to.",
+          "I reused both the camera mount and the way I parsed commands in my final-year rover."
         ]
       }
     ],
@@ -1104,7 +1104,7 @@
     "ref": "U10",
     "kicker": "B.Tech mini project",
     "title": "Bluetooth Multi-Task Rover",
-    "lede": "One chassis, three behaviours — manual drive from an Android app, line following, and obstacle avoidance — with mode and message display on an onboard LCD.",
+    "lede": "One rover with three behaviours: manual driving from an Android app, line following and obstacle avoidance, with the current mode and messages shown on an LCD.",
     "meta": {
       "Role": "Hardware, firmware",
       "Year": "2017",
@@ -1120,15 +1120,15 @@
       {
         "h": "Three robots in one",
         "p": [
-          "The rover takes single-character commands over Bluetooth from an Android app and switches between three modes: manual drive, line following on infrared sensors, and obstacle avoidance on ultrasonic ranging.",
-          "A 16×2 LCD shows the current mode, live sensor state, or whatever text you send it from the phone — which turned out to be the feature everyone actually wanted to play with."
+          "The rover takes single-letter commands over Bluetooth from an Android app and switches between three modes: manual driving, following a line with infrared sensors, and avoiding obstacles with an ultrasonic sensor.",
+          "A 16×2 LCD shows the current mode, live sensor readings, or any text you send from your phone. That last one turned out to be the feature everyone wanted to play with."
         ]
       },
       {
         "h": "How it's written",
         "p": [
-          "Arduino C++ on an Uno, motors through a dual H-bridge. The mode switch is a state machine so transitions are clean rather than leaving a motor latched from the previous mode.",
-          "One function per behaviour over shared drive primitives — which is what made it easy to bolt a vacuum mechanism onto the same codebase for the <a href=\"vacuum-robot.html\">cleaning robot</a>."
+          "It's Arduino C++ on an Uno, with the motors on a dual H-bridge. I wrote the mode switching as a state machine, so changing modes is clean and a motor doesn't stay stuck on from the previous mode.",
+          "Each behaviour is its own function built on shared driving functions, which made it easy to add a vacuum to the same code later for my cleaning robot."
         ]
       }
     ],
@@ -1185,7 +1185,7 @@
     "ref": "U11",
     "kicker": "B.Tech mini project",
     "title": "Bluetooth Home Automation",
-    "lede": "Relay-switched mains appliances driven from an Android app over Bluetooth, with a scene mode that sequences several devices from a single command.",
+    "lede": "Mains appliances switched by relays from an Android app over Bluetooth, with a scene mode that switches several devices with one command.",
     "meta": {
       "Role": "Hardware, firmware",
       "Year": "2017",
@@ -1201,14 +1201,14 @@
       {
         "h": "What it does",
         "p": [
-          "Lights, fans and other mains appliances switched by relays from an Arduino, driven from an Android app over Bluetooth. Each command maps to a device and an action, and a scene mode sequences several devices from one command — for shutting a room down without sending five separate instructions."
+          "An Arduino switches lights, fans and other mains appliances through relays, and you control it from an Android app over Bluetooth. Each command maps to a device and an action. I also added a scene mode that switches several devices with one command, so you can shut a room down without sending five separate commands."
         ]
       },
       {
         "h": "Doing it safely",
         "p": [
-          "Anything switching mains deserves respect. The relay modules are opto-isolated from the logic side, the low-voltage and mains sections are physically separated, and it runs off a properly regulated supply rather than a bench adapter.",
-          "The firmware tracks relay state rather than inferring it, so what's on is always known."
+          "Because it switches mains voltage, I was careful with it. The relay modules are opto-isolated from the logic side, the low-voltage and mains parts are kept physically apart, and it runs from a proper regulated supply instead of a bench adapter.",
+          "The firmware keeps track of each relay's state instead of guessing it, so it always knows what's on."
         ]
       }
     ],
@@ -1255,7 +1255,7 @@
     "ref": "U12",
     "kicker": "Personal build",
     "title": "Vacuum Cleaning Robot",
-    "lede": "An autonomous cleaner on a custom acrylic chassis — centrifugal suction, a PWM-controlled sweep brush, ultrasonic collision avoidance and an infrared cliff sensor.",
+    "lede": "A cleaning robot I built on an acrylic chassis I cut myself, with a suction fan, a PWM-controlled sweep brush, ultrasonic collision avoidance, and an infrared sensor that stops it driving off steps.",
     "meta": {
       "Role": "Hardware, firmware, chassis",
       "Year": "2017",
@@ -1271,14 +1271,14 @@
       {
         "h": "The build",
         "p": [
-          "A cleaning robot on a chassis I cut from acrylic — dual DC motors through an H-bridge, a centrifugal fan for suction, and a PWM-controlled sweep brush pulling debris into the intake. Bluetooth starts and stops it, and a physical toggle arms the cleaning mechanism separately from the drive so you can move it without it running."
+          "I cut the chassis from acrylic and built the robot on it: two DC motors on an H-bridge, a centrifugal fan for suction, and a sweep brush, with its speed set by PWM, that pushes dirt into the intake. Bluetooth starts and stops it, and a separate switch turns the cleaning parts on, so you can move it around without the fan and brush running."
         ]
       },
       {
         "h": "Not falling down the stairs",
         "p": [
-          "Collision avoidance is ultrasonic. Cliff detection — the part that stops it driving off a step — is an infrared sensor pointed at the floor, which is the cheap and reliable way to solve that.",
-          "Status streams over serial, which matters more than it sounds: watching the sensor values live is the only practical way to tune the thresholds for a particular floor."
+          "It avoids walls with an ultrasonic sensor. To stop it driving off a step, there's an infrared sensor pointed at the floor. It's cheap and it works reliably.",
+          "It sends its status over serial, which helped more than I expected: watching the sensor values live was the only practical way to tune the thresholds for each floor."
         ]
       }
     ],
@@ -1340,12 +1340,12 @@
     "ref": "U13",
     "kicker": "This website",
     "title": "Colophon",
-    "lede": "How this site is built: hand-written HTML, CSS and JavaScript, no framework, no build step, and a theme switch modelled on a PCB layer stackup.",
+    "lede": "How I built this site: a 3D portfolio made with Vite and three.js, where the board in the background is my real AgroSense rev 3, rebuilt from its layout data.",
     "meta": {
       "Role": "Design and build",
       "Year": "2026",
-      "Stack": "HTML, CSS, JavaScript",
-      "Dependencies": "None"
+      "Stack": "Vite, three.js, GSAP, Lenis",
+      "Hosting": "GitHub Pages"
     },
     "hero": {
       "src": "project/blog.jpg",
@@ -1356,29 +1356,28 @@
       {
         "h": "The idea",
         "p": [
-          "The site is modelled on a printed circuit board, because that's what I do. The hero is a routed board with traces at 45° and 90°, carrying signal pulses along the copper. Section headers are silkscreen legends, project cards carry component designators, and the theme switch is a layer selector: silkscreen, copper, or bare FR-4 substrate.",
-          "The previous version was an adapted Bootstrap template. This one is written from scratch."
+          "I wanted the site to look like the work I do. The board floating behind every page is my AgroSense rev 3 node. The model comes from the Blender scene I made for the board's build video, and the copper, solder mask, silkscreen and gold pads are drawn by a shader from images made out of the real Gerbers.",
+          "As you scroll, the camera moves between close-ups of real parts on that board: the ESP32-S3 module, the 6-pin header, the SOIC next to the card slot and the USB-C edge. Then it flips over to the bottom side, where the RGB LEDs light up."
         ]
       },
       {
         "h": "How it's built",
         "p": [
-          "No framework, no bundler, no package manager — one stylesheet, one script and static HTML, so deploying is a <code>git push</code> and nothing can rot in a dependency tree.",
-          "The old version loaded nine vendor libraries totalling about 22 MB, most of them unused on every page. All of it is gone. The lightbox is a native <code>&lt;dialog&gt;</code>, the filter is nine lines of JavaScript, and the typing effect is a <code>setTimeout</code>."
+          "It's Vite and three.js, with GSAP ScrollTrigger and Lenis for the scrolling, and no UI framework. The cards, filters and contact form are frosted glass, so the 3D shows through them.",
+          "The board model is about 210,000 triangles, compressed with Draco. If WebGL or the model doesn't load, the page still works and reads normally."
         ]
       },
       {
         "h": "Performance and motion",
         "p": [
-          "Every image is pre-generated to AVIF and WebP at four widths and served through <code>&lt;picture&gt;</code>. The original library was 114 MB of unoptimised JPEG and PNG; the derivatives are a fraction of that, and any single page pulls only a handful. Fonts are self-hosted variable subsets — three families, 100 KB.",
-          "Scroll reveals use CSS scroll timelines where the browser supports them, with an IntersectionObserver fallback. Navigating to a case study uses cross-document View Transitions so the card morphs into the page hero instead of flashing white.",
-          "All of it is gated on <code>prefers-reduced-motion</code> in both CSS and JavaScript. If you have reduced motion enabled, nothing here moves."
+          "I measured the frame rate while I built it. The biggest costs turned out to be CSS, not the 3D: 116 blurred capability chips and a full-page grain overlay. Fixing those two did more than any change to the renderer.",
+          "If you have reduced motion turned on, the smooth scrolling, reveals and animation all back off."
         ]
       },
       {
         "h": "Credit",
         "p": [
-          "The previous version of this portfolio was adapted from <a href=\"https://github.com/R-TharunReddy/My_Portfolio\">R-TharunReddy/My_Portfolio</a> under its original licence. None of that code remains, but the site ran on it for a long time and the credit is owed.",
+          "An earlier version of this portfolio was adapted from <a href=\"https://github.com/R-TharunReddy/My_Portfolio\">R-TharunReddy/My_Portfolio</a> under its original licence. None of that code is left, but the site ran on it for a long time, so I want to credit it.",
           "Source: <a href=\"https://github.com/Alita-Tempest/Portfolio\">github.com/Alita-Tempest/Portfolio</a>."
         ]
       }
@@ -1386,64 +1385,271 @@
     "specs_caption": "Stack",
     "specs": [
       [
-        "Markup",
-        "Hand-written HTML"
+        "Bundler",
+        "Vite"
       ],
       [
-        "Styles",
-        "One CSS file, OKLCH tokens"
+        "3D",
+        "three.js, Draco-compressed GLB models"
       ],
       [
-        "Script",
-        "One file, no dependencies"
+        "Scrolling",
+        "GSAP ScrollTrigger + Lenis"
+      ],
+      [
+        "Hero model",
+        "AgroSense rev 3, about 210k triangles"
+      ],
+      [
+        "Board surface",
+        "Shader driven by Gerber-derived textures"
       ],
       [
         "Fonts",
-        "3 self-hosted variable subsets, 100 KB"
+        "3 self-hosted variable fonts"
       ],
       [
         "Images",
-        "AVIF + WebP, 4 widths, pre-generated"
+        "WebP"
       ],
       [
-        "Themes",
-        "3 layers via CSS custom properties"
-      ],
-      [
-        "Motion",
-        "Scroll timelines, View Transitions"
+        "Contact form",
+        "Web3Forms"
       ],
       [
         "Hosting",
         "GitHub Pages"
-      ],
-      [
-        "Build step",
-        "None"
       ]
     ],
     "metrics": [
       {
+        "v": "210k",
+        "l": "Triangles",
+        "s": "the real AgroSense rev 3 board"
+      },
+      {
+        "v": "6",
+        "l": "Camera shots",
+        "s": "one per section"
+      },
+      {
         "v": "0",
-        "l": "Dependencies",
-        "s": "runtime and build"
-      },
-      {
-        "v": "22 MB",
-        "l": "Vendor code removed",
-        "s": "9 unused libraries"
-      },
-      {
-        "v": "100 KB",
-        "l": "All fonts",
-        "s": "3 families, variable"
-      },
-      {
-        "v": "3",
-        "l": "Layer themes"
+        "l": "UI frameworks",
+        "s": "plain JavaScript"
       }
     ],
     "gallery": [],
     "prev": "vacuum-robot"
+  },
+  {
+    "slug": "nrf54-altimeter",
+    "ref": "F1",
+    "group": "freelance",
+    "kicker": "Freelance · Client project",
+    "title": "nRF54 Audible Altimeter",
+    "lede": "A small board I designed around the Seeed XIAO nRF54LM20A for an altimeter that tells you your altitude by sound. All of it had to fit in a 56 × 52 × 11 mm case, along with a speaker and a battery.",
+    "meta": {
+      "Role": "Schematic, layout",
+      "Year": "2026",
+      "Stackup": "2 copper layers",
+      "Tools": "EasyEDA Pro"
+    },
+    "hero": {
+      "src": "project/NRF54Alti/3d-angle.png",
+      "alt": "3D render of the nRF54 altimeter board: XIAO nRF54LM20A module, debug header, speaker and battery connectors",
+      "caption": "3D view — XIAO nRF54LM20A carrier, top side"
+    },
+    "body": [
+      {
+        "h": "What the client wanted",
+        "p": [
+          "The client wanted an altimeter that beeps instead of showing a screen, and it had to fit inside a 56 × 52 × 11 mm case. The catch was that the same case also holds a 36 mm speaker and a 31 × 31 mm Li-Po battery, so those two parts decided the layout before I placed anything else. The board ended up at about 38 × 45 mm.",
+          "I built it around the XIAO nRF54LM20A module, soldered flat onto the board through its castellated edges. The module already handles the radio, USB-C charging and the 3.3 V supply, so my board only had to add the sensor, the audio and the battery protection."
+        ]
+      },
+      {
+        "h": "How it measures and makes sound",
+        "p": [
+          "Altitude comes from a Bosch BMP581 pressure sensor on I²C. I gave it its own corner of the board, and two routed slots partly separate that corner from the module and the amplifier.",
+          "For sound I used a MAX98357A, a small I²S class-D amplifier that drives the speaker through a two-pin JST connector. I wired its shutdown pin to a GPIO so the firmware can switch it off between beeps and save battery. The gain is set with resistors, and I left 0 Ω and 470 pF footprints on the outputs in case EMC testing shows we need a filter there. A 47 µF tantalum capacitor keeps the supply steady when the amplifier pulls current in bursts."
+        ]
+      },
+      {
+        "h": "Battery and debugging",
+        "p": [
+          "The Li-Po goes through a protection circuit before it reaches the module. I used an FS312F-G with an FS8205A dual MOSFET, which cuts the battery off if it's overcharged, drained too far or shorted.",
+          "For programming and debugging I put a single 1.5 mm-pitch six-pin header on the board. It gives SWD access to both the nRF54 and the SAMD11 debug chip on the module, and I labelled the pins on the back. Next to it are 3V3 and GND test points, so I can check the supply during bring-up."
+        ]
+      }
+    ],
+    "specs_caption": "Board",
+    "specs": [
+      [
+        "Module",
+        "Seeed XIAO nRF54LM20A, surface-mounted"
+      ],
+      [
+        "Sensor",
+        "Bosch BMP581 barometric pressure, I²C"
+      ],
+      [
+        "Audio",
+        "MAX98357A I²S class-D amplifier, JST speaker connector"
+      ],
+      [
+        "Battery",
+        "1S Li-Po, FS312F-G + FS8205A protection"
+      ],
+      [
+        "Debug",
+        "6-pin SWD header for the nRF54 and the SAMD11"
+      ],
+      [
+        "Enclosure",
+        "56 × 52 × 11 mm"
+      ],
+      [
+        "Board",
+        "About 38 × 45 mm, 2 copper layers, EasyEDA Pro"
+      ]
+    ],
+    "metrics": [
+      {
+        "v": "2",
+        "l": "Copper layers"
+      },
+      {
+        "v": "11 mm",
+        "l": "Enclosure depth",
+        "s": "56 × 52 mm footprint"
+      },
+      {
+        "v": "2",
+        "l": "Debug targets",
+        "s": "nRF54 + SAMD11 on one header"
+      }
+    ],
+    "gallery": [
+      "project/NRF54Alti/3d-top.png",
+      "project/NRF54Alti/3d-bottom.png",
+      "project/NRF54Alti/top-copper.png",
+      "project/NRF54Alti/bottom-copper.png",
+      "project/NRF54Alti/all-layers.png"
+    ],
+    "next": "esp32-rev-d"
+  },
+  {
+    "slug": "esp32-rev-d",
+    "ref": "F2",
+    "group": "freelance",
+    "kicker": "Freelance · Client project · Rev D",
+    "title": "ESP32 Battery Powered Controller-RevD",
+    "lede": "Revision D of a battery-powered controller I designed around the ESP32-WROOM-32E. It runs a servo, RGB LEDs and a buzzer, and most of my effort went into making the battery last.",
+    "meta": {
+      "Role": "Schematic, layout",
+      "Year": "2026",
+      "Stackup": "2 copper layers",
+      "Tools": "KiCad 10"
+    },
+    "hero": {
+      "src": "project/ESP32RevD/3d-angle.png",
+      "alt": "3D render of the ESP32 Rev D board: ESP32-WROOM-32E module, boost converter, slide switch and push button",
+      "caption": "3D view — ESP32-WROOM-32E controller, top side"
+    },
+    "body": [
+      {
+        "h": "What it does",
+        "p": [
+          "The board runs a servo, a string of addressable RGB LEDs and a buzzer, all from a battery. A tilt switch is the main input. I added a 32.768 kHz crystal so the ESP32 keeps accurate time while it's in deep sleep, and an I²C header with an interrupt line for an external RTC.",
+          "It's 53 × 34 mm on two layers, with parts on both sides. I moved the battery fuse, the power-switch MOSFETs, the buzzer and the connectors to the bottom, which left the top free for the ESP32 module and the power circuits."
+        ]
+      },
+      {
+        "h": "Making the battery last",
+        "p": [
+          "The power switch is a small slide switch, but it doesn't carry the load current. It only pulls the gate of two P-MOSFETs in parallel, and those connect the fused battery to the rest of the board. From there an ME6211 regulator gives the ESP32 a 3.3 V supply that's always on.",
+          "The 5 V comes from an MT3608 boost converter. A boost converter that's only switched off still lets battery voltage through its inductor and diode, so I added a P-MOSFET that disconnects its input completely when 5 V isn't needed. The servo gets its own switched 5 V supply with a 100 µF capacitor next to it. I put a pull-down on every enable line, so nothing turns on by accident while the ESP32 is still starting up.",
+          "To read the battery voltage I used a 1 MΩ / 1 MΩ divider, so measuring it only costs about 2 µA."
+        ]
+      },
+      {
+        "h": "The smaller details",
+        "p": [
+          "The ESP32 works at 3.3 V but the LEDs expect a 5 V data signal, so the data line goes through a 74AHCT1G125 buffer powered from 5 V. The buzzer is driven by a MOSFET with a flyback diode. Its footprint overlaps a three-pin servo header, so the board can be built with one or the other, and I wrote a custom DRC rule to allow that overlap.",
+          "When it was done I released the Gerbers, drill files, BOM, a JLCPCB pick-and-place file and a STEP model, after running DRC against JLCPCB's rules."
+        ]
+      }
+    ],
+    "specs_caption": "Board",
+    "specs": [
+      [
+        "Module",
+        "ESP32-WROOM-32E"
+      ],
+      [
+        "Board",
+        "53 × 34 mm, 2 copper layers, parts on both sides"
+      ],
+      [
+        "Power switch",
+        "Fused input, slide switch on the gate of paralleled P-MOSFETs"
+      ],
+      [
+        "3.3 V",
+        "ME6211 LDO, always on"
+      ],
+      [
+        "5 V",
+        "MT3608 boost with a P-MOSFET input disconnect"
+      ],
+      [
+        "Servo",
+        "Separately switched 5 V rail, 100 µF bulk"
+      ],
+      [
+        "LEDs",
+        "Addressable RGB, 74AHCT1G125 level shifter"
+      ],
+      [
+        "Inputs",
+        "Tilt switch, push button, battery-voltage ADC"
+      ],
+      [
+        "Timekeeping",
+        "32.768 kHz crystal, I²C RTC header"
+      ],
+      [
+        "Release",
+        "Gerber, drill, BOM, JLCPCB pick-and-place, STEP"
+      ],
+      [
+        "Tools",
+        "KiCad 10"
+      ]
+    ],
+    "metrics": [
+      {
+        "v": "53 × 34",
+        "l": "Board size, mm"
+      },
+      {
+        "v": "2",
+        "l": "Copper layers",
+        "s": "parts on both sides"
+      },
+      {
+        "v": "≈2 µA",
+        "l": "Battery-sense draw",
+        "s": "1 MΩ / 1 MΩ divider"
+      }
+    ],
+    "gallery": [
+      "project/ESP32RevD/3d-top.png",
+      "project/ESP32RevD/3d-bottom.png",
+      "project/ESP32RevD/top-copper.png",
+      "project/ESP32RevD/bottom-copper.png",
+      "project/ESP32RevD/all-layers.png"
+    ],
+    "prev": "nrf54-altimeter"
   }
 ]

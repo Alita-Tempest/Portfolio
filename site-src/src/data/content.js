@@ -28,39 +28,52 @@ export const stats = [
 export const disciplines = [
   {
     n: '01', h: 'PCB design',
-    p: 'Schematic capture, 2- and 4-layer layout, impedance control, RF and mixed-signal partitioning, power-path design, DFM and manufacturing hand-off.',
+    p: 'I draw the schematic and lay out 2- and 4-layer boards. That covers impedance control, keeping RF and mixed-signal sections apart, the power path, and getting the files ready for manufacturing.',
   },
   {
     n: '02', h: 'Hardware design',
-    p: 'Analogue and digital circuit design — regulator topology and part selection, protection and filtering, thermal management — then bench bring-up, functional testing and system-level fault diagnosis.',
+    p: 'I choose the regulators and parts, add protection and filtering, and think about heat. Then I bring the board up on the bench, test it, and track down whatever doesn’t work.',
   },
   {
     n: '03', h: 'Embedded firmware',
-    p: 'Embedded C on ESP32-S3 under ESP-IDF and FreeRTOS. USB host, peripheral bring-up, low-power scheduling, sensor and display drivers.',
+    p: 'I write embedded C for the ESP32-S3 with ESP-IDF and FreeRTOS: USB host, getting peripherals running, low-power scheduling, and drivers for sensors and displays.',
   },
   {
     n: '04', h: 'Field protocols',
-    p: 'LoRa links with matched front ends, Modbus-RTU over RS-485, plus the usual board-level buses — UART, SPI, I²C, I²S and CAN.',
+    p: 'I’ve built LoRa links with matched front ends and Modbus-RTU over RS-485, and I use UART, SPI, I²C, I²S and CAN on the board.',
   },
   {
     n: '05', h: 'Digital / VLSI',
-    p: 'Verilog RTL, synthesis and static timing, place-and-route through to GDSII, and FPGA work in Vivado. Real training, but boards are what I do.',
+    p: 'I’ve written Verilog RTL and taken it through synthesis, timing and place-and-route to GDSII, and done FPGA work in Vivado. It’s real training, but boards are my everyday work.',
   },
 ];
 
 export const experience = [
+  {
+    from: 'Oct 2026', to: 'Present', current: true,
+    role: 'Hardware & PCB Design Engineer',
+    org: 'Freelance — client projects',
+    where: 'Remote',
+    points: [
+      'I designed an <b>audible altimeter board around a Seeed XIAO nRF54LM20A</b> in EasyEDA. It had to fit in a 56 × 52 × 11 mm case along with its speaker and battery. It reads altitude from a Bosch BMP581 sensor and plays sound through a MAX98357A amplifier that the firmware can switch off.',
+      'I added <b>single-cell Li-Po protection</b> (an FS312F-G with an FS8205A dual MOSFET), resistor-set amplifier gain, and spare footprints for an output filter in case EMC testing calls for one. A single SWD header lets me debug both the nRF54 and the module’s SAMD11.',
+      'I designed <b>Rev D of a battery-powered ESP32-WROOM-32E controller</b> in KiCad. It’s a 53 × 34 mm two-layer board with parts on both sides, and it drives a servo, RGB LEDs and a buzzer. It also has a tilt-switch input, a 32.768 kHz crystal for keeping time in deep sleep, and a header for an external RTC.',
+      'I built its <b>power circuit around a low sleep current</b>: the battery is switched through two P-MOSFETs, the ESP32 runs from an always-on 3.3 V regulator, and the 5 V boost is cut off from the battery completely when it isn’t needed. I released the Gerbers, drill files, BOM, pick-and-place and a STEP model after checking the design against JLCPCB’s rules.',
+    ],
+    tags: ['EasyEDA Pro', 'KiCad', 'nRF54', 'ESP32', 'I²S audio', 'Li-Po protection', 'Load switching', 'JLCPCB assembly'],
+  },
   {
     from: 'Mar 2026', to: 'Present', current: true,
     role: 'Embedded Electronics Engineer & PCB Designer',
     org: 'Dletabotix Private Limited',
     where: 'Guntur, India',
     points: [
-      'Design <b>schematics and cost-optimised 2-layer PCBs</b> for educational robotics kits — microcontroller boards, motor-driver modules, sensor breakouts and power management — built for low-cost manufacture, student-friendly through-hole and SMD assembly and clear silkscreen for classroom handling.',
-      'Delivered a <b>multi-function robotics controller board</b>: an Arduino Nano carrier with dual H-bridge drivers across four motor channels, keyed connectors for ultrasonic, IR, light and RGB modules, switching regulators, and a two-cell Li-ion charger with protection, USB-C and barrel-jack inputs.',
-      'Built an <b>ESP32-S3 USB-host programmer for BBC micro:bit boards</b>: a custom PCB with Li-ion charging and a switched 5 V rail that powers the target, plus a TFT and button interface and firmware that mounts the micro:bit’s USB drive and flashes .hex files over Wi-Fi or from on-board storage — no PC needed.',
-      'Bringing up an <b>ESP32-S3 robotics main control board</b> (camera, audio codec, TFT display, I/O expander, microSD) one subsystem at a time; traced a camera that returned no frames to stuck data lines at its flex connector, and resolved an I²C port conflict between the camera driver and the I/O expander.',
-      'Defined the <b>two-board architecture for a classroom humanoid robot</b>: an ESP32-S3 main controller and an ESP32-C6 motion companion for encoder motors and servos, joined by a CRC-checked link with a motor fail-safe, OTA updates over a classroom network, and a battery sized from a stall-current budget.',
-      'Perform <b>first-article bring-up and signal-level debug</b> with DSO, logic analyser and multimeter — rail validation, UART, I²C and SPI checks, current-draw characterisation, isolating shorts, regulator instability and brown-outs — and document failure modes and recovery steps for production handover.',
+      'I design the <b>schematics and low-cost 2-layer PCBs</b> for our educational robotics kits: microcontroller boards, motor-driver modules, sensor breakouts and power boards. They’re built to be cheap to make, easy for students to assemble with a mix of through-hole and SMD parts, and clearly labelled for a classroom.',
+      'I delivered a <b>multi-function robotics controller board</b>: an Arduino Nano carrier with dual H-bridge drivers for four motors, keyed connectors for ultrasonic, IR, light and RGB modules, switching regulators, and a protected two-cell Li-ion charger that runs from USB-C or a barrel jack.',
+      'I built an <b>ESP32-S3 USB-host programmer for BBC micro:bits</b>. It has its own Li-ion charging, a switched 5 V rail that powers the micro:bit, a TFT screen and buttons, and firmware that mounts the micro:bit’s USB drive and copies .hex files onto it, over Wi-Fi or from on-board storage. No PC needed.',
+      'I’m bringing up an <b>ESP32-S3 robotics main control board</b> (camera, audio codec, TFT, I/O expander and microSD) one part at a time. So far I’ve traced a camera that gave no frames to stuck data lines at its flex connector, and fixed an I²C port clash between the camera driver and the I/O expander.',
+      'I planned the <b>two-board setup for a classroom humanoid robot</b>: an ESP32-S3 main controller and an ESP32-C6 that handles the encoder motors and servos. They talk over a CRC-checked link with a motor fail-safe, take OTA updates over the classroom network, and I sized the battery from the motors’ stall current.',
+      'I do the <b>first bring-up and debugging</b> on new boards with a scope, logic analyser and multimeter: checking the rails, testing UART, I²C and SPI, measuring current draw, and chasing down shorts, unstable regulators and brown-outs. Then I write up what went wrong and how to fix it for the production team.',
     ],
     tags: ['EasyEDA', '2-layer PCB', 'ESP32-S3', 'USB host', 'Li-ion charging', 'H-bridge drive', 'Board bring-up', 'DSO / logic analyser', 'DFM'],
   },
@@ -70,12 +83,12 @@ export const experience = [
     org: 'Unnova Systems Pvt Ltd — Grid OS',
     where: 'On-site · Noida, Uttar Pradesh',
     points: [
-      'Adopted <b>Altium Designer</b> as the primary EDA tool, setting up hierarchical schematics, parameterised symbols and footprints, layer-stack definitions and rule-driven PCB design flows.',
-      'Designed <b>2- and 4-layer PCBs</b> for LTE telematics units, OBD trackers and cellular sound-box devices, integrating LTE, GSM, GNSS, Wi-Fi and Bluetooth modules with antenna keepouts, ground fencing and board-level shielding for EMC.',
-      'Implemented <b>impedance-controlled routing</b> (50 Ω single-ended / 90 Ω differential), differential-pair tuning, length matching and via stitching for high-speed USB and RF lines, choosing stripline or microstrip to limit insertion loss and crosstalk.',
-      'Designed the <b>GNSS receiver front-end</b> for OBD variants — active-antenna LNA bias, RF feed-point matching and antenna keepout to protect radiation efficiency and receive sensitivity.',
-      'Laid out <b>switching regulators and audio codec circuits</b> with careful bulk / HF decoupling, thermal vias, ferrite beads and RC and Pi filtering to keep power-rail noise out of the RF and audio paths.',
-      'Released <b>manufacturing deliverables</b> — Gerber X2, NC drill, test-point map, impedance profile and BOM — after DRC, DFM and DFA rule checks.',
+      'I moved to <b>Altium Designer</b> as my main tool there, and set up hierarchical schematics, parameterised symbols and footprints, layer stacks and rule-driven layout.',
+      'I designed <b>2- and 4-layer PCBs</b> for LTE telematics units, OBD trackers and cellular sound boxes, fitting LTE, GSM, GNSS, Wi-Fi and Bluetooth modules with antenna keepouts, ground fencing and shielding for EMC.',
+      'I did the <b>impedance-controlled routing</b> (50 Ω single-ended and 90 Ω differential), tuned and length-matched the differential pairs, and stitched vias along the high-speed USB and RF lines, choosing stripline or microstrip to keep loss and crosstalk down.',
+      'I designed the <b>GNSS receiver front end</b> for the OBD trackers: the LNA bias for the active antenna, matching at the RF feed, and a keepout so the antenna could radiate and receive well.',
+      'I laid out the <b>switching regulators and the audio codec</b> with careful decoupling, thermal vias, ferrite beads and RC and Pi filters, so supply noise stayed out of the radio and the audio.',
+      'I released the <b>manufacturing files</b> (Gerber X2, NC drill, a test-point map, the impedance profile and the BOM) after DRC, DFM and DFA checks.',
     ],
     tags: ['Altium Designer', '4-layer PCB', 'Impedance control', 'GNSS / LTE', 'RF matching', 'EMC', 'Gerber X2', 'DFM / DFA'],
   },
@@ -85,8 +98,8 @@ export const experience = [
     org: 'Amigos Embedded',
     where: 'Guntur, India',
     points: [
-      'Designed and prototyped <b>embedded electronics and single-layer PCBs</b> for STEM education and experimental IoT and microcontroller projects, covering circuit design, component selection, assembly and debugging.',
-      'Ran <b>hands-on electronics workshops</b> that built practical embedded-systems and hardware skills.',
+      'I designed and prototyped <b>small electronics projects and single-layer PCBs</b> for STEM education and IoT experiments, from the circuit and part choice through to assembly and debugging.',
+      'I ran <b>hands-on electronics workshops</b> where students learned embedded systems and hardware by building things.',
     ],
     tags: ['Prototyping', 'Single-layer PCB', 'STEM education', 'Workshops'],
   },
@@ -235,6 +248,8 @@ export const projectFilters = {
   'home-automation': ['iot'],
   'vacuum-robot': ['robotics'],
   'colophon': ['web'],
+  'nrf54-altimeter': ['pcb', 'freelance'],
+  'esp32-rev-d': ['pcb', 'freelance'],
 };
 
 export const filters = [
@@ -245,13 +260,13 @@ export const filters = [
 // extra detail from the current CV that the old case studies predate
 export const projectExtras = {
   'agrosense-aria': [
-    'Seven on-device ML models with rule-based fallbacks: crop recommendation at 99.5 % across 22 classes, an FAO-56 evapotranspiration engine matching an independent reference at R² 0.97, disease detection, yield, fertiliser scheduling, and anomaly detection raised from F1 0.42 to 0.96.',
-    'A 3-tier LLM cascade (cloud → CLI → local model) with speech in and out for an English / Hindi / Telugu farmer assistant, plus a safety-gated four-level autonomy controller for pump automation with audit logging and 60 s undo.',
-    '~9,400-line ESP32-S3 node firmware — environmental, IMU, soil-moisture and Modbus-RTU NPK sensors, fall and tilt detection, RTC-alarm deep sleep — ported to each board revision, with a Python desktop flasher that sets each node’s role, ID and channel at build time.',
-    'A four-node outdoor deployment held about 30 dB of link margin.',
+    'All seven ML models now run on the device, each with a simple rule-based fallback. Crop recommendation reaches 99.5 % across 22 classes, the FAO-56 evapotranspiration engine matches an independent reference at R² 0.97, and I raised anomaly detection from F1 0.42 to 0.96. The others cover disease detection, yield and fertiliser scheduling.',
+    'The farmer assistant is a 3-tier LLM cascade (cloud, then CLI, then a local model) with speech in and out in English, Hindi and Telugu. Pump automation sits behind a four-level autonomy controller that logs every action and gives you 60 seconds to undo it.',
+    'The node firmware has grown to about 9,400 lines, covering environmental, IMU, soil-moisture and Modbus-RTU NPK sensors, fall and tilt detection, and RTC-alarm deep sleep. I’ve ported it to each board revision, and I built a Python desktop flasher that sets each node’s role, ID and channel at build time.',
+    'In a four-node outdoor test, the links held about 30 dB of margin.',
   ],
   'agrosense-3': [
-    'The latest revision is being taken from prototype toward a field-ready product in Altium Designer: an input over-voltage disconnect, a hardware battery under-voltage cutoff that still lets the pack charge, load switches that remove sleep leakage through the boost rails, and solar and battery power monitoring.',
-    'Backed with worst-case calculations for every protection threshold, charge current, timing margin and thermal hotspot, plus a full netlist-vs-BOM audit that caught a MOSFET whose gate threshold would have nuisance-tripped battery protection on a low pack.',
+    'I’m now taking the latest revision toward a field-ready product in Altium Designer. It adds an input over-voltage disconnect, a hardware battery under-voltage cutoff that still lets the pack charge, load switches that stop sleep current leaking through the boost rails, and solar and battery power monitoring.',
+    'I’ve backed it with worst-case calculations for every protection threshold, charge current, timing margin and hot spot, and a full check of the netlist against the BOM. That check caught a MOSFET whose gate threshold would have tripped the battery protection by mistake on a low pack.',
   ],
 };

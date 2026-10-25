@@ -142,8 +142,9 @@ setProgress(0.08);
 
 /* Scroll-driven camera work. Each section is a shot on a named part of the real board, framed by
    putting that feature at an anchor point and pushing the scale up — macro, the way you'd look at a
-   board under a bench microscope: the ESP32-S3 module, the SOIC beside the card slot, the USB-C
-   edge as it rolls over, then the bottom side where the six WS2812s sit, and finally back out. */
+   board under a bench microscope: the ESP32-S3 module, the 6-pin header, the SOIC beside the card
+   slot, the USB-C edge as it rolls over, then the bottom side where the six WS2812s sit, and finally
+   back out. */
 function shot(f, o) { return { fx: f.x, fy: f.y, fz: f.z, ease: 'none', ...o }; }
 
 let boardTl = null;
@@ -154,20 +155,24 @@ function buildBoardScroll() {
     ['#work', shot(F.module, {
       rotX: 0.98, rotY: 1.30, posX: -1.70, posY: 0.54, posZ: -3.1, scale: 3.5,
       spin: 0.30, glass: 1.35, drift: -0.4, traceFade: 0.55, pulse: 0, leds: 0, dim: 1.2, bloom: 0.26 })],
-    // 02 profile — U3, close and nearly face-on, on the other side of the frame
+    // 02 freelance — the 6-pin header, the part every client board gets debugged through
+    ['#freelance', shot(F.headers, {
+      rotX: 1.12, rotY: 1.72, posX: 1.95, posY: 0.10, posZ: -3.0, scale: 3.9,
+      spin: 0.28, glass: 1.2, drift: 0.1, traceFade: 0.55, pulse: 0, leds: 0, dim: 1.3, bloom: 0.28 })],
+    // 03 profile — U3, close and nearly face-on, on the other side of the frame
     ['#profile', shot(F.soic, {
       rotX: 1.34, rotY: 2.10, posX: -2.18, posY: -0.45, posZ: -2.9, scale: 4.2,
       spin: 0.26, glass: 1.1, drift: 0.2, traceFade: 0.5, leds: 0, dim: 1.45, bloom: 0.3 })],
-    // 03 experience — the board rolls over; we catch the USB-C edge past vertical
+    // 04 experience — the board rolls over; we catch the USB-C edge past vertical
     ['#experience', shot(F.usb, {
       rotX: 1.75, rotY: 3.05, posX: 2.05, posY: -2.30, posZ: -2.7, scale: 3.6,
       spin: 0.34, glass: 1.25, drift: -0.2, traceFade: 0.6, leds: 0.15, dim: 1.35, bloom: 0.36 })],
-    // 04 capabilities — bottom side up: the RGB row lights, the copper carries a signal
+    // 05 capabilities — bottom side up: the RGB row lights, the copper carries a signal
     ['#capabilities', shot(F.ledRow, {
       rotX: 3.92, rotY: 3.34, posX: 0.02, posY: -0.73, posZ: -2.2, scale: 6.4,
       spin: 0.20, pulse: 1, glass: 1.5, drift: 0.3, traceFade: 0.85,
       leds: 1, dim: 0.20, bloom: 0.44 })],
-    // 05 contact — pull out, still turning, back to the whole board
+    // 06 contact — pull out, still turning, back to the whole board
     ['#contact', shot(F.centre, {
       rotX: 6.95, rotY: 5.50, posX: 1.15, posY: -0.27, posZ: -0.9, scale: 1.02,
       spin: 1, pulse: 0.4, glass: 1.0, drift: 0, traceFade: 1, leds: 0.3, dim: 1, bloom: 0.26 })],

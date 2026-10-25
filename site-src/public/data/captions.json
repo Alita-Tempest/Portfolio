@@ -463,5 +463,65 @@
   "alt": "Block diagram of the 32-bit ALU: register file, Brent-Kung adder, sequential multiplier and divider, boolean unit, shifter, result mux and top-level control logic",
   "caption": "ALU Block Diagram",
   "kind": "diagram"
+ },
+ "NRF54Alti/3d-angle.png": {
+  "alt": "3D render of the nRF54 altimeter board seen at an angle, top side",
+  "caption": "3D view, angled",
+  "kind": "render"
+ },
+ "NRF54Alti/3d-top.png": {
+  "alt": "3D render of the nRF54 altimeter board from directly above",
+  "caption": "3D render, top",
+  "kind": "render"
+ },
+ "NRF54Alti/3d-bottom.png": {
+  "alt": "3D render of the board underside with the labelled nRF54 and SAMD11 SWD header and the 3V3 and GND test points",
+  "caption": "3D render, bottom",
+  "kind": "render"
+ },
+ "NRF54Alti/top-copper.png": {
+  "alt": "Top copper layer of the nRF54 altimeter board",
+  "caption": "Layer 1 — top copper",
+  "kind": "layout"
+ },
+ "NRF54Alti/bottom-copper.png": {
+  "alt": "Bottom copper layer of the nRF54 altimeter board, mostly ground pour",
+  "caption": "Layer 2 — bottom copper",
+  "kind": "layout"
+ },
+ "NRF54Alti/all-layers.png": {
+  "alt": "Layout of the nRF54 altimeter board with copper and silkscreen layers shown together",
+  "caption": "All layers",
+  "kind": "layout"
+ },
+ "ESP32RevD/3d-angle.png": {
+  "alt": "3D render of the ESP32 Rev D board seen at an angle, top side",
+  "caption": "3D view, angled",
+  "kind": "render"
+ },
+ "ESP32RevD/3d-top.png": {
+  "alt": "3D render of the ESP32 Rev D board from directly above",
+  "caption": "3D render, top",
+  "kind": "render"
+ },
+ "ESP32RevD/3d-bottom.png": {
+  "alt": "3D render of the ESP32 Rev D underside with the buzzer, connectors and power-switch FETs",
+  "caption": "3D render, bottom",
+  "kind": "render"
+ },
+ "ESP32RevD/top-copper.png": {
+  "alt": "Top copper layer of the ESP32 Rev D board",
+  "caption": "Layer 1 — top copper",
+  "kind": "layout"
+ },
+ "ESP32RevD/bottom-copper.png": {
+  "alt": "Bottom copper layer of the ESP32 Rev D board",
+  "caption": "Layer 2 — bottom copper",
+  "kind": "layout"
+ },
+ "ESP32RevD/all-layers.png": {
+  "alt": "ESP32 Rev D layout with both copper layers and the top silkscreen shown together",
+  "caption": "Both copper layers + silkscreen",
+  "kind": "layout"
  }
 }
