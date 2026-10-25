@@ -184,11 +184,6 @@
   "caption": "Power Rails Under Test",
   "kind": "photo"
  },
- "Cassie/1.jpg": {
-  "alt": "Four-wheel rover on a tiled floor with a camera on a servo mount and ultrasonic sensors",
-  "caption": "Rover, Side View",
-  "kind": "photo"
- },
  "Cassie/2.jpg": {
   "alt": "Front view of the rover: infrared camera on a mast, ultrasonic sensor and white headlights",
   "caption": "Rover, Front View",
@@ -269,11 +264,6 @@
   "caption": "Calibration Utility",
   "kind": "screenshot"
  },
- "Night/DSC03141.jpg": {
-  "alt": "Rover displayed on a white table with antenna, Raspberry Pi in a clear case and power bank",
-  "caption": "Rover On Display",
-  "kind": "photo"
- },
  "Vaccum/1.jpg": {
   "alt": "Round acrylic vacuum robot on a floor with ultrasonic sensors and a sweeping side brush",
   "caption": "Robot, Side View",
@@ -302,11 +292,6 @@
  "Vaccum/6.png": {
   "alt": "Android app screen titled Vacuum Cleaner with Connect, Joystick buttons and arrow pad",
   "caption": "Control App UI",
-  "kind": "screenshot"
- },
- "Aria/dashboard.png": {
-  "alt": "Browser dashboard listing root hub, one sub-hub and two leaf nodes with live sensor readings",
-  "caption": "Live dashboard",
   "kind": "screenshot"
  },
  "Aria/controls.png": {
@@ -404,11 +389,6 @@
   "caption": "Node firmware blocks",
   "kind": "diagram"
  },
- "AgroSense3/rev3-3d-top.png": {
-  "alt": "3D render of the AgroSense revision 3 board, top side, with modules and connectors fitted",
-  "caption": "3D render, top",
-  "kind": "render"
- },
  "AgroSense3/rev3-3d-bottom.png": {
   "alt": "3D render of the AgroSense revision 3 board underside showing power stages",
   "caption": "3D render, bottom",
@@ -449,11 +429,6 @@
   "caption": "Countertop unit panel",
   "kind": "layout"
  },
- "GridOS/gnss-frontend.png": {
-  "alt": "Close-up of a densely populated radio front end — shielded IC, crystals and matching network",
-  "caption": "Radio front end",
-  "kind": "render"
- },
  "GridOS/codec-schematic.png": {
   "alt": "Schematic sheet for the audio codec section showing supply isolation, bypassing and digital audio routing",
   "caption": "Audio codec sheet",
@@ -463,11 +438,6 @@
   "alt": "Block diagram of the 32-bit ALU: register file, Brent-Kung adder, sequential multiplier and divider, boolean unit, shifter, result mux and top-level control logic",
   "caption": "ALU Block Diagram",
   "kind": "diagram"
- },
- "NRF54Alti/3d-angle.png": {
-  "alt": "3D render of the nRF54 altimeter board seen at an angle, top side",
-  "caption": "3D view, angled",
-  "kind": "render"
  },
  "NRF54Alti/3d-top.png": {
   "alt": "3D render of the nRF54 altimeter board from directly above",
@@ -493,11 +463,6 @@
   "alt": "Layout of the nRF54 altimeter board with copper and silkscreen layers shown together",
   "caption": "All layers",
   "kind": "layout"
- },
- "ESP32RevD/3d-angle.png": {
-  "alt": "3D render of the ESP32 Rev D board seen at an angle, top side",
-  "caption": "3D view, angled",
-  "kind": "render"
  },
  "ESP32RevD/3d-top.png": {
   "alt": "3D render of the ESP32 Rev D board from directly above",

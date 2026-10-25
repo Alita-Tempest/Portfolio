@@ -5,8 +5,8 @@ Portfolio of **K. V. Siva Teja** — IoT embedded hardware and PCB design.
 The hero object is the real AgroSense rev 3 sensor node: geometry exported from the Blender scene
 behind the board's build film, with the copper, solder mask, silkscreen and ENIG pads rebuilt in a
 shader from the Gerber-derived rasters. Scrolling moves through macro shots of named parts on that
-layout — the ESP32-S3 module, the SOIC beside the card slot, the USB-C edge, then the bottom side
-where the WS2812 row lights.
+layout — the ESP32-S3 module, the 6-pin header, the SOIC beside the card slot, the USB-C edge, then
+the bottom side where the WS2812 row lights.
 
 ## Layout of this repo
 
@@ -25,8 +25,12 @@ cd site-src
 npm install          # first time only
 npm run dev          # http://127.0.0.1:5173/Portfolio/
 npm run build        # writes site-src/dist
+rm ../assets/index-* # drop the previous build's hashed bundles
 cp -r dist/* ..      # publish
 ```
+
+`cp` only adds and overwrites, so when you delete a file from `site-src/public/`, delete its copy at
+the root as well.
 
 `site-src/README.md` documents the 3D pipeline, where the content came from, the board shader's
 coordinate conventions and the things worth knowing before changing them.

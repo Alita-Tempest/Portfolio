@@ -3,27 +3,12 @@
 // by jobs/_gen_caps.py - the CV prints the core subset, the site shows the full set.
 
 export const person = {
-  name: 'Kotupalli Venkata Siva Teja',
-  short: 'K. V. Siva Teja',
-  role: 'IoT Embedded Hardware & PCB Design Engineer',
   location: 'Guntur, Andhra Pradesh, India',
   email: 'k.v.shivateja06@outlook.com',
   phone: '+91 89771 22533',
   linkedin: { label: 'in/kvsivateja2706', href: 'https://linkedin.com/in/kvsivateja2706' },
   github: { label: 'Alita-Tempest', href: 'https://github.com/Alita-Tempest' },
-  summary:
-    'Embedded hardware and PCB design engineer who takes boards from schematic and layout through ' +
-    'bring-up, and systems from sensor to dashboard. Designs 2- and 4-layer PCBs in Altium Designer, ' +
-    'EasyEDA and KiCad — impedance-controlled routing, RF and mixed-signal layout, and solar, battery ' +
-    'and protection power paths — and writes the ESP32-S3 firmware in C / C++ that runs on them over ' +
-    'UART, I²C, SPI, RS-485 (Modbus-RTU) and LoRa.',
 };
-
-export const stats = [
-  { n: 12, label: 'Boards designed', sub: '2- and 4-layer' },
-  { n: 4, label: 'Copper layers', sub: 'on the current node' },
-  { n: 194, label: 'Parts placed', sub: 'AgroSense rev 3' },
-];
 
 export const disciplines = [
   {

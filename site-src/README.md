@@ -5,26 +5,28 @@ immersive WebGL site: same content, new shell. The hero object is **your actual 
 board** — geometry exported from the Blender scene behind the build film, with the copper, solder
 mask, silkscreen and ENIG pads rebuilt in a shader from the real Gerber-derived rasters.
 
-Nothing is deployed. Run it locally.
+It is live at [alita-tempest.github.io/Portfolio](https://alita-tempest.github.io/Portfolio), served by
+GitHub Pages from the built copy at the repo root — the root README has the publish steps.
 
 ```bash
-cd "F:\Personal Projects\portfolio-3d"
+cd site-src
 npm install      # first time only
-npm run dev      # → http://127.0.0.1:5173
+npm run dev      # → http://127.0.0.1:5173/Portfolio/
 ```
 
-`npm run build` writes a static `dist/` if you ever want to publish it; `npm run preview` serves that build.
+`npm run build` writes `dist/`, which is what gets copied to the repo root to publish; `npm run preview`
+serves that build.
 
 ## What it is
 
 | | |
 |---|---|
 | Stack | Vite + three.js + GSAP ScrollTrigger + Lenis. No framework. |
-| Weight | 218 kB gzipped JS, 0.69 MB board + 0.33 MB parts models, 134 kB board textures, 5.4 MB images, 10.8 MB hero video |
+| Weight | 223 kB gzipped JS, 0.73 MB board + 0.34 MB parts models, 135 kB board textures, 6.0 MB images, 10.8 MB hero video |
 | 3D | One canvas behind the whole page: the board, 11 floating components, refractive glass shards with dispersion, a trace field, bloom and vignette |
-| Camera | Scroll drives five macro shots on named parts of the real layout — U1, U3, the USB-C edge, then the bottom side with the WS2812 row lit — and pulls back out at Contact |
+| Camera | Scroll drives six shots, one per section: macros on named parts of the real layout — U1, the 6-pin header, U3, the USB-C edge, then the bottom side with the WS2812 row lit — and a pull back out at Contact |
 | Glass | Cards, filters, capability chips and the contact form are real frosted glass (`backdrop-filter`), so the 3D reads through them; project imagery sits at 46% opacity and comes to full on hover |
-| Content | `src/data/content.js` (from your Sep 2026 CV) + `public/data/projects.json` (from the old site) |
+| Content | `src/data/content.js` (from the CV, updated Oct 2026) + `public/data/projects.json` (case studies, rewritten Oct 2026) |
 
 ## Structure
 
@@ -46,14 +48,19 @@ public/                 model, textures, fonts, images, project data
 
 ## Where the content came from
 
-- **Experience, summary, publication, education** — `CV.pdf` (Sep 2026). That CV has work the old
+- **Experience, publication, education** — `CV.pdf` (Sep 2026), plus the freelance role from the
+  Oct 2026 update. The Sep 2026 CV has work the old
   site never mentioned: the ESP32-S3 robotics main control board, the two-board humanoid
   architecture, ARIA's measured model results, and the ICoICI 2026 IEEE paper.
 - **Capabilities** — the pre-2026-09-13 CV backup, whose skills section is fuller. Bold entries in
   that CV are marked `core` and render highlighted.
-- **Case studies** — `tools/projects.json` from the old repo, unchanged, plus a "Since that write-up"
-  block on the two AgroSense entries carrying the newer CV detail (`projectExtras` in content.js).
-- **Images** — the old repo's optimised WebP derivatives (95 files).
+- **Case studies** — started from `tools/projects.json` in the old repo. In Oct 2026 every one was
+  rewritten in a plain first-person voice, the two freelance boards were added (`"group": "freelance"`,
+  shown in their own section rather than the work grid) and the Colophon was rewritten for this build.
+  The two AgroSense entries also carry a "Since that write-up" block with newer CV detail
+  (`projectExtras` in content.js).
+- **Images** — the old repo's optimised WebP derivatives, plus the freelance boards' layer views and
+  3D renders (EasyEDA screenshots and KiCad renders) — 107 files.
 
 ## The board in the hero
 
@@ -143,10 +150,9 @@ glass tokens are in the `/* work */` block of `main.css`.
 
 ## Things you may want to change
 
-- **Hero stats** — `index.html` (`data-count`) and `stats` in `content.js`.
+- **Hero stats** — the `data-count` values in `index.html`.
 - **Contact form** — Web3Forms key is carried over from the old site and live.
-- **Colophon case study** — its copy still describes the old no-framework site. It needs a rewrite
-  for this build; everything else in `projects.json` is current.
+- **Colophon image** — the case study's picture is still a screenshot of the previous site.
 - **Dletabotix artwork** — still deliberately a generated placeholder, per your earlier decision
   that the artwork is the company's.
 - **Sound** — off by default; the toggle sits in the nav.
