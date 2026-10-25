@@ -1447,9 +1447,9 @@
     "group": "freelance",
     "kicker": "Freelance · Client project",
     "title": "nRF54 Audible Altimeter",
-    "lede": "A small board I designed around the Seeed XIAO nRF54LM20A for an altimeter that tells you your altitude by sound. All of it had to fit in a 56 × 52 × 11 mm case, along with a speaker and a battery.",
+    "lede": "A small board I designed from start to finish around the Seeed XIAO nRF54LM20A, for an altimeter that tells you your altitude by sound. All of it had to fit in a 56 × 52 × 11 mm case, along with a speaker and a battery.",
     "meta": {
-      "Role": "Schematic, layout",
+      "Role": "Designed end to end",
       "Year": "2026",
       "Stackup": "2 copper layers",
       "Tools": "EasyEDA Pro"
@@ -1464,7 +1464,7 @@
         "h": "What the client wanted",
         "p": [
           "The client wanted an altimeter that beeps instead of showing a screen, and it had to fit inside a 56 × 52 × 11 mm case. The catch was that the same case also holds a 36 mm speaker and a 31 × 31 mm Li-Po battery, so those two parts decided the layout before I placed anything else. The board ended up at about 38 × 45 mm.",
-          "I built it around the XIAO nRF54LM20A module, soldered flat onto the board through its castellated edges. The module already handles the radio, USB-C charging and the 3.3 V supply, so my board only had to add the sensor, the audio and the battery protection."
+          "I built it around the XIAO nRF54LM20A module, soldered flat onto the board through its castellated edges. The module already handles the radio, USB-C charging and the 3.3 V supply, so my board only had to add the sensor, the audio and the battery protection. The whole design is mine: the schematic, the parts and BOM, and the layout in EasyEDA."
         ]
       },
       {
@@ -1542,11 +1542,11 @@
     "slug": "esp32-rev-d",
     "ref": "F2",
     "group": "freelance",
-    "kicker": "Freelance · Client project · Rev D",
+    "kicker": "Freelance · Freelancer.com client · Rev D",
     "title": "ESP32 Battery Powered Controller-RevD",
-    "lede": "Revision D of a battery-powered controller I designed around the ESP32-WROOM-32E. It runs a servo, RGB LEDs and a buzzer, and most of my effort went into making the battery last.",
+    "lede": "Revision D of a battery-powered ESP32-WROOM-32E controller, which I designed for a client on Freelancer.com. The client gave me the spec and an initial BOM; I did the schematic, the layout and the final BOM.",
     "meta": {
-      "Role": "Schematic, layout",
+      "Role": "Schematic, layout, final BOM",
       "Year": "2026",
       "Stackup": "2 copper layers",
       "Tools": "KiCad 10"
@@ -1558,10 +1558,11 @@
     },
     "body": [
       {
-        "h": "What it does",
+        "h": "The job",
         "p": [
-          "The board runs a servo, a string of addressable RGB LEDs and a buzzer, all from a battery. A tilt switch is the main input. I added a 32.768 kHz crystal so the ESP32 keeps accurate time while it's in deep sleep, and an I²C header with an interrupt line for an external RTC.",
-          "It's 53 × 34 mm on two layers, with parts on both sides. I moved the battery fuse, the power-switch MOSFETs, the buzzer and the connectors to the bottom, which left the top free for the ESP32 module and the power circuits."
+          "A client on Freelancer.com needed a new revision of their battery-powered ESP32 board. They gave me the spec and an initial BOM. From there I drew the schematic in KiCad, laid out the board around their enclosure, chose the final parts and drafted the final BOM.",
+          "The enclosure was the hard part: everything had to fit a 53 × 34 mm, two-layer board with parts on both sides and no collisions with the case. I moved the battery fuse, the power-switch MOSFETs, the buzzer and the connectors to the bottom, which left the top free for the ESP32 module and the power circuits.",
+          "The board runs a servo, a string of addressable RGB LEDs and a buzzer, all from a battery. A tilt switch is the main input, a 32.768 kHz crystal keeps the ESP32's RTC accurate through deep sleep, and an I²C header with an interrupt line takes an external RTC."
         ]
       },
       {
@@ -1576,7 +1577,7 @@
         "h": "The smaller details",
         "p": [
           "The ESP32 works at 3.3 V but the LEDs expect a 5 V data signal, so the data line goes through a 74AHCT1G125 buffer powered from 5 V. The buzzer is driven by a MOSFET with a flyback diode. Its footprint overlaps a three-pin servo header, so the board can be built with one or the other, and I wrote a custom DRC rule to allow that overlap.",
-          "When it was done I released the Gerbers, drill files, BOM, a JLCPCB pick-and-place file and a STEP model, after running DRC against JLCPCB's rules."
+          "When it was done I delivered a DRC-clean package checked against JLCPCB's rules: Gerbers, drill files, the final BOM, a pick-and-place file and a STEP model. The client rated the job 5.0 and wrote that it fitted the enclosure with zero collisions."
         ]
       }
     ],
@@ -1619,12 +1620,16 @@
         "32.768 kHz crystal, I²C RTC header"
       ],
       [
-        "Release",
-        "Gerber, drill, BOM, JLCPCB pick-and-place, STEP"
-      ],
-      [
         "Tools",
         "KiCad 10"
+      ],
+      [
+        "Release",
+        "Gerber, drill, final BOM, JLCPCB pick-and-place, STEP"
+      ],
+      [
+        "From the client",
+        "Spec and initial BOM"
       ]
     ],
     "metrics": [
@@ -1641,6 +1646,11 @@
         "v": "≈2 µA",
         "l": "Battery-sense draw",
         "s": "1 MΩ / 1 MΩ divider"
+      },
+      {
+        "v": "5.0",
+        "l": "Client rating",
+        "s": "Freelancer.com"
       }
     ],
     "gallery": [

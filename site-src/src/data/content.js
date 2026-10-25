@@ -40,10 +40,10 @@ export const experience = [
     org: 'Freelance — client projects',
     where: 'Remote',
     points: [
-      'I designed an <b>audible altimeter board around a Seeed XIAO nRF54LM20A</b> in EasyEDA. It had to fit in a 56 × 52 × 11 mm case along with its speaker and battery. It reads altitude from a Bosch BMP581 sensor and plays sound through a MAX98357A amplifier that the firmware can switch off.',
+      'I designed an <b>audible altimeter board around a Seeed XIAO nRF54LM20A</b> from start to finish in EasyEDA: schematic, BOM and layout. It had to fit in a 56 × 52 × 11 mm case along with its speaker and battery. It reads altitude from a Bosch BMP581 sensor and plays sound through a MAX98357A amplifier that the firmware can switch off.',
       'I added <b>single-cell Li-Po protection</b> (an FS312F-G with an FS8205A dual MOSFET), resistor-set amplifier gain, and spare footprints for an output filter in case EMC testing calls for one. A single SWD header lets me debug both the nRF54 and the module’s SAMD11.',
-      'I designed <b>Rev D of a battery-powered ESP32-WROOM-32E controller</b> in KiCad. It’s a 53 × 34 mm two-layer board with parts on both sides, and it drives a servo, RGB LEDs and a buzzer. It also has a tilt-switch input, a 32.768 kHz crystal for keeping time in deep sleep, and a header for an external RTC.',
-      'I built its <b>power circuit around a low sleep current</b>: the battery is switched through two P-MOSFETs, the ESP32 runs from an always-on 3.3 V regulator, and the 5 V boost is cut off from the battery completely when it isn’t needed. I released the Gerbers, drill files, BOM, pick-and-place and a STEP model after checking the design against JLCPCB’s rules.',
+      'For a client on Freelancer.com I designed <b>Rev D of a battery-powered ESP32-WROOM-32E controller</b> in KiCad. They gave me the spec and an initial BOM; I drew the schematic, laid out a 53 × 34 mm two-layer board with parts on both sides to fit their enclosure, and drafted the final BOM. It drives a servo, RGB LEDs and a buzzer, with a tilt-switch input and a 32.768 kHz crystal for keeping time in deep sleep.',
+      'I built its <b>power circuit around a low sleep current</b>: the battery is switched through two P-MOSFETs, the ESP32 runs from an always-on 3.3 V regulator, and the 5 V boost is cut off from the battery completely when it isn’t needed. I delivered a DRC-clean package (Gerbers, drill files, final BOM, pick-and-place and a STEP model), and the client rated the job <b>5.0</b>.',
     ],
     tags: ['EasyEDA Pro', 'KiCad', 'nRF54', 'ESP32', 'I²S audio', 'Li-Po protection', 'Load switching', 'JLCPCB assembly'],
   },
