@@ -261,7 +261,11 @@ section[id]{scroll-margin-top:calc(var(--navh) + 8px)}
 .profile__lede .big{font-family:var(--display);font-size:clamp(1.4rem,2.5vw,2.2rem);line-height:1.18;
   color:var(--fg);letter-spacing:-.02em;margin:0 0 26px}
 .profile__photo{margin:0;position:relative;border:1px solid var(--line)}
-.profile__photo img{filter:grayscale(.5) contrast(1.06) brightness(.85)}
+/* the width/height attributes are only for layout reservation: without height:auto the photo kept its
+   1067 px height at any width. 4:5 lines it up with the text; the crop favours the lower part of the
+   frame, where the subject stands */
+.profile__photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 85%;
+  filter:grayscale(.5) contrast(1.06) brightness(.85)}
 .profile__photo figcaption{display:flex;justify-content:space-between;padding:10px 12px;border-top:1px solid var(--line)}
 .profile__photo i{font-style:normal}
 .disciplines{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);

@@ -28,7 +28,7 @@
         "h": "The mesh",
         "p": [
           "Each node is a root hub, a sub-hub or a leaf, and the network works with anywhere from 2 to 100 of them. When the network needs it, a leaf can be promoted to a sub-hub, so losing one node doesn't cut the network in half.",
-          "I split the airtime with TDMA so a hundred nodes on one frequency don't talk over each other, and an RTC-based time sync keeps everyone's slots lined up. I wrote about 7,260 lines of ESP32-S3 firmware for this, with AES-128 on the link. The nodes deep-sleep between readings, and that's what stretches the battery life out to years."
+          "I split the airtime with TDMA so a hundred nodes on one frequency don't talk over each other, and an RTC-based time sync keeps everyone's slots lined up. I wrote about 9,400 lines of ESP32-S3 firmware for this, with AES-128 on the link. The nodes deep-sleep between readings, and that's what stretches the battery life out to years."
         ]
       },
       {
@@ -73,7 +73,7 @@
       ],
       [
         "Node firmware",
-        "~7,260 LOC, AES-128"
+        "~9,400 LOC, AES-128"
       ],
       [
         "Climate sensing",
@@ -106,7 +106,7 @@
     ],
     "metrics": [
       {
-        "v": "7,260",
+        "v": "9,400",
         "l": "Lines of firmware",
         "s": "ESP32-S3, AES-128 secured"
       },
@@ -1348,9 +1348,9 @@
       "Hosting": "GitHub Pages"
     },
     "hero": {
-      "src": "project/blog.jpg",
-      "alt": "The portfolio website",
-      "caption": "This site"
+      "src": "project/Colophon/site-hero.png",
+      "alt": "The portfolio's hero section: name, the placing-and-routing film, the board stats and the 3D AgroSense rev 3 board behind them",
+      "caption": "This site — the hero section"
     },
     "body": [
       {

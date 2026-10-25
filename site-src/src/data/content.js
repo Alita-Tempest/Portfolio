@@ -247,7 +247,7 @@ export const projectExtras = {
   'agrosense-aria': [
     'All seven ML models now run on the device, each with a simple rule-based fallback. Crop recommendation reaches 99.5 % across 22 classes, the FAO-56 evapotranspiration engine matches an independent reference at R² 0.97, and I raised anomaly detection from F1 0.42 to 0.96. The others cover disease detection, yield and fertiliser scheduling.',
     'The farmer assistant is a 3-tier LLM cascade (cloud, then CLI, then a local model) with speech in and out in English, Hindi and Telugu. Pump automation sits behind a four-level autonomy controller that logs every action and gives you 60 seconds to undo it.',
-    'The node firmware has grown to about 9,400 lines, covering environmental, IMU, soil-moisture and Modbus-RTU NPK sensors, fall and tilt detection, and RTC-alarm deep sleep. I’ve ported it to each board revision, and I built a Python desktop flasher that sets each node’s role, ID and channel at build time.',
+    'The node firmware covers environmental, IMU, soil-moisture and Modbus-RTU NPK sensors, fall and tilt detection, and RTC-alarm deep sleep. I’ve ported it to each board revision, and I built a Python desktop flasher that sets each node’s role, ID and channel at build time.',
     'In a four-node outdoor test, the links held about 30 dB of margin.',
   ],
   'agrosense-3': [
