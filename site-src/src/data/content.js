@@ -130,8 +130,8 @@ export const education = [
 
 export const certifications = [
   { h: 'VLSI Design Flow — RTL to GDSII', org: 'NIELIT Centre of Excellence, Noida', when: 'Jul – Aug 2025' },
-  { h: 'FPGA-Accelerated Machine Learning in VLSI', org: 'E&ICT', when: 'Feb 2025' },
-  { h: 'Semiconductor Fabrication & Packaging Technology', org: 'E&ICT, under MeitY', when: 'Jan 2025' },
+  { h: 'FPGA-Accelerated Machine Learning in VLSI', org: 'E&ICT Academy, IIT Roorkee', when: 'Feb 2025' },
+  { h: 'Semiconductor Fabrication & Packaging Technology', org: 'E&ICT Academy, IIT Roorkee', when: 'Jan 2025' },
   { h: 'PCB Design Internship', org: 'Unnova Systems · Grid OS', when: '2025 – 2026' },
   { h: 'PCB Design Apprenticeship', org: 'Unnova Systems · Grid OS', when: '2025' },
   { h: 'AutoCAD 2015 — Certified User', org: 'Autodesk', when: '2015' },
