@@ -3,7 +3,7 @@
 // by jobs/_gen_caps.py - the CV prints the core subset, the site shows the full set.
 
 export const person = {
-  location: 'Guntur, Andhra Pradesh, India',
+  location: 'Greater Noida, Uttar Pradesh, India',
   email: 'k.v.shivateja06@outlook.com',
   phone: '+91 89771 22533',
   linkedin: { label: 'in/kvsivateja2706', href: 'https://linkedin.com/in/kvsivateja2706' },
@@ -51,7 +51,7 @@ export const experience = [
     from: 'Mar 2026', to: 'Present', current: true,
     role: 'Embedded Electronics Engineer & PCB Designer',
     org: 'Dletabotix Private Limited',
-    where: 'Guntur, India',
+    where: 'Greater Noida, India',
     points: [
       'I design the <b>schematics and low-cost 2-layer PCBs</b> for our educational robotics kits: microcontroller boards, motor-driver modules, sensor breakouts and power boards. They’re built to be cheap to make, easy for students to assemble with a mix of through-hole and SMD parts, and clearly labelled for a classroom.',
       'I delivered a <b>multi-function robotics controller board</b>: an Arduino Nano carrier with dual H-bridge drivers for four motors, keyed connectors for ultrasonic, IR, light and RGB modules, switching regulators, and a protected two-cell Li-ion charger that runs from USB-C or a barrel jack.',
