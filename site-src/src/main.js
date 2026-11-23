@@ -199,8 +199,14 @@ function buildBoardScroll() {
   ScrollTrigger.refresh();
 }
 
-let rebuildT = 0;
+// Phones fire 'resize' whenever the address bar slides in or out mid-swipe. Only a width change
+// reflows the page, so a height-only change on a touch screen must not rebuild the timeline: the
+// refresh that follows jumps the scroll position under the visitor's finger.
+let rebuildT = 0, lastW = innerWidth;
+const touchOnly = matchMedia('(hover:none)');
 addEventListener('resize', () => {
+  if (touchOnly.matches && innerWidth === lastW) return;
+  lastW = innerWidth;
   clearTimeout(rebuildT);
   rebuildT = setTimeout(() => { if (features) buildBoardScroll(); }, 260);
 });

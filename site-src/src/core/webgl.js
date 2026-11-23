@@ -78,6 +78,7 @@ export class Stage {
 
     window.addEventListener('resize', () => this.resize(), { passive: true });
     window.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'touch') return;
       this.pointerT.set((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1);
     }, { passive: true });
     document.addEventListener('visibilitychange', () => { this.running = !document.hidden; });
@@ -85,7 +86,9 @@ export class Stage {
   }
 
   resize() {
-    const w = window.innerWidth, h = window.innerHeight;
+    const w = this.canvas.clientWidth || window.innerWidth, h = this.canvas.clientHeight || window.innerHeight;
+    if (w === this._w && h === this._h) return;
+    this._w = w; this._h = h;
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(w, h, false);
