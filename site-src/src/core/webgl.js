@@ -73,6 +73,7 @@ export class Stage {
     this.clock = new THREE.Clock();
     this.ticks = [];
     this.running = true;
+    this.paused = false;     // set while something opaque covers the canvas
     this.pointer = new THREE.Vector2(0, 0);
     this.pointerT = new THREE.Vector2(0, 0);
 
@@ -100,7 +101,7 @@ export class Stage {
   start() {
     const loop = () => {
       requestAnimationFrame(loop);
-      if (!this.running) return;
+      if (!this.running || this.paused) return;
       const dt = Math.min(this.clock.getDelta(), 0.05);
       const t = this.clock.elapsedTime;
       this.pointer.lerp(this.pointerT, 1 - Math.pow(0.001, dt));

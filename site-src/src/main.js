@@ -212,8 +212,24 @@ addEventListener('resize', () => {
 });
 
 /* the case-study overlay pushes the board back and quiets the field */
-addEventListener('case:open', () => { gsap.to(state, { scale: 0.55, traceFade: 0.15, duration: 0.8, ease: 'power2.out' }); lenis.stop(); });
-addEventListener('case:close', () => { gsap.to(state, { scale: 1, traceFade: 1, duration: 0.9, ease: 'power2.out' }); lenis.start(); });
+let holdT = 0;
+addEventListener('case:open', () => {
+  gsap.to(state, { scale: 0.55, traceFade: 0.15, duration: 0.8, ease: 'power2.out' });
+  // A stopped Lenis cancels every swipe it sees, so it is only stopped where it drives the scroll:
+  // with a mouse wheel. On a touch screen the page scrolls natively and body.is-locked already
+  // holds it still, so the case study's own swipes are left entirely alone.
+  if (!touchOnly.matches) lenis.stop();
+  // The overlay is 96% opaque and blurred: once it has faded in, stop drawing the board behind it,
+  // so a phone's GPU isn't re-blurring a full-screen WebGL frame on every step of the scroll.
+  clearTimeout(holdT);
+  holdT = setTimeout(() => { stage.paused = true; }, 900);
+});
+addEventListener('case:close', () => {
+  clearTimeout(holdT);
+  stage.paused = false;
+  gsap.to(state, { scale: 1, traceFade: 1, duration: 0.9, ease: 'power2.out' });
+  lenis.start();
+});
 
 const _focus = new THREE.Vector3();      // the feature we are framed on, smoothed
 const _anchor = new THREE.Vector3();     // where it should sit in the frame, smoothed
